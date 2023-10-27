@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Hello world! This is Spencer's comment
+
 public class PlayerMovement : MonoBehaviour
 {
     // Variables for movement and direction
