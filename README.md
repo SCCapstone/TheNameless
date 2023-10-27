@@ -13,18 +13,13 @@ following your instructions.
 
 ## External Requirements
 
-List all the stuff the reader will need to install in order to get you app to 
-run in their laptop. For example:
-
 In order to build this project you first have to install:
 
-* [Node.js](https://nodejs.org/en/)
-* [MongoDB](https://www.mongodb.com/)
+* [Unity 2022.3.10f1](https://unity.com/download)
 
-If possible, list the actual commands you used to install these, so the reader
-can just cut-n-paste the commands and get everything setup.
-
-You only need to add instructions for the OS you are using.
+Install Unity Hub from the link above. When prompted, choose `Unity 2022.3.10f`
+to install. Wait for the installation to complete, then the project can be opened
+in the editor.
 
 ## Setup
 
