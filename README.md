@@ -15,6 +15,7 @@ following your instructions.
 
 In order to build this project you first have to install:
 
+* Unity Hub
 * [Unity 2022.3.10f1](https://unity.com/download)
 
 Install Unity Hub from the link above. When prompted, choose `Unity 2022.3.10f`
@@ -23,14 +24,16 @@ in the editor.
 
 ## Setup
 
-Here you list all the one-time things the developer needs to do after cloning
-your repo. Sometimes there is no need for this section, but some apps require
-some first-time configuration from the developer, for example: setting up a
-database for running your webapp locally.
+In order to set up this file locally in the Unity Editor, the file must be loaded through
+the Unity Hub application. On the projects screen, press the `Add` button and select
+the Repository which contains the project.
 
 ## Running
 
-Specify the commands for a developer to run the app from the cloned repo.
+Selene does not run through a command line. Instead, the app can be run with the help of the
+Unity Editor. In order to test the app, one can press the play button at the top of the editor
+window after opening the project through Unity. A Windows build (which will be included at
+a later date) can be made by going to File -> Build Settings and pressing `Build & Run`.
 
 # Deployment
 
