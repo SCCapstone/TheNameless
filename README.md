@@ -65,5 +65,9 @@ Explain how to run the automated tests.
 # Authors
 
 Robbie Clark: RMC4@email.sc.edu
+
 Caleb Martin: cam63@email.sc.edu
+
 Ethan Coarr: ecoarr@email.sc.edu
+
+Spencer Beaumont: beaumons@email.sc.edu
