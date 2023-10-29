@@ -66,3 +66,4 @@ Explain how to run the automated tests.
 
 Robbie Clark: RMC4@email.sc.edu
 Caleb Martin: cam63@email.sc.edu
+Ethan Coarr: ecoarr@email.sc.edu
