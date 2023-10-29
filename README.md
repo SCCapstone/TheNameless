@@ -65,3 +65,4 @@ Explain how to run the automated tests.
 # Authors
 
 Robbie Clark: RMC4@email.sc.edu
+Caleb Martin: cam63@email.sc.edu
