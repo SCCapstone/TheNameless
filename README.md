@@ -71,3 +71,5 @@ Caleb Martin: cam63@email.sc.edu
 Ethan Coarr: ecoarr@email.sc.edu
 
 Spencer Beaumont: beaumons@email.sc.edu
+
+Jason Tran: jhtran@email.sc.edu
