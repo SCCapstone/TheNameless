@@ -15,8 +15,8 @@ following your instructions.
 
 In order to build this project you first have to install:
 
-* Unity Hub
-* [Unity 2022.3.10f1](https://unity.com/download)
+* [Unity Hub](https://unity.com/download)
+* Unity 2022.3.10f1
 
 Install Unity Hub from the link above. When prompted, choose `Unity 2022.3.10f`
 to install. Wait for the installation to complete, then the project can be opened
