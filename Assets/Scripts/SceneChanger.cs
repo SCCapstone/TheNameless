@@ -17,6 +17,16 @@ public class SceneChanger : MonoBehaviour
         
     }
 
+    public void toScene(int index)
+    {
+        SceneManager.LoadSceneAsync(index);
+    }
+
+    public void toScene(string name)
+    {
+        SceneManager.LoadSceneAsync(name);
+    }
+    
     public void NextLevel()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
