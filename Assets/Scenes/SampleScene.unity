@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 1036393370}
   - component: {fileID: 1036393369}
   - component: {fileID: 1036393368}
+  - component: {fileID: 1036393371}
   m_Layer: 3
   m_Name: Square
   m_TagString: Ground
@@ -577,6 +578,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1036393371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036393367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b750027ec126f4faa5dac1336fff1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position1: {fileID: 0}
+  position2: {fileID: 0}
 --- !u!1 &1251209950
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,14 +830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d973640e6d7ecf4ba1ebfca0d7cc942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  jumpPower: 16
-  rb: {fileID: 1695359685}
-  groundCheck: {fileID: 446938521}
-  groundCheckReverseGravity: {fileID: 723322199}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!212 &1695359688
 SpriteRenderer:
   m_ObjectHideFlags: 0
