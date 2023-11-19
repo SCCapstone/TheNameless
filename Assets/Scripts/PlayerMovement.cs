@@ -4,70 +4,77 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Variables for movement and direction
-    private float horizontal;
-    private bool isFacingRight;
-    [Header("Movement Parameters")]
-    public float speed = 8f;
-    public float jumpPower = 16f;
-
-    [Header("Components for movement")]
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform groundCheckReverseGravity;
-    [SerializeField] private LayerMask groundLayer;
-
-    private void Update()
+    private Rigidbody2D rb;
+    private Animator anim;
+    private float dirX = 0f;
+    private SpriteRenderer sprite;
+    private bool isOnGround;
+    
+    // Start is called before the first frame update
+    void Start()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        // use if gravity is normal
-        if(Input.GetButtonDown("Jump") && IsGrounded() && rb.gravityScale > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        }
-
-        // if gravity is flipped, jump power is in the negative direction
-        if (Input.GetButtonDown("Jump") && IsGrounded() && rb.gravityScale < 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -jumpPower);
-        }
-
-        // if jump button is held, player jumps for longer
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2 (rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        Flip();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        isOnGround = true;
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        rb.velocity = new Vector2(horizontal*speed, rb.velocity.y);
+        dirX = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
+
+        if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale > 0f)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 20f, 0);
+            isOnGround= false;
+        }
+        if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale < 0f)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, -20f, 0);
+            isOnGround = false;
+        }
+        if (Input.GetButtonDown("Vertical") && isOnGround == true)
+        {
+            rb.gravityScale *= -1;
+            isOnGround = false;
+            FlipUp();
+        }
+
+        UpdateAnimationState();
     }
 
-    private bool IsGrounded()
+    private void UpdateAnimationState()
     {
-        if (rb.gravityScale > 0f)
+        if (dirX > 0f)
         {
-            return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+            anim.SetBool("running", true);
+            sprite.flipX = false;
+        }
+        else if (dirX < 0f)
+        {
+            anim.SetBool("running", true);
+            sprite.flipX = true;
         }
         else
         {
-            return Physics2D.OverlapCircle(groundCheckReverseGravity.position, 0.2f, groundLayer);
+            anim.SetBool("running", false);
         }
     }
 
-    private void Flip()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isFacingRight && horizontal < 0 || !isFacingRight && horizontal > 0)
+        if (collision.gameObject.tag == "Ground")
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            isOnGround = true;
         }
     }
 
+    private void FlipUp()
+    {
+        Vector3 ScalerUP = transform.localScale;
+        ScalerUP.y *= -1;
+        transform.localScale = ScalerUP;
+    }
 }
