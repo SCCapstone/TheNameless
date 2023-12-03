@@ -10,7 +10,7 @@ public class PlayerControl_NoGrav : MonoBehaviour
 {
     //A self-building reference to the player's RigidBody
     public Rigidbody2D rb;
-    public SceneChanger sc;
+    
     //How fast the player rotates in degrees per second
     public float speed;
     public float force;
@@ -25,7 +25,6 @@ public class PlayerControl_NoGrav : MonoBehaviour
     {
         //Hook into your own rigidbody
         rb = GetComponent<Rigidbody2D>();
-        sc = GetComponent<SceneChanger>();
     }
 
     // Update is called once per frame
@@ -39,25 +38,6 @@ public class PlayerControl_NoGrav : MonoBehaviour
         if(Input.GetButton("Vertical"))
         {
             rb.AddForce(Quaternion.Euler(0,0,rb.rotation)*Vector3.up*force*Time.deltaTime);
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        switch(collision.gameObject.tag)
-        {
-            case "Hazard":
-                transform.position = new Vector2(respawnX,respawnY);
-                rb.rotation = 0f;
-                break;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if(collider.gameObject.tag == "Exit")
-        {
-            sc.NextLevel();
         }
     }
 }
