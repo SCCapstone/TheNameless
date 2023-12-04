@@ -16,9 +16,6 @@ public class PlayerControl_NoGrav : MonoBehaviour
     public float force;
     //Input that determines left/right movement
     private float hori;
-    
-    public float respawnX;
-    public float respawnY;
 
     // Start is called before the first frame update
     void Start()
