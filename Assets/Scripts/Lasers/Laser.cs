@@ -12,24 +12,26 @@ public class Laser : MonoBehaviour
 
     [Header("Logic Variables")]
     // does the laser rotate?
-    [SerializeField] bool moving = false;
+    [SerializeField] public bool moving = false;
     // does the laser blink?
-    [SerializeField] bool blink = false;
+    [SerializeField] public bool blink = false;
     // where is the respawn point
     [SerializeField] Transform respawn;
     // what tag should be respawned by the laser?
-    [SerializeField] string playerTag = "Player";
+    [SerializeField] public string playerTag = "Player";
     // how long between blinks?
-    [SerializeField] float ioTimer = 1f;
+    [SerializeField] public float ioTimer = 1f;
     // how long does it take the laser to move?
-    [SerializeField] float rotateTimer = 2f;
+    [SerializeField] public float rotateTimer = 2f;
 
     // line will show the laser
-    private LineRenderer lr;
+    [SerializeField, HideInInspector] public LineRenderer lr;
+    [SerializeField, HideInInspector] public int posCount = 2;
     // use raycasting to set length and detect collision
     private RaycastHit2D hit;
     private Ray2D ray;
     private Vector2 laserDir;
+    private BounceLaser bl;
     // used to change the rotation direction
     private bool hasRotated = false;
 
@@ -55,14 +57,21 @@ public class Laser : MonoBehaviour
             StartCoroutine(RotateHandler());
         }
         // create and draw laser based on laser direction
-        lr.positionCount = 2;
-        ray = new Ray2D(transform.position, -transform.up);
-        lr.SetPosition(0, ray.origin);
-        hit = Physics2D.Raycast(ray.origin, -transform.up, 10000);
-        lr.SetPosition(1, hit.point);
-        if (hit.collider.tag == playerTag)
+        lr.positionCount = posCount;
+        if (posCount == 2)
         {
-            print("true");
+            ray = new Ray2D(transform.position, -transform.up);
+            lr.SetPosition(0, ray.origin);
+            hit = Physics2D.Raycast(ray.origin, -transform.up, 10000);
+            lr.SetPosition(1, hit.point);
+            if (hit.collider.tag == playerTag)
+            {
+                hit.collider.gameObject.transform.position = respawn.position;
+            }
+            else if (hit.collider.tag == "Bounce")
+            {
+                hit.collider.gameObject.GetComponent<BounceLaser>().SetLaserSource(this.gameObject);
+            }
         }
         if(playerTag == "disabled")
         {
