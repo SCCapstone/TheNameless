@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float dirX = 0f;
     private SpriteRenderer sprite;
     private bool isOnGround;
+    [SerializeField] float jumpPower = 5f;
     
     // Start is called before the first frame update
     void Start()
@@ -27,12 +28,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale > 0f)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 20f, 0);
+            rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
             isOnGround= false;
         }
         if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale < 0f)
         {
-            rb.velocity = new Vector3(rb.velocity.x, -20f, 0);
+            rb.velocity = new Vector3(rb.velocity.x, -jumpPower, 0);
             isOnGround = false;
         }
         if (Input.GetButtonDown("Vertical") && isOnGround == true)
