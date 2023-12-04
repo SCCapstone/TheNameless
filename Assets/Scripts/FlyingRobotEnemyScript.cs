@@ -9,6 +9,7 @@ public class FlyingRobotEnemyScript : MonoBehaviour
     private Rigidbody2D myRigidBody;
     private bool isFacingRight = false;
     private Vector3 localScale;
+    public PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,8 @@ public class FlyingRobotEnemyScript : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         directionX = -1f;
         moveSpeed = 3f;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,4 +53,14 @@ public class FlyingRobotEnemyScript : MonoBehaviour
 
         transform.localScale = localScale;
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth.TakeDamage(1);
+        }
+    }
+
+
 }
