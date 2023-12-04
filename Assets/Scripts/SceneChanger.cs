@@ -31,6 +31,11 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void Reload()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
     
     public void Quit()
     {
