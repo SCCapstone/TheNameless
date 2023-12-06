@@ -2853,6 +2853,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 116492180418762067, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1461667452664868301, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.283173
@@ -2893,6 +2897,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2162193777029139537, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.514
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318516074096472693, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      propertyPath: m_Pitch
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318516074096472693, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5379298085135847485, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -2900,6 +2916,10 @@ PrefabInstance:
     - target: {fileID: 7857084337681455226, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: jumpPower
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532315120003307904, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.522
       objectReference: {fileID: 0}
     - target: {fileID: 8812502716683809326, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: m_Name
