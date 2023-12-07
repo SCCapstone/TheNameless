@@ -9,7 +9,10 @@ public class PlayerMovement : MonoBehaviour
     private float dirX = 0f;
     private SpriteRenderer sprite;
     private bool isOnGround;
-    [SerializeField] float jumpPower = 5f;
+    [SerializeField] float jumpPower = 10f;
+    [SerializeField] AudioSource jump;
+    [SerializeField] AudioSource walk;
+    [SerializeField] AudioSource reverseGrav;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         isOnGround = true;
+        walk.Play();
+        walk.Pause();
     }
 
     // Update is called once per frame
@@ -28,16 +33,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale > 0f)
         {
+            jump.Play();
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
             isOnGround= false;
         }
         if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale < 0f)
         {
+            jump.Play();
             rb.velocity = new Vector3(rb.velocity.x, -jumpPower, 0);
             isOnGround = false;
         }
         if (Input.GetButtonDown("Vertical") && isOnGround == true)
         {
+            reverseGrav.Play();
             rb.gravityScale *= -1;
             isOnGround = false;
             FlipUp();
@@ -50,16 +58,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (dirX > 0f)
         {
+            walk.UnPause();
             anim.SetBool("running", true);
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
+            walk.UnPause();
             anim.SetBool("running", true);
             sprite.flipX = true;
         }
         else
         {
+            walk.Pause();
             anim.SetBool("running", false);
         }
     }
