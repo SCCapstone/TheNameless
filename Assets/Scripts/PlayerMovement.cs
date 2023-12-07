@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float dirX = 0f;
     private SpriteRenderer sprite;
     private bool isOnGround;
-    [SerializeField] float jumpPower = 5f;
+    [SerializeField] float jumpPower = 10f;
     [SerializeField] AudioSource jump;
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource reverseGrav;
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         dirX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
