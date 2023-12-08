@@ -34,6 +34,7 @@ public class Laser : MonoBehaviour
     private BounceLaser bl;
     // used to change the rotation direction
     private bool hasRotated = false;
+    public PlayerHealth playerHealth;
 
     private void Start()
     {
@@ -44,6 +45,7 @@ public class Laser : MonoBehaviour
         lr.endColor = color;
         lr.startWidth = thickness;
         lr.endWidth = thickness;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -66,7 +68,8 @@ public class Laser : MonoBehaviour
             lr.SetPosition(1, hit.point);
             if (hit.collider.tag == playerTag)
             {
-                hit.collider.gameObject.transform.position = respawn.position;
+                playerHealth.TakeDamage(1);
+                // hit.collider.gameObject.transform.position = respawn.position;
             }
             else if (hit.collider.tag == "Bounce")
             {
