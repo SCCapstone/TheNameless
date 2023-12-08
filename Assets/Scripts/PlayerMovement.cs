@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Animator anim;
+    public Animator animator;
     private float dirX = 0f;
     private SpriteRenderer sprite;
     private bool isOnGround;
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         isOnGround = true;
         walk.Play();
@@ -36,12 +36,14 @@ public class PlayerMovement : MonoBehaviour
             jump.Play();
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
             isOnGround= false;
+            animator.SetBool("isJumping", true);
         }
         if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale < 0f)
         {
             jump.Play();
             rb.velocity = new Vector3(rb.velocity.x, -jumpPower, 0);
             isOnGround = false;
+            animator.SetBool("isJumping", true);
         }
         if (Input.GetButtonDown("Vertical") && isOnGround == true)
         {
@@ -49,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale *= -1;
             isOnGround = false;
             FlipUp();
+            animator.SetBool("isJumping", true);
         }
 
         UpdateAnimationState();
@@ -59,19 +62,19 @@ public class PlayerMovement : MonoBehaviour
         if (dirX > 0f)
         {
             walk.UnPause();
-            anim.SetBool("running", true);
+            animator.SetBool("isRunning", true);
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
             walk.UnPause();
-            anim.SetBool("running", true);
+            animator.SetBool("isRunning", true);
             sprite.flipX = true;
         }
         else
         {
             walk.Pause();
-            anim.SetBool("running", false);
+            animator.SetBool("isRunning", false);
         }
     }
 
@@ -80,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isOnGround = true;
+            animator.SetBool("isJumping", false);
         }
     }
 

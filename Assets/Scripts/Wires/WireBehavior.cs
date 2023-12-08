@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class WireBehavior : MonoBehaviour
 {
-    [SerializeField] Transform respawn;
-    [SerializeField] string respawnTag = "Player";
-
     /* 
         TODO
                 Flashing effect
@@ -14,16 +11,19 @@ public class WireBehavior : MonoBehaviour
                 particle system control for sparks
      */
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public PlayerHealth playerHealth;
+
+    void Start()
     {
-        if(collision.tag == respawnTag)
-        {
-            collision.gameObject.transform.position = respawn.position;
-        }
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
-    public void DisableWires()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        respawnTag = "Disabled";
+            if (collision.gameObject.name.Equals("Player"))
+            {
+                playerHealth.TakeDamage(1);
+            }
     }
+
 }

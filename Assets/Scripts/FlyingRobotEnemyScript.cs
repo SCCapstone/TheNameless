@@ -28,6 +28,10 @@ public class FlyingRobotEnemyScript : MonoBehaviour
         {
             directionX *= -1f;
         }
+        if (collision.gameObject.name.Equals("Player"))
+        {
+            playerHealth.TakeDamage(1);
+        }
     }
 
     private void FixedUpdate()
@@ -53,14 +57,5 @@ public class FlyingRobotEnemyScript : MonoBehaviour
 
         transform.localScale = localScale;
     }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerHealth.TakeDamage(1);
-        }
-    }
-
 
 }
