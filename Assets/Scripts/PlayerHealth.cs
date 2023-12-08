@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 1;
     public int currentHealth;
     public Behaviour stopPlayer;
-    public RespawnTransition respawn;
+   
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource hurt;
 
@@ -18,8 +18,6 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        animator = GetComponent<Animator>();
-        respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<RespawnTransition>();
     }
 
     // Update is called once per frame
@@ -38,8 +36,14 @@ public class PlayerHealth : MonoBehaviour
             walk.Pause();
             hurt.Play();
             stopPlayer.enabled = false;
-            respawn.InstantiateAnimation();
+            StartCoroutine(PlayerRespawn());
         }
+    }
+
+    public IEnumerator PlayerRespawn()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
 }
