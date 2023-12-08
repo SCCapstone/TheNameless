@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public Animator animator;
     public int maxHealth = 1;
     public int currentHealth;
+    public Behaviour stopPlayer;
+    [SerializeField] AudioSource walk;
+    [SerializeField] AudioSource hurt;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,8 +30,12 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
+            animator.SetBool("isDead", true);
+            walk.Pause();
+            hurt.Play();
+            stopPlayer.enabled = false;
             StartCoroutine(PlayerRespawn());
         }
     }
@@ -35,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator PlayerRespawn()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
