@@ -15,6 +15,8 @@ public class Laser : MonoBehaviour
     [SerializeField] public bool moving = false;
     // does the laser blink?
     [SerializeField] public bool blink = false;
+    // does the laser rotate 360 degrees
+    [SerializeField] bool revolve = false;
     // where is the respawn point
     [SerializeField] Transform respawn;
     // what tag should be respawned by the laser?
@@ -23,6 +25,8 @@ public class Laser : MonoBehaviour
     [SerializeField] public float ioTimer = 1f;
     // how long does it take the laser to move?
     [SerializeField] public float rotateTimer = 2f;
+    // how long does it take for the laser to rotate 360 degrees
+    [SerializeField] float revolveTimer = 4f;
 
     // line will show the laser
     [SerializeField, HideInInspector] public LineRenderer lr;
@@ -34,6 +38,7 @@ public class Laser : MonoBehaviour
     private BounceLaser bl;
     // used to change the rotation direction
     private bool hasRotated = false;
+    public PlayerHealth playerHealth;
 
     private void Start()
     {
@@ -44,6 +49,7 @@ public class Laser : MonoBehaviour
         lr.endColor = color;
         lr.startWidth = thickness;
         lr.endWidth = thickness;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -56,6 +62,10 @@ public class Laser : MonoBehaviour
         {
             StartCoroutine(RotateHandler());
         }
+        if(revolve)
+        {
+            StartCoroutine(RevolveHandler());
+        }
         // create and draw laser based on laser direction
         lr.positionCount = posCount;
         if (posCount == 2)
@@ -66,7 +76,8 @@ public class Laser : MonoBehaviour
             lr.SetPosition(1, hit.point);
             if (hit.collider.tag == playerTag)
             {
-                hit.collider.gameObject.transform.position = respawn.position;
+                playerHealth.TakeDamage(1);
+                //hit.collider.gameObject.transform.position = respawn.position;
             }
             else if (hit.collider.tag == "Bounce")
             {
@@ -124,5 +135,32 @@ public class Laser : MonoBehaviour
         yield return new WaitForSeconds(rotateTimer / 2);
         // allow for coroutine to start again
         moving = true;
+    }
+
+    IEnumerator RevolveHandler()
+    {
+        // prevent coroutine from activating while running
+        revolve = false;
+        // keep track of how long rotation has been going
+        float currentTime = 0f;
+        // set the rotation angle as 180 degrees
+        Vector3 byAngle = Vector3.forward * 180f;
+
+        // set the rotation angles for the interpolation
+        Quaternion fromAngle = transform.rotation;
+        Quaternion toAngle = Quaternion.Euler(transform.eulerAngles + byAngle);
+
+        // run for the length set in rotateTimer
+        while (currentTime < revolveTimer)
+        {
+            // soherically interpolate the angle to create smooth rotation, then inc time
+            transform.rotation = Quaternion.Slerp(fromAngle, toAngle, currentTime / revolveTimer);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        // set the laser's rotation to exactly new angle (slerp can be slightly off)
+        transform.rotation = toAngle;
+        // allow for coroutine to start again
+        revolve = true;
     }
 }
