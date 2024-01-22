@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public Animator animator;
+    public Animator SceneTransition;
     public int maxHealth = 1;
     public int currentHealth;
     public Behaviour stopPlayer;
@@ -42,8 +43,10 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator PlayerRespawn()
     {
-        yield return new WaitForSeconds(1);
+        SceneTransition.SetBool("isDead", true);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneTransition.SetBool("isDead", false);
     }
     
 }
