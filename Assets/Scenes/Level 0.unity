@@ -22490,6 +22490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1905234033}
+  SceneTransition: {fileID: 0}
   maxHealth: 1
   currentHealth: 0
   stopPlayer: {fileID: 1905234032}
