@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         dirX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
+        rb.velocity = Move(dirX, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale > 0f)
         {
@@ -92,5 +93,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 ScalerUP = transform.localScale;
         ScalerUP.y *= -1;
         transform.localScale = ScalerUP;
+    }
+
+    public static Vector2 Move(float dirX, float yVel) {
+        return new Vector2(dirX * 10f, yVel);
     }
 }

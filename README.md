@@ -47,12 +47,17 @@ emulator or in a physical phone.
 
 # Testing
 
-In 492 you will write automated tests. When you do you will need to add a 
-section that explains how to run them.
+With the Unity editor open, navigate through the Window menu, under the General section, and open the Test Runner window.
 
-The unit tests are in `/test/unit`.
+![Test Runner Location](https://github.com/SCCapstone/TheNameless/assets/59749228/586e0673-e483-4837-8bb2-ee13505fd07b)
 
-The behavioral tests are in `/test/casper/`.
+From the Test Runner window, unit and behavioral tests can be run.
+
+Select the EditMode tab to access unit tests where you can select "Run All." You may also run each test individually by selecting the specific test and clicking the "Run Selected" option.
+
+Select the PlayMode tab to access behavioral tests where you can select "Run All." You may also run each test individually by selecting the specific test and clicking the "Run Selected" option.
+
+Test files are accessed under `/Assets/Tests/EditMode/` and `/Assets/Tests/PlayMode/`.
 
 ## Testing Technology
 
