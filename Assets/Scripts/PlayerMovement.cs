@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public Animator animator;
-    private float dirX = 0f;
+    private Animator animator;
     private SpriteRenderer sprite;
     private bool isOnGround;
     [SerializeField] float jumpPower = 10f;
@@ -29,8 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dirX = Input.GetAxis("Horizontal");
-        rb.velocity = Move(dirX, rb.velocity.y);
+        Move(Input.GetAxis("Horizontal"));
 
         if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale > 0f)
         {
@@ -54,12 +53,27 @@ public class PlayerMovement : MonoBehaviour
             FlipUp();
             animator.SetBool("isJumping", true);
         }
-
-        UpdateAnimationState();
     }
 
-    private void UpdateAnimationState()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isOnGround = true;
+            animator.SetBool("isJumping", false);
+        }
+    }
+
+    private void FlipUp()
+    {
+        Vector3 ScalerUP = transform.localScale;
+        ScalerUP.y *= -1;
+        transform.localScale = ScalerUP;
+    }
+
+    public void Move(float dirX) {
+        rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
+
         if (dirX > 0f)
         {
             walk.UnPause();
@@ -79,23 +93,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isOnGround = true;
-            animator.SetBool("isJumping", false);
-        }
-    }
-
-    private void FlipUp()
-    {
-        Vector3 ScalerUP = transform.localScale;
-        ScalerUP.y *= -1;
-        transform.localScale = ScalerUP;
-    }
-
-    public static Vector2 Move(float dirX, float yVel) {
-        return new Vector2(dirX * 10f, yVel);
+    public Vector2 GetPosition() {
+        return rb.position;
     }
 }

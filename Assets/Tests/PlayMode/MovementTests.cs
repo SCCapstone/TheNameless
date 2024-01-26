@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
 public class MovementTests
@@ -9,31 +11,50 @@ public class MovementTests
     [UnityTest]
     public IEnumerator MoveLeft()
     {
-        var gameObject = new GameObject();
-        var player = gameObject.AddComponent<Rigidbody2D>();
-
-        player.velocity = PlayerMovement.Move(-1, player.velocity.y);
-
-        player.position += player.velocity; 
-
+        SceneManager.LoadScene("Testing");
         yield return null;
 
-        Assert.AreEqual(new Vector2(-10f, 0), player.position);
+        var playerObject = GameObject.FindGameObjectWithTag("Player");
+        Assert.IsNotNull(playerObject);
+        
+        var player = playerObject.GetComponent<PlayerMovement>();
+        Assert.IsNotNull(player);
+
+        yield return new WaitForSeconds(0.5f);
+
+        var initialPosition = player.GetPosition();
+
+        for (float t = 0f; t < 0.5f; t += Time.deltaTime) {
+            yield return null;
+            player.Move(-1);
+        }
+
+        Assert.IsTrue(player.GetPosition().x < initialPosition.x);
+
     }
 
     
     [UnityTest]
     public IEnumerator MoveRight()
     {
-        var gameObject = new GameObject();
-        var player = gameObject.AddComponent<Rigidbody2D>();
-
-        player.velocity = PlayerMovement.Move(1, player.velocity.y);
-
-        player.position += player.velocity; 
-
+        SceneManager.LoadScene("Testing");
         yield return null;
 
-        Assert.AreEqual(new Vector2(10f, 0), player.position);
+        var playerObject = GameObject.FindGameObjectWithTag("Player");
+        Assert.IsNotNull(playerObject);
+        
+        var player = playerObject.GetComponent<PlayerMovement>();
+        Assert.IsNotNull(player);
+
+        yield return new WaitForSeconds(0.5f);
+
+        var initialPosition = player.GetPosition();
+
+        for (float t = 0f; t < 0.5f; t += Time.deltaTime) {
+            yield return null;
+            player.Move(1);
+        }
+
+        Assert.IsTrue(player.GetPosition().x > initialPosition.x);
     }
 }
