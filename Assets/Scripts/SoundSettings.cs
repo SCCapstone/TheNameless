@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -7,6 +9,7 @@ public class SoundSettings : MonoBehaviour
 
     [SerializeField] Slider soundSlider;
     [SerializeField] AudioMixer masterMixer;
+    [SerializeField] TextMeshProUGUI percent;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +36,14 @@ public class SoundSettings : MonoBehaviour
     public void RefreshSlider(float _value)
     {
         soundSlider.value = _value;
+    }
+
+    public string VolumeToString(float _value)
+    {
+        return Math.Floor(_value).ToString() + "%";
+    }
+
+    public void UpdatePercent() {
+        percent.text = VolumeToString(soundSlider.value);
     }
 }
