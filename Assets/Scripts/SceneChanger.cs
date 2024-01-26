@@ -5,10 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    //Variables for automatic scene transitions in cutscenes
+    public bool autoTransition;
+    public float seconds;
+    public int nextSceneID;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(autoTransition)
+        {
+            StartCoroutine(AutoLoad(seconds, nextSceneID));
+        }
     }
 
     // Update is called once per frame
@@ -42,4 +50,9 @@ public class SceneChanger : MonoBehaviour
         Application.Quit();
     }
 
+    public IEnumerator AutoLoad(float seconds, int ID)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadSceneAsync(ID);
+    }
 }
