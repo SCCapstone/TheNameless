@@ -17,7 +17,7 @@ public class FloorRobotEnemyScript : MonoBehaviour
         localScale = transform.localScale;
         myRigidBody = GetComponent<Rigidbody2D>();
         directionX = -1f;
-        moveSpeed = 3f;
+        moveSpeed = 1f;
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
