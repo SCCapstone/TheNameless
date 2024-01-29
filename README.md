@@ -47,25 +47,23 @@ emulator or in a physical phone.
 
 # Testing
 
+Test files are accessed under `/Assets/Tests/EditMode/` and `/Assets/Tests/PlayMode/`.
+
+## Testing Technology
+
+Unity provides a test runner which is installed by default.
+
 With the Unity editor open, navigate through the Window menu, under the General section, and open the Test Runner window.
 
 ![Test Runner Location](https://github.com/SCCapstone/TheNameless/assets/59749228/586e0673-e483-4837-8bb2-ee13505fd07b)
 
 From the Test Runner window, unit and behavioral tests can be run.
 
+## Running Tests
+
 Select the EditMode tab to access unit tests where you can select "Run All." You may also run each test individually by selecting the specific test and clicking the "Run Selected" option.
 
 Select the PlayMode tab to access behavioral tests where you can select "Run All." You may also run each test individually by selecting the specific test and clicking the "Run Selected" option.
-
-Test files are accessed under `/Assets/Tests/EditMode/` and `/Assets/Tests/PlayMode/`.
-
-## Testing Technology
-
-In some cases you need to install test runners, etc. Explain how.
-
-## Running Tests
-
-Explain how to run the automated tests.
 
 # Authors
 
