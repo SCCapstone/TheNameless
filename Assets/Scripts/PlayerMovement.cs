@@ -10,7 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite;
     private bool isOnGround;
+    private bool isRunning = false;
     [SerializeField] float jumpPower = 10f;
+    [SerializeField] float runSpeedMultiplier = 2f;
+    [SerializeField] float walkSpeed = 5f;
     [SerializeField] AudioSource jump;
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource reverseGrav;
@@ -29,23 +32,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(Input.GetAxis("Horizontal"));
+        float horizontalInput = Input.GetAxis("Horizontal");
+        isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        Move(horizontalInput, isRunning);
 
-        if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale > 0f)
+        if (Input.GetButtonDown("Jump") && isOnGround == true)
         {
             jump.Play();
-            rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
-            isOnGround= false;
-            animator.SetBool("isJumping", true);
-        }
-        if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale < 0f)
-        {
-            jump.Play();
-            rb.velocity = new Vector3(rb.velocity.x, -jumpPower, 0);
+            rb.velocity = new Vector3(rb.velocity.x, rb.gravityScale * jumpPower, 0);
             isOnGround = false;
             animator.SetBool("isJumping", true);
         }
-        if (Input.GetButtonDown("Vertical") && isOnGround == true)
+        else if (Input.GetButtonDown("Vertical") && isOnGround == true)
         {
             reverseGrav.Play();
             rb.gravityScale *= -1;
@@ -71,24 +69,34 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = ScalerUP;
     }
 
-    public void Move(float dirX) {
-        rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
+    public void Move(float dirX, bool isRunning) {
+        float speed = isRunning ? walkSpeed * runSpeedMultiplier : walkSpeed;
+        rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
 
         if (dirX > 0f)
         {
-            walk.UnPause();
+            if (walk != null && !walk.isPlaying)
+            {
+                walk.UnPause();
+            }
             animator.SetBool("isRunning", true);
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
-            walk.UnPause();
+            if (walk != null && !walk.isPlaying)
+            {
+                walk.UnPause();
+            }
             animator.SetBool("isRunning", true);
             sprite.flipX = true;
         }
         else
         {
-            walk.Pause();
+            if (walk != null)
+            {
+                walk.Pause();
+            }
             animator.SetBool("isRunning", false);
         }
     }
