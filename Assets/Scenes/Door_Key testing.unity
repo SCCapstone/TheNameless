@@ -435,6 +435,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1596238253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8812502716683809326, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+  m_PrefabInstance: {fileID: 1840773622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1840773622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,19 +492,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Astronaut
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7857084337681455226, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1461667452664868301, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 58581859}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8812502716683809326, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2063495803}
   m_SourcePrefab: {fileID: 100100000, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
 --- !u!4 &2063495798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1461667452664868301, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
   m_PrefabInstance: {fileID: 1840773622}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2063495803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596238253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81553096a9b213e46912d236f0d70e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPower: 10
+  runSpeedMultiplier: 2
+  walkSpeed: 5
+  jump: {fileID: 0}
+  walk: {fileID: 0}
+  reverseGrav: {fileID: 0}
 --- !u!1001 &3465436107578128418
 PrefabInstance:
   m_ObjectHideFlags: 0

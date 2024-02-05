@@ -961,7 +961,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d973640e6d7ecf4ba1ebfca0d7cc942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 14
+  jumpPower: 5
+  runSpeedMultiplier: 1.5
+  walkSpeed: 6.5
   jump: {fileID: 297607961}
   walk: {fileID: 1293238653}
   reverseGrav: {fileID: 975637783}
@@ -1026,8 +1028,8 @@ Transform:
   m_GameObject: {fileID: 393713858}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.43, y: -3.05, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -7.9558, y: -3.31, z: 0}
+  m_LocalScale: {x: 1.4742, y: 1.5688, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 975637784}
@@ -6424,7 +6426,7 @@ Transform:
   m_GameObject: {fileID: 1700126324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.43, y: -3.05, z: -10}
+  m_LocalPosition: {x: -7.9558, y: -3.31, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
