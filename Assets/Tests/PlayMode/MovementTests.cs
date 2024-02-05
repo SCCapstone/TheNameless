@@ -31,7 +31,7 @@ public class MovementTests
         // In the period of half a second, simulate a '<-' button press
         for (float t = 0f; t < 0.5f; t += Time.deltaTime) {
             yield return null;
-            player.Move(-1);
+            player.Move(-1, false);
         }
 
         // Check that the player's position is to the left of their initial position
@@ -65,7 +65,7 @@ public class MovementTests
         // In the period of half a second, simulate a '->' button press
         for (float t = 0f; t < 0.5f; t += Time.deltaTime) {
             yield return null;
-            player.Move(1);
+            player.Move(1, false);
         }
 
         // Check that the player's position is to the right of their initial position
