@@ -10,6 +10,8 @@ public class FloorRobotEnemyScript : MonoBehaviour
     private bool isFacingRight = false;
     private Vector3 localScale;
     public PlayerHealth playerHealth;
+    private SpriteRenderer mySpriteRenderer;
+    private bool isOnGround;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,8 @@ public class FloorRobotEnemyScript : MonoBehaviour
         directionX = -1f;
         moveSpeed = 1f;
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        isOnGround = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +59,39 @@ public class FloorRobotEnemyScript : MonoBehaviour
         }
 
         transform.localScale = localScale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isOnGround = true;
+        }
+    }
+
+    public Vector2 GetPosition()
+    {
+        return myRigidBody.position;
+    }
+
+    public void EnemyGravityButtonFlip()
+    {
+        if (isOnGround == true)
+        {
+            myRigidBody.gravityScale *= -1;
+            isOnGround = false;
+            if (mySpriteRenderer.flipY == true)
+            {
+                mySpriteRenderer.flipY = false;
+            }
+            else
+            {
+                mySpriteRenderer.flipY = true;
+            }
+            Vector3 ScalerUP = transform.localScale;
+            ScalerUP.y *= -1;
+            transform.localScale = ScalerUP;
+        }
     }
 
 }

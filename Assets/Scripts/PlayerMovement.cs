@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private bool isOnGround;
     private bool isRunning = false;
+    private Vector3 localScale;
     [SerializeField] float jumpPower = 10f;
     [SerializeField] float runSpeedMultiplier = 2f;
     [SerializeField] float walkSpeed = 5f;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        localScale = transform.localScale;
         isOnGround = true;
         walk.Play();
         walk.Pause();
@@ -104,4 +106,19 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 GetPosition() {
         return rb.position;
     }
+
+    public void PlayerGravityButtonFlip()
+    {
+        if (isOnGround == true)
+        {
+            reverseGrav.Play();
+            rb.gravityScale *= -1;
+            isOnGround = false;
+            Vector3 ScalerUP = transform.localScale;
+            ScalerUP.y *= -1;
+            transform.localScale = ScalerUP;
+            animator.SetBool("isJumping", true);
+        }
+    }
+
 }
