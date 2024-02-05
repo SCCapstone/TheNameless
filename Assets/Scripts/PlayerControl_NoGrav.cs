@@ -9,7 +9,9 @@ using UnityEngine;
 public class PlayerControl_NoGrav : MonoBehaviour
 {
     //A self-building reference to the player's RigidBody
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+
+    private SpriteRenderer sprite;
     
     //How fast the player rotates in degrees per second
     public float speed;
@@ -22,6 +24,7 @@ public class PlayerControl_NoGrav : MonoBehaviour
     {
         //Hook into your own rigidbody
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class PlayerControl_NoGrav : MonoBehaviour
         rb.rotation += -hori*speed*Time.deltaTime;
         
         //When pressing the gravity button, switch the gravity scale and jump direction
-        if(Input.GetButton("Vertical"))
+        if(Input.GetButton("Jump"))
         {
             rb.AddForce(Quaternion.Euler(0,0,rb.rotation)*Vector3.up*force*Time.deltaTime);
         }
