@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.Callbacks;
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -39,29 +36,30 @@ public class PlayerMovement : MonoBehaviour
         Move(horizontalInput, isRunning);
 
         if (Input.GetButtonDown("Jump") && isOnGround == true)
-        {
-            jump.Play();
-            rb.velocity = new Vector3(rb.velocity.x, rb.gravityScale * jumpPower, 0);
-            isOnGround = false;
-            animator.SetBool("isJumping", true);
-        }
+            Jump(jumpPower);
         else if (Input.GetButtonDown("Vertical") && isOnGround == true)
         {
             reverseGrav.Play();
-            rb.gravityScale *= -1;
-            isOnGround = false;
+            // Reverse global gravity (for player and objects)
+            Physics2D.gravity = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y);
             FlipUp();
-            animator.SetBool("isJumping", true);
         }
+
+        // if you're not touching the ground, the player sprite should be jumping 
+        animator.SetBool("isJumping", !isOnGround);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
-        {
+        if (collision.gameObject.CompareTag("Ground"))
             isOnGround = true;
-            animator.SetBool("isJumping", false);
-        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isOnGround = false;
     }
 
     private void FlipUp()
@@ -75,32 +73,33 @@ public class PlayerMovement : MonoBehaviour
         float speed = isRunning ? walkSpeed * runSpeedMultiplier : walkSpeed;
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
 
+        // if the player is moving left or right, start the running animation
+        animator.SetBool("isRunning", dirX != 0);
+
         if (dirX > 0f)
         {
             if (walk != null && !walk.isPlaying)
-            {
                 walk.UnPause();
-            }
-            animator.SetBool("isRunning", true);
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
             if (walk != null && !walk.isPlaying)
-            {
                 walk.UnPause();
-            }
-            animator.SetBool("isRunning", true);
             sprite.flipX = true;
         }
         else
         {
             if (walk != null)
-            {
                 walk.Pause();
-            }
             animator.SetBool("isRunning", false);
         }
+    }
+
+    public void Jump(float power)
+    {
+        jump.Play();
+        rb.velocity = new Vector2(rb.velocity.x, -Physics2D.gravity.y/Math.Abs(Physics2D.gravity.y) * power);
     }
 
     public Vector2 GetPosition() {
@@ -109,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerGravityButtonFlip()
     {
-        if (isOnGround == true)
+        if (isOnGround)
         {
             reverseGrav.Play();
             rb.gravityScale *= -1;
