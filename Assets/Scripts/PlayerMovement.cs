@@ -80,13 +80,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (walk != null && !walk.isPlaying)
                 walk.UnPause();
-            flipX(false);
+            FlipX(false);
         }
         else if (dirX < 0f)
         {
             if (walk != null && !walk.isPlaying)
                 walk.UnPause();
-            flipX(true);
+            FlipX(true);
         }
         else
         {
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void flipX(bool isFlipped)
+    public void FlipX(bool isFlipped)
     {
         Vector3 scale = gameObject.transform.localScale;
         if ((scale.x < 0 && isFlipped) || (scale.x > 0 && !isFlipped))
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(float power)
     {
         jump.Play();
-        rb.velocity = new Vector2(rb.velocity.x, -getSign(Physics2D.gravity.y) * power);
+        rb.velocity = new Vector2(rb.velocity.x, -GetSign(Physics2D.gravity.y) * power);
     }
 
     public Vector2 GetPosition() {
@@ -128,9 +128,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public int getSign(float val)
+    public int GetSign(float val)
     {
-        return (int)(val / Math.Abs(val));
+        return val != 0f ? (int)(val / Math.Abs(val)) : 0;
     }
 
 }
