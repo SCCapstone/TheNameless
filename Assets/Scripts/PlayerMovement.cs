@@ -80,13 +80,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (walk != null && !walk.isPlaying)
                 walk.UnPause();
-            sprite.flipX = false;
+            flipX(false);
         }
         else if (dirX < 0f)
         {
             if (walk != null && !walk.isPlaying)
                 walk.UnPause();
-            sprite.flipX = true;
+            flipX(true);
         }
         else
         {
@@ -96,10 +96,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void flipX(bool isFlipped)
+    {
+        Vector3 scale = gameObject.transform.localScale;
+        if ((scale.x < 0 && isFlipped) || (scale.x > 0 && !isFlipped))
+            scale.x *= -1;
+        gameObject.transform.localScale = scale;
+    }
+
     public void Jump(float power)
     {
         jump.Play();
-        rb.velocity = new Vector2(rb.velocity.x, -Physics2D.gravity.y/Math.Abs(Physics2D.gravity.y) * power);
+        rb.velocity = new Vector2(rb.velocity.x, -getSign(Physics2D.gravity.y) * power);
     }
 
     public Vector2 GetPosition() {
@@ -118,6 +126,11 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = ScalerUP;
             animator.SetBool("isJumping", true);
         }
+    }
+
+    public int getSign(float val)
+    {
+        return (int)(val / Math.Abs(val));
     }
 
 }

@@ -52,7 +52,7 @@ public class Objects : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Object"))
-            tObject = collider.transform.parent.gameObject;
+            tObject = collider.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D collider) 
