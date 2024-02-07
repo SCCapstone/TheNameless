@@ -39,7 +39,6 @@ public class Objects : MonoBehaviour
             gObject = null;
         }
 
-        Debug.Log("Touched object: " + tObject.ToString());
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
