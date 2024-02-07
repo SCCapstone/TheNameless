@@ -10,7 +10,6 @@ public class Objects : MonoBehaviour
     private GameObject gObject;
     private GameObject tObject;
     private Rigidbody2D rb;
-    private SpriteRenderer sprite;
 
     
     void Start()
@@ -18,16 +17,10 @@ public class Objects : MonoBehaviour
         gObject = null;
         tObject = null;
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
-    {   
-        if (sprite.flipX)
-            grabPoint.localPosition = new Vector3(-0.5f, 0, 0);
-        else
-            gObject.transform.position = grabPoint.localPosition = new Vector3(0.5f, 0, 0);
-
+    {
 
         if (gObject != null)
             gObject.transform.position = grabPoint.position;
