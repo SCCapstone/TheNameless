@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
     }
 
+    // Be sure to set your Player GameObject to flipX=True and X scale to -1 to start
     public void FlipX(bool isFlipped)
     {
         Vector3 scale = transform.localScale;
@@ -79,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = scale;
     }
 
+    // Handle's the player's left and right movement
     public void Move(float dirX, bool isRunning) {
         float speed = isRunning ? walkSpeed * runSpeedMultiplier : walkSpeed;
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
@@ -88,21 +90,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (dirX > 0f)
         {
+            FlipX(false);
             if (walk != null && !walk.isPlaying)
                 walk.UnPause();
-            FlipX(false);
         }
         else if (dirX < 0f)
         {
+            FlipX(true);
             if (walk != null && !walk.isPlaying)
                 walk.UnPause();
-            FlipX(true);
         }
         else
         {
             if (walk != null)
                 walk.Pause();
-            animator.SetBool("isRunning", false);
         }
     }
 
