@@ -7,11 +7,16 @@ public class PressurePlate : MonoBehaviour
     private readonly float maxPos = 0.1f;
     public UnityEvent onPress;
     private bool onPlate;
+    private bool activationToggle;
+    private bool pressed;
+
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
         onPlate = false;
+        activationToggle = false;
+        pressed = false;
     }
 
     // Update is called once per frame
@@ -20,9 +25,22 @@ public class PressurePlate : MonoBehaviour
         if (!onPlate && transform.position.y < startPos.y)
             transform.Translate(0, 0.05f, 0);
 
-        if (transform.position.y <= startPos.y - maxPos) {
+        if (transform.position.y <= startPos.y - maxPos && !pressed)
+        {
+            pressed = true;
+            activationToggle = !activationToggle;
+            // If you want do do something just once, do it here
             onPress.Invoke();
         }
+
+        if (transform.position.y >= startPos.y && pressed == true)
+            pressed = false;
+
+        if (activationToggle)
+        {
+            // Do something here
+        }
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -49,5 +67,5 @@ public class PressurePlate : MonoBehaviour
             onPlate = true;
             transform.Translate(0, -0.05f, 0);
         }
-    } 
+    }
 }
