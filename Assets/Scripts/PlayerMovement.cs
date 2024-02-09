@@ -39,14 +39,14 @@ public class PlayerMovement : MonoBehaviour
             Jump(jumpPower);
         else if (Input.GetButtonDown("Vertical") && isOnGround == true)
         {
-            reverseGrav.Play();
-            // Reverse global gravity (for player and objects)
-            Physics2D.gravity = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y);
-            FlipUp();
+            ReverseGravityY();
         }
 
         // if you're not touching the ground, the player sprite should be jumping 
         animator.SetBool("isJumping", !isOnGround);
+
+        // This flips the player depending on gravity direction
+        FlipY();
 
     }
 
@@ -62,11 +62,21 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
     }
 
-    private void FlipUp()
+    public void FlipX(bool isFlipped)
     {
-        Vector3 ScalerUP = transform.localScale;
-        ScalerUP.y *= -1;
-        transform.localScale = ScalerUP;
+        Vector3 scale = transform.localScale;
+        if ((scale.x < 0 && isFlipped) || (scale.x > 0 && !isFlipped))
+            scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    // Flip Y of the Player if gravity is reversed
+    private void FlipY()
+    {
+        Vector3 scale = transform.localScale;
+        if ((scale.y < 0 && Physics2D.gravity.y < 0) || (scale.y > 0 && Physics2D.gravity.y > 0))
+            scale.y *= -1;
+        transform.localScale = scale;
     }
 
     public void Move(float dirX, bool isRunning) {
@@ -96,18 +106,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void FlipX(bool isFlipped)
-    {
-        Vector3 scale = gameObject.transform.localScale;
-        if ((scale.x < 0 && isFlipped) || (scale.x > 0 && !isFlipped))
-            scale.x *= -1;
-        gameObject.transform.localScale = scale;
-    }
-
     public void Jump(float power)
     {
         jump.Play();
         rb.velocity = new Vector2(rb.velocity.x, -GetSign(Physics2D.gravity.y) * power);
+    }
+
+    public void ReverseGravityY()
+    {
+        reverseGrav.Play();
+        // Reverse global gravity (for player and objects)
+        Physics2D.gravity = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y);
     }
 
     public Vector2 GetPosition() {
