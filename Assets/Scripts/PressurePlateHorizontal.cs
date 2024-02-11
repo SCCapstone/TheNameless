@@ -3,8 +3,9 @@ using UnityEngine.Events;
 
 // This class is for the 'button' GameObject of the pressure plate
 
-public class PressurePlate : MonoBehaviour
+public class PressurePlateHorizontal : MonoBehaviour
 {
+    [SerializeField] private bool isFlipped = false;
     private Vector3 startPos;   // The plate's initial position that it will return to after being disengaged
     private readonly float maxPos = 0.1f;   // How far the plate can be depressed
     public UnityEvent onPress;  // Allow us to define the funtion of the pressure plate in the Unity Inspector
@@ -24,11 +25,11 @@ public class PressurePlate : MonoBehaviour
     void Update()
     {
         // Restore plate to it's original position if nothing is on the plate
-        if (!onPlate && transform.position.y < startPos.y)
-            transform.Translate(0, 0.05f, 0);
+        if (!onPlate && (isFlipped ? (transform.position.x > startPos.x) : (transform.position.x < startPos.x)))
+            transform.Translate(isFlipped ? -0.05f : 0.05f, 0, 0);
 
         // Check if the pressure plate is fully engaged
-        if (transform.position.y <= startPos.y - maxPos && !pressed && onPlate)
+        if ((isFlipped ? (transform.position.x >= startPos.x + maxPos) : (transform.position.x <= startPos.x - maxPos)) && !pressed && onPlate)
         {
             pressed = true;
             // If you want do do something just once, do it here
@@ -36,9 +37,8 @@ public class PressurePlate : MonoBehaviour
         }
 
         // Set 'pressed' var to false when plate is fully disengaged
-        if (transform.position.y >= startPos.y && pressed && !onPlate)
+        if ((isFlipped ? (transform.position.x <= startPos.x) : (transform.position.x >= startPos.x)) && pressed && !onPlate)
             pressed = false;
-
     }
 
     // Functions that detect whether the player or an object are on the pressure plate.
@@ -61,10 +61,10 @@ public class PressurePlate : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if ((collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object")) && transform.position.y > startPos.y - maxPos)
+        if ((collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object")) && (isFlipped ? (transform.position.x < startPos.x + maxPos) : (transform.position.x > startPos.x - maxPos)))
         {
             onPlate = true;
-            transform.Translate(0, -0.05f, 0);
+            transform.Translate(isFlipped ? 0.05f : -0.05f, 0, 0);
         }
     }
 }
