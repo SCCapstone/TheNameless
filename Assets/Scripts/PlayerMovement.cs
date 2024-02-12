@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.Callbacks;
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private bool isOnGround;
     private bool isRunning = false;
+    private bool horizGravity;
     private Vector3 localScale;
     [SerializeField] float jumpPower = 10f;
     [SerializeField] float runSpeedMultiplier = 2f;
@@ -34,73 +32,119 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizGravity = Physics2D.gravity.y == 0f;
+
         isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        Move(horizontalInput, isRunning);
+
+        Move(Input.GetAxis(horizGravity ? "Vertical" : "Horizontal"), isRunning);
 
         if (Input.GetButtonDown("Jump") && isOnGround == true)
-        {
-            jump.Play();
-            rb.velocity = new Vector3(rb.velocity.x, rb.gravityScale * jumpPower, 0);
-            isOnGround = false;
-            animator.SetBool("isJumping", true);
-        }
-        else if (Input.GetButtonDown("Vertical") && isOnGround == true)
-        {
-            reverseGrav.Play();
-            rb.gravityScale *= -1;
-            isOnGround = false;
-            FlipUp();
-            animator.SetBool("isJumping", true);
-        }
+            Jump(jumpPower);
+        else if (Input.GetButtonDown(horizGravity ? "Horizontal" : "Vertical") && isOnGround == true)
+            ReverseGravity();
+
+        // if you're not touching the ground, the player sprite should be jumping 
+        animator.SetBool("isJumping", !isOnGround);
+
+        // This flips the player depending on gravity direction
+        FlipY();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
-        {
+        if (collision.gameObject.CompareTag("Ground"))
             isOnGround = true;
-            animator.SetBool("isJumping", false);
-        }
     }
 
-    private void FlipUp()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        Vector3 ScalerUP = transform.localScale;
-        ScalerUP.y *= -1;
-        transform.localScale = ScalerUP;
+        if (collision.gameObject.CompareTag("Ground"))
+            isOnGround = false;
     }
 
+    // Be sure to set your Player GameObject to flipX=True and X scale to -1 to start
+    public void FlipX(bool isFlipped)
+    {
+        Vector3 scale = transform.localScale;
+        if ((scale.x < 0 && isFlipped) || (scale.x > 0 && !isFlipped))
+            scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    // Flip Y of the Player if gravity is reversed
+    private void FlipY()
+    {
+        Vector3 scale = transform.localScale;
+        if (horizGravity)
+        {
+            if ((scale.y > 0 && Physics2D.gravity.x < 0) || (scale.y < 0 && Physics2D.gravity.x > 0))
+                scale.y *= -1;
+            transform.localRotation = Quaternion.Euler(0, 0, 90);
+        }
+        else
+        {
+            if ((scale.y < 0 && Physics2D.gravity.y < 0) || (scale.y > 0 && Physics2D.gravity.y > 0))
+                scale.y *= -1;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        transform.localScale = scale;
+    }
+
+    // Handle's the player's left and right movement
     public void Move(float dirX, bool isRunning) {
         float speed = isRunning ? walkSpeed * runSpeedMultiplier : walkSpeed;
-        rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
+
+        if (horizGravity)
+            rb.velocity = new Vector2(rb.velocity.x, dirX * speed);
+        else
+            rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
+
+        // if the player is moving left or right, start the running animation
+        animator.SetBool("isRunning", dirX != 0);
 
         if (dirX > 0f)
         {
+            FlipX(false);
             if (walk != null && !walk.isPlaying)
-            {
                 walk.UnPause();
-            }
-            animator.SetBool("isRunning", true);
-            sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
+            FlipX(true);
             if (walk != null && !walk.isPlaying)
-            {
                 walk.UnPause();
-            }
-            animator.SetBool("isRunning", true);
-            sprite.flipX = true;
         }
         else
         {
             if (walk != null)
-            {
                 walk.Pause();
-            }
-            animator.SetBool("isRunning", false);
         }
+    }
+
+    public void Jump(float power)
+    {
+        jump.Play();
+        if (horizGravity)
+            rb.velocity = new Vector2(-GetSign(Physics2D.gravity.x) * power, rb.velocity.y);
+        else
+            rb.velocity = new Vector2(rb.velocity.x, -GetSign(Physics2D.gravity.y) * power);
+    }
+
+    public void ReverseGravity()
+    {
+        reverseGrav.Play();
+        // Reverse global gravity (for player and objects)
+        if (horizGravity)
+            Physics2D.gravity = new Vector2(-Physics2D.gravity.x, Physics2D.gravity.y);
+        else
+            Physics2D.gravity = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y);
+    }
+
+    public void RotateGravity()
+    {
+        reverseGrav.Play();
+        Physics2D.gravity = new Vector2(-Physics2D.gravity.y, Physics2D.gravity.x);
     }
 
     public Vector2 GetPosition() {
@@ -109,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerGravityButtonFlip()
     {
-        if (isOnGround == true)
+        if (isOnGround)
         {
             reverseGrav.Play();
             rb.gravityScale *= -1;
@@ -119,6 +163,11 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = ScalerUP;
             animator.SetBool("isJumping", true);
         }
+    }
+
+    public int GetSign(float val)
+    {
+        return val != 0f ? (int)(val / Math.Abs(val)) : 0;
     }
 
 }

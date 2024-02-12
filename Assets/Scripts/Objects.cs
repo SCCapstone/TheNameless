@@ -1,41 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
+
+// This class is for the 'Player' GameObject
 
 public class Objects : MonoBehaviour
 {
-    [SerializeField]
-    private Transform grabPoint;
-
-    private GameObject grabbedObject;
+    [SerializeField] private Transform grabPoint;   // Child to the Player GameObject, position of objects that will be grabbed
+    private GameObject gObject;                     // Grabbed object
+    private GameObject tObject;                     // Touched object
+    private Rigidbody2D rb;                         // RigidBody2D of the Player
 
     
     void Start()
     {
-        grabbedObject = null;
+        gObject = null;
+        tObject = null;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        // If the object has been 'grabbed', update it's position to the player's grab position
+        if (gObject != null)
+            gObject.transform.position = grabPoint.position;
+
+        // Press 'E' to pick up a new object
+        if (Input.GetKeyDown(KeyCode.E) && gObject != tObject)
+        {
+            gObject = tObject;
+            gObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            gObject.transform.SetParent(transform);
+        }
+        // Press 'E' to release the currently held object
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            gObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            gObject.transform.SetParent(null);
+            // Allow the object to keep moving with the same velocity as when it was released
+            gObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+            gObject = null;
+        }
+
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
+    // Functions that detect whether the player is touching an object
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Object")) {
-            if (Input.GetKeyDown(KeyCode.E) && grabbedObject == null)
-            {
-                grabbedObject = collider.transform.parent.gameObject;
-                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
-                grabbedObject.transform.position = grabPoint.position;
-                grabbedObject.transform.SetParent(transform);
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                grabbedObject.transform.SetParent(null);
-                grabbedObject = null;
-            }
-        }
+        if (collider.gameObject.CompareTag("Object"))
+            tObject = collider.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D collider) 
+    {
+        if (collider.gameObject.CompareTag("Object"))
+            tObject = null;
     }
 }
