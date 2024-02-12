@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7883672117946191126}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pressure Plate Ceiling
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +262,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 1
+  enabledOnlyWhilePressed: 0
   onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &8344696569450813342

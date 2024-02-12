@@ -144,7 +144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 0
+  enabledOnlyWhilePressed: 0
   onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5680732410952997824
@@ -156,9 +160,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2174915859902493624}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pressure Plate Left Wall
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +195,7 @@ GameObject:
   - component: {fileID: 3646615902041323294}
   - component: {fileID: 7605300656243663268}
   - component: {fileID: 1157058434367240668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
