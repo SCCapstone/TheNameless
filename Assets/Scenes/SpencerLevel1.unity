@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 43163854}
   - component: {fileID: 43163853}
   m_Layer: 0
-  m_Name: Gate 1
+  m_Name: Red Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,8 +370,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002719611, y: 0.03383994}
-  m_Size: {x: 0.8789043, y: 0.93656206}
+  m_Offset: {x: 0.0017023087, y: 0.06479263}
+  m_Size: {x: 1.489114, y: 1.8651428}
   m_Direction: 0
 --- !u!1 &113864966
 GameObject:
@@ -1176,7 +1176,7 @@ Transform:
   m_GameObject: {fileID: 500183262}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.179, y: 0.095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8349,7 +8349,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.71, y: -3.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 106922752}
@@ -8414,8 +8414,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002719611, y: 0.03383994}
-  m_Size: {x: 0.8789043, y: 0.93656206}
+  m_Offset: {x: 0.0061240196, y: 0.06486869}
+  m_Size: {x: 1.5244887, y: 1.8738112}
   m_Direction: 0
 --- !u!1 &1103541060
 GameObject:
@@ -22771,7 +22771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2174915859902493624, guid: e3deb9c86d8353d43b203f6415b4b4fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.816
+      value: -3.73
       objectReference: {fileID: 0}
     - target: {fileID: 2174915859902493624, guid: e3deb9c86d8353d43b203f6415b4b4fc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22870,6 +22870,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: enabledOnlyWhilePressed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 43163853}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 43163853}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gate, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gate, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626801350616633175, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22889,7 +22953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6273029281280824905, guid: c447aebec5407fd4bbd119f400a44334, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.044
+      value: 6.6
       objectReference: {fileID: 0}
     - target: {fileID: 6273029281280824905, guid: c447aebec5407fd4bbd119f400a44334, type: 3}
       propertyPath: m_LocalPosition.z

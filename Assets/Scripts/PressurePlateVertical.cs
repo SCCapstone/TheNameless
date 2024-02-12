@@ -43,6 +43,7 @@ public class PressurePlateVertical : MonoBehaviour
         if ((isFlipped ? (transform.position.y <= startPos.y) : (transform.position.y >= startPos.y)) && pressed && !onPlate)
             pressed = false;
 
+        //Activates only when held down and deactivates when released
         if (enabledOnlyWhilePressed)
         {
             if (pressed)
