@@ -5,30 +5,30 @@ using UnityEngine.UI;
 
 public class ButtonInteraction : MonoBehaviour
 {
-    public Text ButtonText;
+   // public Text ButtonText;
     public string sceneToLoad;
     private bool playerInRange;
 
     // Start is called before the first frame update
     void Start()
     {
-        ButtonText.enabled = false;
+        //ButtonText.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Astronaught"))
+        if (collision.CompareTag("Player"))
         {
-            ButtonText.enabled = true;
+           // ButtonText.enabled = true;
             playerInRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Astronaught"))
+        if (collision.CompareTag("Player"))
         {
-            ButtonText.enabled = false;
+            //ButtonText.enabled = false;
             playerInRange = false;
         }
     }

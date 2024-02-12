@@ -457,11 +457,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1461667452664868301, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.56
+      value: -4.13
       objectReference: {fileID: 0}
     - target: {fileID: 1461667452664868301, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1461667452664868301, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -499,6 +499,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1138280325, guid: 9d9dd41a0b11ebc48843ecf7197dba26, type: 3}
+    - target: {fileID: 7857084337681455226, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      propertyPath: jumpPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7857084337681455226, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
+      propertyPath: walkSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8614227819989871601, guid: 7a2f7a5a826f54b489287acd61b7e44c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2
@@ -6130,7 +6138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd2d017c487c34091524862bd08b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: {fileID: 0}
   sceneToLoad: EthansMinigame(Breakout)
 --- !u!61 &1603371058
 BoxCollider2D:
