@@ -6,9 +6,11 @@ using UnityEngine.Events;
 public class PressurePlateVertical : MonoBehaviour
 {
     [SerializeField] private bool isFlipped = false;
+    [SerializeField] private bool enabledOnlyWhilePressed = false;
     private Vector3 startPos;   // The plate's initial position that it will return to after being disengaged
     private readonly float maxPos = 0.1f;   // How far the plate can be depressed
     public UnityEvent onPress;  // Allow us to define the funtion of the pressure plate in the Unity Inspector
+    public UnityEvent onRelease;  // Allow us to define what happens when the pressure plate is disengaged
     private bool onPlate;       // Whether something is making contact with the plate
     private bool pressed;       // Bool to make sure the plate can't be activated again until it's fully disengaged first
 
@@ -33,12 +35,23 @@ public class PressurePlateVertical : MonoBehaviour
         {
             pressed = true;
             // If you want do do something just once, do it here
-            onPress.Invoke();
+            if (!enabledOnlyWhilePressed)
+                onPress.Invoke();
         }
 
         // Set 'pressed' var to false when plate is fully disengaged
         if ((isFlipped ? (transform.position.y <= startPos.y) : (transform.position.y >= startPos.y)) && pressed && !onPlate)
             pressed = false;
+
+        //Activates only when held down and deactivates when released
+        if (enabledOnlyWhilePressed)
+        {
+            if (pressed)
+                onPress.Invoke();
+            else
+                onRelease.Invoke();
+        }
+
     }
 
     // Functions that detect whether the player or an object are on the pressure plate.

@@ -53,4 +53,10 @@ public class Gate : MonoBehaviour
     {
         open = !open;
     }
+
+    // Function to set open bool explicitly
+    public void SetOpen(bool isOpen)
+    {
+        open = isOpen;
+    }
 }
