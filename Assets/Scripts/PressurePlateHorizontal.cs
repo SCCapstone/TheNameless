@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class PressurePlateHorizontal : MonoBehaviour
 {
     [SerializeField] private bool isFlipped = false;
-    [SerializeField] private bool enabledOnlyWhilePressed = false;
+    [SerializeField] private bool toggleable = true;
     private Vector3 startPos;   // The plate's initial position that it will return to after being disengaged
     private readonly float maxPos = 0.1f;   // How far the plate can be depressed
     public UnityEvent onPress;  // Allow us to define the funtion of the pressure plate in the Unity Inspector
@@ -35,7 +35,7 @@ public class PressurePlateHorizontal : MonoBehaviour
         {
             pressed = true;
             // If you want do do something just once, do it here
-            if (!enabledOnlyWhilePressed)
+            if (toggleable)
                 onPress.Invoke();
         }
 
@@ -44,7 +44,7 @@ public class PressurePlateHorizontal : MonoBehaviour
             pressed = false;
 
         //Activates only when held down and deactivates when released
-        if (enabledOnlyWhilePressed)
+        if (!toggleable)
         {
             if (pressed)
                 onPress.Invoke();
