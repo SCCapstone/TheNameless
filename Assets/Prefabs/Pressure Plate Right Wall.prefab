@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1525338535182447801}
   m_Layer: 3
   m_Name: Button
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 1
+  toggleable: 1
   onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7931447498480158015
@@ -158,7 +162,7 @@ GameObject:
   - component: {fileID: 6939490993185624198}
   - component: {fileID: 7925387970234480931}
   - component: {fileID: 4654145996438810516}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,9 +290,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6273029281280824905}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pressure Plate Right Wall
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
