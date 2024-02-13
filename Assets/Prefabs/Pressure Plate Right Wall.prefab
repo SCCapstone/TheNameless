@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1525338535182447801}
   m_Layer: 3
   m_Name: Button
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 1
-  enabledOnlyWhilePressed: 0
+  toggleable: 1
   onPress:
     m_PersistentCalls:
       m_Calls: []
