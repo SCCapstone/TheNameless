@@ -41,9 +41,13 @@ public class PoseMinigame : MonoBehaviour
     public GameObject scan3;
     public GameObject scan4;
 
+    private int currentPose;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentPose = 0;
+
         //Get components
         exTransform = instruction.GetComponent<Transform>();
         exSprite = instruction.GetComponent<SpriteRenderer>();
@@ -60,11 +64,29 @@ public class PoseMinigame : MonoBehaviour
         {
             float vert = Input.GetAxis("Vertical");
             //Flip
-            if(requireFlip && vert > 0) SR.flipX = !SR.flipX;
+            if(requireFlip && vert > 0)
+            {
+                SR.flipX = !SR.flipX;
+            }
             //Pose
             if(requirePose && vert < 0)
             {
+                currentPose = (currentPose+1) % 3;
 
+                switch(currentPose)
+                {
+                    case 0:
+                        SR.sprite = Resources.Load<Sprite>("Astronaut_Pose1");
+                        break;
+                    case 1:
+                        SR.sprite = Resources.Load<Sprite>("Astronaut_Pose2");
+                        break;
+                    case 2:
+                        SR.sprite = Resources.Load<Sprite>("Astronaut_Pose3");
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -88,7 +110,20 @@ public class PoseMinigame : MonoBehaviour
             }
             if(requirePose)
             {
-
+                switch(goalPose[i])
+                {
+                    case 0:
+                        exSprite.sprite = Resources.Load<Sprite>("Astronaut_Pose1");
+                        break;
+                    case 1:
+                        exSprite.sprite = Resources.Load<Sprite>("Astronaut_Pose2");
+                        break;
+                    case 2:
+                        exSprite.sprite = Resources.Load<Sprite>("Astronaut_Pose3");
+                        break;
+                    default:
+                        break;
+                }
             }
 
             //Wait for countdown
@@ -105,6 +140,10 @@ public class PoseMinigame : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             if(exSprite.flipX != SR.flipX)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            if(requirePose && currentPose != goalPose[i])
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }

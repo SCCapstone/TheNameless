@@ -44,6 +44,6 @@ public class ButtonInteraction : MonoBehaviour
 
     void LoadMiniGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(6);
     }
 }
