@@ -168,8 +168,8 @@ TextureImporter:
       name: wires_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 16
+        y: 8
         width: 8
         height: 8
       alignment: 0
@@ -189,6 +189,90 @@ TextureImporter:
       name: wires_3
       rect:
         serializedVersion: 2
+        x: 24
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c6387f58615bf4c91d596f84c5f4cb
+      internalID: 1751908234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa385ddc0a9b0c44b23b82b58fe3eb2
+      internalID: 360984898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962545c477001124aaec7997b823122c
+      internalID: -1077995813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15ff425200299b4badbce3a3a69d88a
+      internalID: -990602064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_7
+      rect:
+        serializedVersion: 2
         x: 8
         y: 0
         width: 8
@@ -200,8 +284,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61e98fd93252a844895612ac7048fba1
-      internalID: 1751908234
+      spriteID: f3e08bacf378cb3458b0b227b857f4a6
+      internalID: -743583026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc19a96f4507eb459a1214acba74222
+      internalID: 1789288704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e9af9857fa75b4080e81b5d86fa0e9
+      internalID: -2001971126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1d127d9208cb749b8217fe384b7704
+      internalID: -869654175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wires_11
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e66af8ac778a941954cba2c8215352
+      internalID: -1348859269
       vertices: []
       indices: 
       edges: []
@@ -219,8 +387,16 @@ TextureImporter:
     nameFileIdTable:
       wires_0: 1990590382
       wires_1: 188274238
+      wires_10: -869654175
+      wires_11: -1348859269
       wires_2: -2020328286
       wires_3: 1751908234
+      wires_4: 360984898
+      wires_5: -1077995813
+      wires_6: -990602064
+      wires_7: -743583026
+      wires_8: 1789288704
+      wires_9: -2001971126
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
