@@ -63,6 +63,12 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isOnGround = true;
+    }
+
     // Be sure to set your Player GameObject to flipX=True and X scale to -1 to start
     public void FlipX(bool isFlipped)
     {
