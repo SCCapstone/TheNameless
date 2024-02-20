@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public Animator SceneTransition;
     public int maxHealth = 1;
     public int currentHealth;
+    public Vector2 startGravity;
     public Behaviour stopPlayer;
    
     [SerializeField] AudioSource walk;
@@ -18,13 +19,14 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startGravity = Physics2D.gravity;
         currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TakeDamage(int amount)
@@ -46,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         SceneTransition.SetBool("isDead", true);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
         SceneTransition.SetBool("isDead", false);
     }
     
