@@ -20699,6 +20699,7 @@ MonoBehaviour:
   SceneTransition: {fileID: 609626159}
   maxHealth: 1
   currentHealth: 0
+  startGravity: {x: 0, y: 0}
   stopPlayer: {fileID: 1688557127}
   walk: {fileID: 437844126}
   hurt: {fileID: 515493758}
