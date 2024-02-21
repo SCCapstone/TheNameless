@@ -30,9 +30,9 @@ public class Gate : MonoBehaviour
         // Sound effect could be added here
         Vector3 scale = transform.localScale;
         if (isHorizontal && scale.x > 0)
-            scale.x -= 0.1f;
+            scale.x -= 0.05f;
         if (!isHorizontal && scale.y > 0)
-            scale.y -= 0.1f;
+            scale.y -= 0.05f;
         transform.localScale = scale;
     }
 
@@ -42,9 +42,9 @@ public class Gate : MonoBehaviour
         // Sound effect could be added here
         Vector3 scale = transform.localScale;
         if (isHorizontal && scale.x < startScale.x)
-            scale.x += 0.1f;
+            scale.x += 0.05f;
         if (!isHorizontal && scale.y < startScale.y)
-            scale.y += 0.1f;
+            scale.y += 0.05f;
         transform.localScale = scale;
     }
 
