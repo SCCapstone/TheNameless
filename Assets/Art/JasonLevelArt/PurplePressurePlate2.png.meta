@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df578bc22ce3070499ca5d235a780821
+guid: 85cf641cd403e2a48999099bccbb5d6a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -136,7 +136,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RobotDroneEnemy_0
+      name: PurplePressurePlate2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fbab260b8044c14198442dff553a05d
+      internalID: 708708211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89303b777faf13147ae3569c50548d79
+      internalID: -661502255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate2_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae96f3e49b70e134db4cae14a3e8a702
+      internalID: -598596096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate2_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa2df1e1ddbd16428a320fd1ad985cb
+      internalID: 1146165633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f87d11386a0ac1c4caad6b7c1fd50532
-      internalID: -264771624
+      spriteID: 4607e75472c99654790527c349ba14d2
+      internalID: 1542325012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_1
+      name: PurplePressurePlate2_5
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d82e4cdd3d61a6449824379a61a13afa
-      internalID: 739567849
+      spriteID: d9ddf6213ea8fd241a956838ae287d24
+      internalID: -612929091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_2
+      name: PurplePressurePlate2_6
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d690e127dc3f840909fbec5cb11a88
-      internalID: 109316649
+      spriteID: 69b934bdca0036645b215bfc6c12fd6a
+      internalID: 1231729269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_3
+      name: PurplePressurePlate2_7
       rect:
         serializedVersion: 2
         x: 96
@@ -213,50 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255c84322ccdbec47be9d58463b261f9
-      internalID: -1763916091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotDroneEnemy_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e2b8d803a0caa14ca610d19879c5f80
-      internalID: -1465419808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotDroneEnemy_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 294c7186dffdc5d4081212a0c87ad5a8
-      internalID: 1601128611
+      spriteID: feb41edf684ed1f4d9bd6487c718f016
+      internalID: 1875366576
       vertices: []
       indices: 
       edges: []
@@ -272,12 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RobotDroneEnemy_0: -264771624
-      RobotDroneEnemy_1: 739567849
-      RobotDroneEnemy_2: 109316649
-      RobotDroneEnemy_3: -1763916091
-      RobotDroneEnemy_4: -1465419808
-      RobotDroneEnemy_5: 1601128611
+      PurplePressurePlate2_0: 708708211
+      PurplePressurePlate2_1: -661502255
+      PurplePressurePlate2_2: -598596096
+      PurplePressurePlate2_3: 1146165633
+      PurplePressurePlate2_4: 1542325012
+      PurplePressurePlate2_5: -612929091
+      PurplePressurePlate2_6: 1231729269
+      PurplePressurePlate2_7: 1875366576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

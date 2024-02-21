@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df578bc22ce3070499ca5d235a780821
+guid: f62a7e68ae3d10142960a9e62213250a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RobotDroneEnemy_0
+      name: GreenPressurePlate3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99e43ada075f134f8d62931bca180fa
+      internalID: -301108928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenPressurePlate3_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3e9c0cffedf2f49bd2f105f2077a6a
+      internalID: -1312661952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenPressurePlate3_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b247f6e02d6044eaa807d127ae901c
+      internalID: -1803265773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenPressurePlate3_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8630231c168115468f99292d0103184
+      internalID: -389654003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenPressurePlate3_4
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f87d11386a0ac1c4caad6b7c1fd50532
-      internalID: -264771624
+      spriteID: 735b7d2f9773c17428bfce150f14aedb
+      internalID: -1020213096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_1
+      name: GreenPressurePlate3_5
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d82e4cdd3d61a6449824379a61a13afa
-      internalID: 739567849
+      spriteID: ea42a8e7f53d23d488e3a757cc613f25
+      internalID: 436305557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_2
+      name: GreenPressurePlate3_6
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d690e127dc3f840909fbec5cb11a88
-      internalID: 109316649
+      spriteID: 87bdb071b91b9ce4e82c9bf21b1e4ee9
+      internalID: -2014231900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_3
+      name: GreenPressurePlate3_7
       rect:
         serializedVersion: 2
         x: 96
@@ -213,50 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255c84322ccdbec47be9d58463b261f9
-      internalID: -1763916091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotDroneEnemy_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e2b8d803a0caa14ca610d19879c5f80
-      internalID: -1465419808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotDroneEnemy_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 294c7186dffdc5d4081212a0c87ad5a8
-      internalID: 1601128611
+      spriteID: 1549ed3857f2b534b987b6662c1ddc2b
+      internalID: 1900531829
       vertices: []
       indices: 
       edges: []
@@ -272,12 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RobotDroneEnemy_0: -264771624
-      RobotDroneEnemy_1: 739567849
-      RobotDroneEnemy_2: 109316649
-      RobotDroneEnemy_3: -1763916091
-      RobotDroneEnemy_4: -1465419808
-      RobotDroneEnemy_5: 1601128611
+      GreenPressurePlate3_0: -301108928
+      GreenPressurePlate3_1: -1312661952
+      GreenPressurePlate3_2: -1803265773
+      GreenPressurePlate3_3: -389654003
+      GreenPressurePlate3_4: -1020213096
+      GreenPressurePlate3_5: 436305557
+      GreenPressurePlate3_6: -2014231900
+      GreenPressurePlate3_7: 1900531829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

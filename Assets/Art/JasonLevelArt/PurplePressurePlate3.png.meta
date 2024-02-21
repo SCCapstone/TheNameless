@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df578bc22ce3070499ca5d235a780821
+guid: 48b60e411b3f2ae4a9a57443286fab01
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RobotDroneEnemy_0
+      name: PurplePressurePlate3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75b260a6b6de0f4caf9294f26031ceb
+      internalID: -1103025180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate3_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b494db79e8247499d2d78c386e4700
+      internalID: 1892866346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate3_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1e6cc8aae426d8409d20ec2f45b6640
+      internalID: 1370771682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate3_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f35eef18df8a542a833daa3c23e522
+      internalID: -1648944130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePressurePlate3_4
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f87d11386a0ac1c4caad6b7c1fd50532
-      internalID: -264771624
+      spriteID: 3d82761d8a57ea641b6cce1fbf776c33
+      internalID: 30932289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_1
+      name: PurplePressurePlate3_5
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d82e4cdd3d61a6449824379a61a13afa
-      internalID: 739567849
+      spriteID: 54863cacf597e5b48a36bcbe289bd8e4
+      internalID: -936369388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_2
+      name: PurplePressurePlate3_6
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d690e127dc3f840909fbec5cb11a88
-      internalID: 109316649
+      spriteID: 3a6aade3ad058f7449edf5ad443857e0
+      internalID: 191556173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotDroneEnemy_3
+      name: PurplePressurePlate3_7
       rect:
         serializedVersion: 2
         x: 96
@@ -213,50 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255c84322ccdbec47be9d58463b261f9
-      internalID: -1763916091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotDroneEnemy_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e2b8d803a0caa14ca610d19879c5f80
-      internalID: -1465419808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotDroneEnemy_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 294c7186dffdc5d4081212a0c87ad5a8
-      internalID: 1601128611
+      spriteID: 61ab9fe5b35ca0b4c87ed0d23144b67f
+      internalID: -1692587878
       vertices: []
       indices: 
       edges: []
@@ -272,12 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RobotDroneEnemy_0: -264771624
-      RobotDroneEnemy_1: 739567849
-      RobotDroneEnemy_2: 109316649
-      RobotDroneEnemy_3: -1763916091
-      RobotDroneEnemy_4: -1465419808
-      RobotDroneEnemy_5: 1601128611
+      PurplePressurePlate3_0: -1103025180
+      PurplePressurePlate3_1: 1892866346
+      PurplePressurePlate3_2: 1370771682
+      PurplePressurePlate3_3: -1648944130
+      PurplePressurePlate3_4: 30932289
+      PurplePressurePlate3_5: -936369388
+      PurplePressurePlate3_6: 191556173
+      PurplePressurePlate3_7: -1692587878
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
