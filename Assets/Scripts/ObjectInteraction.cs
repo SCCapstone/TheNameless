@@ -2,7 +2,7 @@ using UnityEngine;
 
 // This class is for the 'Player' GameObject
 
-public class Objects : MonoBehaviour
+public class ObjectInteraction : MonoBehaviour
 {
     [SerializeField] private Transform grabPoint;   // Child to the Player GameObject, position of objects that will be grabbed
     private GameObject gObject;                     // Grabbed object
