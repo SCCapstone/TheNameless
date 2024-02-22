@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cc8b0146d2c332f44bb78a516aac4f45
+guid: 2994af0f0c50a3f43b5d2328af777999
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PurplePressurePlate4_0
+      name: PurplePiston2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90fa2e99591979e47a66dc7d7d68a8ef
-      internalID: -1472843828
+      spriteID: 355744281e4ed80439a33512c06c0be5
+      internalID: -1400651803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PurplePressurePlate4_1
+      name: PurplePiston2_1
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e8288b8e77b2ac4398aa2a1a185ee2f
-      internalID: -1264014058
+      spriteID: 278364de3c546134185b6f6368f5908b
+      internalID: 753648994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PurplePressurePlate4_2
+      name: PurplePiston2_2
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7d7d14467a0cff46ae469db5c0732b1
-      internalID: 352845380
+      spriteID: 5dbe409dd2f8f104f9cc520e6a6417dd
+      internalID: -1986455663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PurplePressurePlate4_3
+      name: PurplePiston2_3
       rect:
         serializedVersion: 2
         x: 96
@@ -213,14 +213,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 183346aaa8700964b8ad2790e9ad3c43
-      internalID: -962501874
+      spriteID: 8c65734b2800e764ebe5aeae6805e3b6
+      internalID: -131126038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PurplePressurePlate4_4
+      name: PurplePiston2_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d30af062e47ba4c9252119c3fbc73b
+      internalID: 1756710600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePiston2_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31766bd541618142935b248e9ad832e
+      internalID: 1951264354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePiston2_6
       rect:
         serializedVersion: 2
         x: 0
@@ -234,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed116d58fa9bce4390c1a47e41bb2b7
-      internalID: 1220795721
+      spriteID: 88d37352b380008418a4d6938a2cb426
+      internalID: -1960768362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PurplePressurePlate4_5
+      name: PurplePiston2_7
       rect:
         serializedVersion: 2
         x: 32
@@ -255,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a0f5a0428455634480fc92f72f7b034
-      internalID: -1810408858
+      spriteID: 3677e5ee7dca3bf4ab0aba23d9e502fb
+      internalID: 818193727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PurplePressurePlate4_6
+      name: PurplePiston2_8
       rect:
         serializedVersion: 2
         x: 64
@@ -276,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04c50b629308e3743bb51e4a5c361031
-      internalID: 620421339
+      spriteID: 75e63a105993c5d4a8e313bd4d1a34c8
+      internalID: -761979352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PurplePressurePlate4_7
+      name: PurplePiston2_9
       rect:
         serializedVersion: 2
         x: 96
@@ -297,8 +339,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 046542bfc516ebe4cbdaae8003dd02ad
-      internalID: -1614140000
+      spriteID: c1dcc10034f015b4c996c2ade243761b
+      internalID: -1944219939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePiston2_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5cc8008fa7729e48879fa5beebaeacc
+      internalID: 738815222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePiston2_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7adb0a3ff62a42146a55109f58b29ee1
+      internalID: -137892801
       vertices: []
       indices: 
       edges: []
@@ -314,14 +398,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PurplePressurePlate4_0: -1472843828
-      PurplePressurePlate4_1: -1264014058
-      PurplePressurePlate4_2: 352845380
-      PurplePressurePlate4_3: -962501874
-      PurplePressurePlate4_4: 1220795721
-      PurplePressurePlate4_5: -1810408858
-      PurplePressurePlate4_6: 620421339
-      PurplePressurePlate4_7: -1614140000
+      PurplePiston2_0: -1400651803
+      PurplePiston2_1: 753648994
+      PurplePiston2_10: 738815222
+      PurplePiston2_11: -137892801
+      PurplePiston2_2: -1986455663
+      PurplePiston2_3: -131126038
+      PurplePiston2_4: 1756710600
+      PurplePiston2_5: 1951264354
+      PurplePiston2_6: -1960768362
+      PurplePiston2_7: 818193727
+      PurplePiston2_8: -761979352
+      PurplePiston2_9: -1944219939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
