@@ -1,32 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Ballbehavior : MonoBehaviour
 {
     public float minY = -5.5f;
     public float maxV = 15f;
     public float SpeedMultiplyer = 1.5f;
-    public float LevelTime = 60f;
+    public float timer = 60f;
+    public Generator brickGenerator;
     private Rigidbody2D rb2d;
-
     Rigidbody2D rb;
-    // Start is called before the first frame update
-    public float timer;
+    
     void Start()
     {
+        InvokeRepeating("DecreaseTimer", 1f, 1f);
+        int count = brickGenerator.bc;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * 5f;
-        timer = LevelTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer <= 0)
-        {
-            GameOver();
-        }
         if(transform.position.y < minY)
         {
             transform.position = Vector3.zero;
@@ -42,6 +40,7 @@ public class NewBehaviourScript : MonoBehaviour
         if(collision.gameObject.CompareTag("brick"))
         {
             Destroy(collision.gameObject);
+            brickGenerator.DestroyBrick();
             rb2d = collision.gameObject.GetComponent<Rigidbody2D>();
             if (rb2d != null)
             {
@@ -58,8 +57,19 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
+    void DecreaseTimer()
+    {
+        timer -= 1f;
+        if (timer <= 0f)
+        {
+            GameOver();
+        }
+
+    }
+
     void GameOver()
     {
         Debug.Log("GameOver");
     }
+
 }

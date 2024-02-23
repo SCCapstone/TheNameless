@@ -1942,6 +1942,7 @@ MonoBehaviour:
   size: {x: 4, y: 5}
   offset: {x: 1, y: 0.5}
   brickPrefab: {fileID: 6370613902731060699, guid: 3124ec19ba6daaf4282742eaeca219d9, type: 3}
+  bc: 0
 --- !u!4 &505740520
 Transform:
   m_ObjectHideFlags: 0
@@ -5936,8 +5937,8 @@ MonoBehaviour:
   minY: -5.5
   maxV: 10
   SpeedMultiplyer: 1.5
-  LevelTime: 60
   timer: 0
+  brickGenerator: {fileID: 505740519}
 --- !u!1 &1352825358
 GameObject:
   m_ObjectHideFlags: 0
@@ -5996,7 +5997,6 @@ GameObject:
   - component: {fileID: 1354354062}
   - component: {fileID: 1354354061}
   - component: {fileID: 1354354060}
-  - component: {fileID: 1354354059}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6004,19 +6004,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1354354059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354354058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88f7af9d22b3a141a8972a315d00446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameScript: {fileID: 1175201606}
 --- !u!114 &1354354060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6111,6 +6098,7 @@ GameObject:
   - component: {fileID: 1614362258}
   - component: {fileID: 1614362260}
   - component: {fileID: 1614362259}
+  - component: {fileID: 1614362261}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6234,6 +6222,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614362257}
   m_CullTransparentMesh: 1
+--- !u!114 &1614362261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614362257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88f7af9d22b3a141a8972a315d00446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerScript: {fileID: 1175201606}
 --- !u!1 &1868914142
 GameObject:
   m_ObjectHideFlags: 0
@@ -6308,8 +6309,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
+  m_Color: {r: 0.4056604, g: 0.37657532, b: 0.37657532, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6368,9 +6369,9 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.984375, y: 0.984375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

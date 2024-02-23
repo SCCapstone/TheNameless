@@ -3,25 +3,25 @@ using UnityEngine.UI;
 
 public class TimerDisplay : MonoBehaviour
 {
-    public NewBehaviourScript gameScript;
+    public Ballbehavior timerScript;
     private Text timerText;
 
     void Start()
     {
         timerText = GetComponent<Text>();
-        gameScript = FindObjectOfType<NewBehaviourScript>();
-        if (gameScript == null)
+        timerScript = FindObjectOfType<Ballbehavior>();
+        if (timerScript == null)
         {
-            Debug.LogError("NewBehaviourScript not found in the scene.");
+            Debug.LogError("Ballbehavior not found in the scene.");
         }
     }
 
 
     void Update()
     {
-        if (gameScript != null)
+        if (timerScript != null)
         {
-            timerText.text = "Time: " + Mathf.CeilToInt(gameScript.timer).ToString();
+            timerText.text = "Time: " + Mathf.CeilToInt(timerScript.timer).ToString("FO");
         }    
     }
 }
