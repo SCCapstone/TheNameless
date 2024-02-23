@@ -24,7 +24,7 @@ public class FlyingRobotEnemyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Wall>())
+        if (collision.transform.CompareTag("Wall"))
         {
             directionX *= -1f;
         }

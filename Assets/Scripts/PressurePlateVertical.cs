@@ -43,6 +43,11 @@ public class PressurePlateVertical : MonoBehaviour
         if ((isFlipped ? (transform.position.y <= startPos.y) : (transform.position.y >= startPos.y)) && pressed && !onPlate)
             pressed = false;
 
+        if (pressed)
+            gameObject.tag = "Wall";
+        else
+            gameObject.tag = "Ground";
+
         //Activates only when held down and deactivates when released
         if (!toggleable)
         {
@@ -52,12 +57,14 @@ public class PressurePlateVertical : MonoBehaviour
                 onRelease.Invoke();
         }
 
+        Debug.Log("tag: " + gameObject.tag);
+
     }
 
     // Functions that detect whether the player or an object are on the pressure plate.
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object"))
+        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object") || collision.transform.CompareTag("Enemy"))
         {
             onPlate = true;
             collision.transform.SetParent(transform);
@@ -65,7 +72,7 @@ public class PressurePlateVertical : MonoBehaviour
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object"))
+        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object") || collision.transform.CompareTag("Enemy"))
         {
             onPlate = false;
             collision.transform.SetParent(null);
@@ -74,7 +81,7 @@ public class PressurePlateVertical : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if ((collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object")) && (isFlipped ? (transform.position.y < startPos.y + maxPos) : (transform.position.y > startPos.y - maxPos)))
+        if ((collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object") || collision.transform.CompareTag("Enemy")) && (isFlipped ? (transform.position.y < startPos.y + maxPos) : (transform.position.y > startPos.y - maxPos)))
         {
             onPlate = true;
             transform.Translate(0, isFlipped ? 0.05f : -0.05f, 0);
