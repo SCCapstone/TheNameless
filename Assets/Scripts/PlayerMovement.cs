@@ -157,20 +157,6 @@ public class PlayerMovement : MonoBehaviour
         return rb.position;
     }
 
-    public void PlayerGravityButtonFlip()
-    {
-        if (isOnGround)
-        {
-            reverseGrav.Play();
-            rb.gravityScale *= -1;
-            isOnGround = false;
-            Vector3 ScalerUP = transform.localScale;
-            ScalerUP.y *= -1;
-            transform.localScale = ScalerUP;
-            animator.SetBool("isJumping", true);
-        }
-    }
-
     public int GetSign(float val)
     {
         return val != 0f ? (int)(val / Math.Abs(val)) : 0;
