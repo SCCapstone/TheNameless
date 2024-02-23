@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             animator.SetBool("isDead", true);
             walk.Pause();

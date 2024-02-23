@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Ballbehavior : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class Ballbehavior : MonoBehaviour
     
     void Start()
     {
-        InvokeRepeating("DecreaseTimer", 1f, 1f);
+        StartCoroutine(DecreaseTimer());
         int count = brickGenerator.bc;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * 5f;
@@ -57,13 +57,13 @@ public class Ballbehavior : MonoBehaviour
         }
     }
 
-    void DecreaseTimer()
+    IEnumerator DecreaseTimer()
     {
-        timer -= 1f;
+        timer -= Time.deltaTime;
         if (timer <= 0f)
         {
             GameOver();
-        }
+        } yield return null;
 
     }
 
