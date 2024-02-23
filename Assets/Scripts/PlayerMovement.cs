@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioSource jump;
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource reverseGrav;
+    [SerializeField] bool hasGravityController = true;
     
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isOnGround == true)
             Jump(jumpPower);
-        else if (Input.GetButtonDown(horizGravity ? "Horizontal" : "Vertical") && isOnGround == true)
+        else if (Input.GetButtonDown(horizGravity ? "Horizontal" : "Vertical") && isOnGround == true && hasGravityController)
             ReverseGravity();
 
         // if you're not touching the ground, the player sprite should be jumping 

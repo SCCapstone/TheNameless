@@ -64,6 +64,12 @@ public class FloorRobotEnemyScript : MonoBehaviour
             playerHealth.TakeDamage(1);
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+            directionX *= -1f;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))

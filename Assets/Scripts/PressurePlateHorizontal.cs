@@ -43,6 +43,11 @@ public class PressurePlateHorizontal : MonoBehaviour
         if ((isFlipped ? (transform.position.x <= startPos.x) : (transform.position.x >= startPos.x)) && pressed && !onPlate)
             pressed = false;
 
+        if (pressed)
+            gameObject.tag = "Wall";
+        else
+            gameObject.tag = "Ground";
+        
         //Activates only when held down and deactivates when released
         if (!toggleable)
         {
@@ -57,7 +62,7 @@ public class PressurePlateHorizontal : MonoBehaviour
     // Functions that detect whether the player or an object are on the pressure plate.
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object"))
+        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object") || collision.transform.CompareTag("Enemy"))
         {
             onPlate = true;
             collision.transform.SetParent(transform);
@@ -65,7 +70,7 @@ public class PressurePlateHorizontal : MonoBehaviour
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object"))
+        if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object") || collision.transform.CompareTag("Enemy"))
         {
             onPlate = false;
             collision.transform.SetParent(null);
@@ -74,7 +79,7 @@ public class PressurePlateHorizontal : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if ((collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object")) && (isFlipped ? (transform.position.x < startPos.x + maxPos) : (transform.position.x > startPos.x - maxPos)))
+        if ((collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object") || collision.transform.CompareTag("Enemy")) && (isFlipped ? (transform.position.x < startPos.x + maxPos) : (transform.position.x > startPos.x - maxPos)))
         {
             onPlate = true;
             transform.Translate(isFlipped ? 0.05f : -0.05f, 0, 0);
