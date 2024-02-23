@@ -6,6 +6,7 @@ public class Gate : MonoBehaviour
 {
     [SerializeField] public bool open = false;
     [SerializeField] private bool isHorizontal;
+    [SerializeField] private float speed = 0.05f;
     private Vector3 startScale;
 
     // Start is called before the first frame update
@@ -30,9 +31,9 @@ public class Gate : MonoBehaviour
         // Sound effect could be added here
         Vector3 scale = transform.localScale;
         if (isHorizontal && scale.x > 0)
-            scale.x -= 0.05f;
+            scale.x -= speed;
         if (!isHorizontal && scale.y > 0)
-            scale.y -= 0.05f;
+            scale.y -= speed;
         transform.localScale = scale;
     }
 
@@ -42,9 +43,9 @@ public class Gate : MonoBehaviour
         // Sound effect could be added here
         Vector3 scale = transform.localScale;
         if (isHorizontal && scale.x < startScale.x)
-            scale.x += 0.05f;
+            scale.x += speed;
         if (!isHorizontal && scale.y < startScale.y)
-            scale.y += 0.05f;
+            scale.y += speed;
         transform.localScale = scale;
     }
 
