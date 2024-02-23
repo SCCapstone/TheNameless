@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ButtonInteraction : MonoBehaviour
 {
    // public Text ButtonText;
-    public string sceneToLoad;
+    public int sceneToLoad;
     private bool playerInRange;
 
     // Start is called before the first frame update
@@ -44,6 +44,6 @@ public class ButtonInteraction : MonoBehaviour
 
     void LoadMiniGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(6);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
     }
 }
