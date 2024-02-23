@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 public class GravitySwitch : MonoBehaviour
 {
-    public Animator rightAnimator;
-    public Animator leftAnimator;
-    private bool isSwitched = false;
     private bool inTriggerZone = false;
     public TMP_Text text;
-    private Vector3 localScale;
+    public UnityEvent onSwitch;
+
+    public Animator thisAnimator;
+
+    void Start()
+    {
+        thisAnimator = transform.gameObject.GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -19,22 +24,16 @@ public class GravitySwitch : MonoBehaviour
         if(inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
         {
             text.text = " ";
-            if(isSwitched == true)
-            {
-                rightAnimator.SetBool("isSwitched", true);
-                leftAnimator.SetBool("isSwitched", true);
-            }
-            if(isSwitched == false)
-            {
-                rightAnimator.SetBool("isSwitched", false);
-                leftAnimator.SetBool("isSwitched", false);
-            }
-            Physics2D.gravity = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y);
-            Vector3 scale = transform.localScale;
-            if ((scale.y < 0 && Physics2D.gravity.y < 0) || (scale.y > 0 && Physics2D.gravity.y > 0))
-                scale.y *= -1;
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-            transform.localScale = scale;
+            onSwitch.Invoke();
+        }
+
+        if (Physics2D.gravity.y < 0)
+        {
+            thisAnimator.SetBool("isSwitched", false);
+        }
+        else if (Physics2D.gravity.y > 0)
+        {
+            thisAnimator.SetBool("isSwitched", true);
         }
     }
 
