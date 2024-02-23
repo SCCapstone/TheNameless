@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 // This class is for the 'Player' GameObject
@@ -8,6 +10,8 @@ public class ObjectInteraction : MonoBehaviour
     private GameObject gObject;                     // Grabbed object
     private GameObject tObject;                     // Touched object
     private Rigidbody2D rb;                         // RigidBody2D of the Player
+    private GameObject tCanvas;
+    private bool firstTouch;
 
     
     void Start()
@@ -15,6 +19,8 @@ public class ObjectInteraction : MonoBehaviour
         gObject = null;
         tObject = null;
         rb = GetComponent<Rigidbody2D>();
+        tCanvas = null;
+        firstTouch = true;
     }
 
     void Update()
@@ -40,6 +46,20 @@ public class ObjectInteraction : MonoBehaviour
             gObject = null;
         }
 
+        if (tObject != null)
+        {
+            try {
+                tCanvas = tObject.transform.GetChild(1).gameObject;
+            } catch (Exception)
+            {}
+
+            if (tCanvas != null && firstTouch)
+            {
+                StartCoroutine(DisplayInstructions(tCanvas));
+                firstTouch = false;
+            }
+        }
+
     }
 
     // Functions that detect whether the player is touching an object
@@ -53,5 +73,13 @@ public class ObjectInteraction : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Object"))
             tObject = null;
+    }
+
+    IEnumerator DisplayInstructions(GameObject canvas)
+    {
+        yield return null;
+        canvas.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        canvas.SetActive(false);
     }
 }
