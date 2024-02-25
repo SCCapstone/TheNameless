@@ -57,8 +57,6 @@ public class PressurePlateVertical : MonoBehaviour
                 onRelease.Invoke();
         }
 
-        Debug.Log("tag: " + gameObject.tag);
-
     }
 
     // Functions that detect whether the player or an object are on the pressure plate.
