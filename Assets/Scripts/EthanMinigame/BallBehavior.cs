@@ -2,33 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Ballbehavior : MonoBehaviour
 {
     public float minY = -5.5f;
-    public float maxV = 15f;
+    public float maxV = 10f;
     public float SpeedMultiplyer = 1.5f;
-    public float timer = 60f;
-    public Generator brickGenerator;
-    private Rigidbody2D rb2d;
+    public int lives = 5;
+    public int FailScene;
+    public Generator generator;
     Rigidbody2D rb;
+    public GameObject[] LivesImage;
+    private ButtonInteraction a;
     
     void Start()
     {
-        StartCoroutine(DecreaseTimer());
-        int count = brickGenerator.bc;
+        generator = FindObjectOfType<Generator>();
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * 5f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(transform.position.y < minY)
         {
-            transform.position = Vector3.zero;
-            rb.velocity = Vector2.down * 5f;
+            if (lives <= 0)
+            {
+                GameOver();
+            }
+            else
+            {
+                transform.position = Vector3.zero;
+                rb.velocity = Vector2.down * 5f;
+                lives--;
+                LivesImage[lives].SetActive(false);
+            }
+            
         }
         if(rb.velocity.magnitude > maxV)
         {
@@ -39,37 +49,14 @@ public class Ballbehavior : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("brick"))
         {
+            generator.DestroyBrick();
             Destroy(collision.gameObject);
-            brickGenerator.DestroyBrick();
-            rb2d = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (rb2d != null)
-            {
-                rb2d.velocity *= SpeedMultiplyer;
-            }
         }
-        if(collision.gameObject.CompareTag("paddle"))
-        {
-            rb2d = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (rb2d != null)
-            {
-                rb2d.velocity *= SpeedMultiplyer;
-            }
-        }
-    }
-
-    IEnumerator DecreaseTimer()
-    {
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
-        {
-            GameOver();
-        } yield return null;
-
     }
 
     void GameOver()
     {
-        Debug.Log("GameOver");
+        a.ReturnFromMiniGame();
     }
 
 }
