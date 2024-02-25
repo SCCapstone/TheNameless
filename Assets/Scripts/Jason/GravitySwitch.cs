@@ -10,8 +10,9 @@ public class GravitySwitch : MonoBehaviour
     private bool inTriggerZone = false;
     public TMP_Text text;
     public UnityEvent onSwitch;
-
     public Animator thisAnimator;
+    [SerializeField]
+    private bool switched = false;
 
     void Start()
     {
@@ -21,28 +22,29 @@ public class GravitySwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
+        if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
         {
+            switched = !switched;
             text.text = " ";
             onSwitch.Invoke();
         }
 
-        if (Physics2D.gravity.y < 0)
-        {
-            thisAnimator.SetBool("isSwitched", false);
-        }
-        else if (Physics2D.gravity.y > 0)
-        {
-            thisAnimator.SetBool("isSwitched", true);
-        }
+        if (onSwitch.GetPersistentMethodName(0) == "ReverseGravity")
+            if (Physics2D.gravity.y < 0)
+                switched = false;
+            else if (Physics2D.gravity.y > 0)
+                switched = true;
+        
+        thisAnimator.SetBool("isSwitched", switched);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             inTriggerZone = true;
-            text.text = "Press E to switch lever";
+            text.text = "PRESS [e] TO SWITCH LEVER";
         }
     }
 
