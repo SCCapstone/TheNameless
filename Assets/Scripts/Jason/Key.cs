@@ -1,18 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Key : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool playerHasKey = false;
+    private bool inTriggerZone = false;
+    public TMP_Text text;
+
+    public void Update()
     {
-        
+        if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
+        {
+            playerHasKey = true;
+            Destroy(gameObject);
+        } 
+        else
+        {
+            Debug.Log("Pick Up Key Error");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            inTriggerZone = true;
+            text.text = "PRESS [E] TO PICK UP KEY";
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        inTriggerZone = false;
     }
 }
