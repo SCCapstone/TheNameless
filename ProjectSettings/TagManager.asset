@@ -8,6 +8,11 @@ TagManager:
   - Wall
   - Enemy
   - Manager
+  - brick
+  - Crate
+  - Object
+  - paddle
+  - TriggerZone
   layers:
   - Default
   - TransparentFX
@@ -15,9 +20,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Objects
+  - Background
+  - Space
   - 
   - 
   - 
@@ -42,6 +47,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Space
+    uniqueID: 2125081531
+    locked: 0
   - name: Background
     uniqueID: 3073868091
     locked: 0

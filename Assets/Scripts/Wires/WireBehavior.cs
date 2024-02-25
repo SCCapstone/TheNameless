@@ -20,9 +20,10 @@ public class WireBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
-        {
-            playerHealth.TakeDamage(1);
-        }
+            if (collision.gameObject.name.Equals("Player"))
+            {
+                playerHealth.TakeDamage(1);
+            }
     }
+
 }

@@ -6,7 +6,7 @@ using TMPro;
 public class ActivateBlink : MonoBehaviour
 {
     [SerializeField] Laser laser;
-    [SerializeField] float blinkSpeed = 2f;
+    [SerializeField] float blinkSpeed = 0f;
     [SerializeField] TMP_Text text;
     [SerializeField] private bool inTrigger = false;
 

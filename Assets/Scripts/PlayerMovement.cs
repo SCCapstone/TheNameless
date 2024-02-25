@@ -1,25 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Animator anim;
-    private float dirX = 0f;
+    private Animator animator;
     private SpriteRenderer sprite;
     private bool isOnGround;
+    private bool isRunning = false;
+    private bool horizGravity;
+    private Vector3 localScale;
     [SerializeField] float jumpPower = 10f;
+    [SerializeField] float runSpeedMultiplier = 2f;
+    [SerializeField] float walkSpeed = 5f;
     [SerializeField] AudioSource jump;
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource reverseGrav;
+    [SerializeField] bool hasGravityController = true;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        localScale = transform.localScale;
         isOnGround = true;
         walk.Play();
         walk.Pause();
@@ -28,71 +33,134 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dirX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
+        horizGravity = Physics2D.gravity.y == 0f;
 
-        if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale > 0f)
-        {
-            jump.Play();
-            anim.SetBool("isJumping", true);
-            rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
-            isOnGround= false;
-        }
-        if (Input.GetButtonDown("Jump") && isOnGround == true && rb.gravityScale < 0f)
-        {
-            jump.Play();
-            anim.SetBool("isJumping", true);
-            rb.velocity = new Vector3(rb.velocity.x, -jumpPower, 0);
-            isOnGround = false;
-        }
-        if (Input.GetButtonDown("Vertical") && isOnGround == true)
-        {
-            reverseGrav.Play();
-            anim.SetBool("isJumping", true);
-            rb.gravityScale *= -1;
-            isOnGround = false;
-            FlipUp();
-        }
+        isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-        UpdateAnimationState();
-    }
+        Move(Input.GetAxis(horizGravity ? "Vertical" : "Horizontal"), isRunning);
 
-    private void UpdateAnimationState()
-    {
-        if (dirX > 0f)
-        {
-            walk.UnPause();
-            anim.SetBool("isJumping", false);
-            anim.SetBool("isRunning", true);
-            sprite.flipX = false;
-        }
-        else if (dirX < 0f)
-        {
-            walk.UnPause();
-            anim.SetBool("isJumping", false);
-            anim.SetBool("isRunning", true);
-            sprite.flipX = true;
-        }
-        else
-        {
-            walk.Pause();
-            anim.SetBool("isJumping", false);
-            anim.SetBool("isRunning", false);
-        }
+        if (Input.GetButtonDown("Jump") && isOnGround == true)
+            Jump(jumpPower);
+        else if (Input.GetButtonDown(horizGravity ? "Horizontal" : "Vertical") && isOnGround == true && hasGravityController)
+            ReverseGravity();
+
+        // if you're not touching the ground, the player sprite should be jumping 
+        animator.SetBool("isJumping", !isOnGround);
+
+        // This flips the player depending on gravity direction
+        FlipY();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
-        {
+        if (collision.gameObject.CompareTag("Ground"))
             isOnGround = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isOnGround = false;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isOnGround = true;
+    }
+
+    // Be sure to set your Player GameObject to flipX=True and X scale to -1 to start
+    public void FlipX(bool isFlipped)
+    {
+        Vector3 scale = transform.localScale;
+        if ((scale.x < 0 && isFlipped) || (scale.x > 0 && !isFlipped))
+            scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    // Flip Y of the Player if gravity is reversed
+    private void FlipY()
+    {
+        Vector3 scale = transform.localScale;
+        if (horizGravity)
+        {
+            if ((scale.y > 0 && Physics2D.gravity.x < 0) || (scale.y < 0 && Physics2D.gravity.x > 0))
+                scale.y *= -1;
+            transform.localRotation = Quaternion.Euler(0, 0, 90);
+        }
+        else
+        {
+            if ((scale.y < 0 && Physics2D.gravity.y < 0) || (scale.y > 0 && Physics2D.gravity.y > 0))
+                scale.y *= -1;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        transform.localScale = scale;
+    }
+
+    // Handle's the player's left and right movement
+    public void Move(float dirX, bool isRunning) {
+        float speed = isRunning ? walkSpeed * runSpeedMultiplier : walkSpeed;
+
+        if (horizGravity)
+            rb.velocity = new Vector2(rb.velocity.x, dirX * speed);
+        else
+            rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
+
+        // if the player is moving left or right, start the running animation
+        animator.SetBool("isRunning", dirX != 0);
+
+        if (dirX > 0f)
+        {
+            FlipX(false);
+            if (walk != null && !walk.isPlaying)
+                walk.UnPause();
+        }
+        else if (dirX < 0f)
+        {
+            FlipX(true);
+            if (walk != null && !walk.isPlaying)
+                walk.UnPause();
+        }
+        else
+        {
+            if (walk != null)
+                walk.Pause();
         }
     }
 
-    private void FlipUp()
+    public void Jump(float power)
     {
-        Vector3 ScalerUP = transform.localScale;
-        ScalerUP.y *= -1;
-        transform.localScale = ScalerUP;
+        jump.Play();
+        if (horizGravity)
+            rb.velocity = new Vector2(-GetSign(Physics2D.gravity.x) * power, rb.velocity.y);
+        else
+            rb.velocity = new Vector2(rb.velocity.x, -GetSign(Physics2D.gravity.y) * power);
     }
+
+    public void ReverseGravity()
+    {
+        reverseGrav.Play();
+        // Reverse global gravity (for player and objects)
+        if (horizGravity)
+            Physics2D.gravity = new Vector2(-Physics2D.gravity.x, Physics2D.gravity.y);
+        else
+            Physics2D.gravity = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y);
+    }
+
+    public void RotateGravity()
+    {
+        reverseGrav.Play();
+        Physics2D.gravity = new Vector2(-Physics2D.gravity.y, Physics2D.gravity.x);
+    }
+
+    public Vector2 GetPosition() {
+        return rb.position;
+    }
+
+    public int GetSign(float val)
+    {
+        return val != 0f ? (int)(val / Math.Abs(val)) : 0;
+    }
+
 }

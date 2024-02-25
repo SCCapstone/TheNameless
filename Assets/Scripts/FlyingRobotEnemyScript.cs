@@ -24,9 +24,13 @@ public class FlyingRobotEnemyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Wall>())
+        if (collision.transform.CompareTag("Wall"))
         {
             directionX *= -1f;
+        }
+        if (collision.gameObject.name.Equals("Player"))
+        {
+            playerHealth.TakeDamage(1);
         }
     }
 
@@ -53,14 +57,5 @@ public class FlyingRobotEnemyScript : MonoBehaviour
 
         transform.localScale = localScale;
     }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerHealth.TakeDamage(1);
-        }
-    }
-
 
 }

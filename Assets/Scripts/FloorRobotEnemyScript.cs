@@ -5,11 +5,13 @@ using UnityEngine;
 public class FloorRobotEnemyScript : MonoBehaviour
 {
     private float directionX;
-    public float moveSpeed;
+    [SerializeField]
+    public float moveSpeed = 1f;
     private Rigidbody2D myRigidBody;
-    private bool isFacingRight = false;
     private Vector3 localScale;
     public PlayerHealth playerHealth;
+    private SpriteRenderer mySpriteRenderer;
+    private bool isOnGround;
 
     // Start is called before the first frame update
     void Start()
@@ -17,16 +19,9 @@ public class FloorRobotEnemyScript : MonoBehaviour
         localScale = transform.localScale;
         myRigidBody = GetComponent<Rigidbody2D>();
         directionX = -1f;
-        moveSpeed = 3f;
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.GetComponent<Wall>())
-        {
-            directionX *= -1f;
-        }
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        isOnGround = true;
     }
 
     private void FixedUpdate()
@@ -37,27 +32,72 @@ public class FloorRobotEnemyScript : MonoBehaviour
     void LateUpdate()
     {
         if (directionX > 0)
-        {
-            isFacingRight = true;
-        }
+            FlipX(true);
         else if (directionX < 0)
-        {
-            isFacingRight = false;
-        }
-
-        if (((isFacingRight) && (localScale.x < 0)) || ((!isFacingRight) && (localScale.x > 0)))
-        {
-            localScale.x *= -1;
-        }
-
-        transform.localScale = localScale;
+            FlipX(false);
+        
+        FlipY();
     }
 
-    private void OnTriggerEnter(Collider collision)
+    public void FlipX(bool isFlipped)
     {
+        Vector3 scale = transform.localScale;
+        if ((scale.x < 0 && isFlipped) || (scale.x > 0 && !isFlipped))
+            scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    // Flip Y of the Floor Robot if gravity is reversed
+    public void FlipY()
+    {
+        Vector3 scale = transform.localScale;
+        if ((scale.y < 0 && Physics2D.gravity.y < 0) || (scale.y > 0 && Physics2D.gravity.y > 0))
+            scale.y *= -1;
+        transform.localScale = scale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+            directionX *= -1f;
         if (collision.gameObject.CompareTag("Player"))
-        {
             playerHealth.TakeDamage(1);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+            directionX *= -1f;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isOnGround = true;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return myRigidBody.position;
+    }
+
+    public void EnemyGravityButtonFlip()
+    {
+        if (isOnGround == true)
+        {
+            myRigidBody.gravityScale *= -1;
+            isOnGround = false;
+            if (mySpriteRenderer.flipY == true)
+            {
+                mySpriteRenderer.flipY = false;
+            }
+            else
+            {
+                mySpriteRenderer.flipY = true;
+            }
+            Vector3 ScalerUP = transform.localScale;
+            ScalerUP.y *= -1;
+            transform.localScale = ScalerUP;
         }
     }
 
