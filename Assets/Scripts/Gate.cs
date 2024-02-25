@@ -25,7 +25,7 @@ public class Gate : MonoBehaviour
         
     }
 
-    public void OpenGate()
+    private void OpenGate()
     {
         // Changing the scale of the gate gives a nice animation
         // Sound effect could be added here
@@ -37,7 +37,7 @@ public class Gate : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void CloseGate()
+    private void CloseGate()
     {
         // Changing the scale of the gate gives a nice animation
         // Sound effect could be added here
