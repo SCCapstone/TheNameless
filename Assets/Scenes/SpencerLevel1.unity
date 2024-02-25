@@ -321,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 44b75c2824634134b84937afe29ecf19, type: 3}
     - target: {fileID: 3486917560148279476, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
       propertyPath: m_Name
-      value: Pressure Plate 2
+      value: Pressure Plate 3
       objectReference: {fileID: 0}
     - target: {fileID: 6986122558771200057, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1797,7 +1797,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.00008432567}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1808,7 +1808,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 0.62770474}
   m_EdgeRadius: 0
 --- !u!212 &449168719
 SpriteRenderer:
@@ -5415,7 +5415,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00000047683716, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5426,7 +5426,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.6230221, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &506967800
 SpriteRenderer:
@@ -7798,7 +7798,7 @@ GameObject:
   - component: {fileID: 596731286}
   - component: {fileID: 596731285}
   m_Layer: 0
-  m_Name: Gate 3
+  m_Name: Gate 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7900,7 +7900,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0019792318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7911,7 +7911,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 0.62270665}
   m_EdgeRadius: 0
 --- !u!212 &606188898
 SpriteRenderer:
@@ -8209,7 +8209,7 @@ GameObject:
   - component: {fileID: 649311872}
   - component: {fileID: 649311873}
   m_Layer: 0
-  m_Name: Gate 6
+  m_Name: Gate 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8755,7 +8755,7 @@ GameObject:
   - component: {fileID: 753506196}
   - component: {fileID: 753506195}
   m_Layer: 0
-  m_Name: Switch 3
+  m_Name: Switch 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9460,7 +9460,7 @@ GameObject:
   - component: {fileID: 1042425574}
   - component: {fileID: 1042425573}
   m_Layer: 0
-  m_Name: Gate 5
+  m_Name: Gate 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19315,7 +19315,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 66c1434ec134c1344b314184787514bb, type: 3}
     - target: {fileID: 3486917560148279476, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
       propertyPath: m_Name
-      value: Pressure Plate 3
+      value: Pressure Plate 4
       objectReference: {fileID: 0}
     - target: {fileID: 6986122558771200057, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19888,7 +19888,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00002527237, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19899,7 +19899,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.6191759, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1433753106
 SpriteRenderer:
@@ -20488,7 +20488,7 @@ GameObject:
   - component: {fileID: 1638602313}
   - component: {fileID: 1638602312}
   m_Layer: 0
-  m_Name: Gate 4
+  m_Name: Gate 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21165,7 +21165,7 @@ GameObject:
   - component: {fileID: 1817958395}
   - component: {fileID: 1817958394}
   m_Layer: 0
-  m_Name: Switch 6
+  m_Name: Switch 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23359,7 +23359,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000000059604645, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -23370,7 +23370,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.62490964, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &2126270277
 SpriteRenderer:
@@ -23489,7 +23489,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.000000059604645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -23500,7 +23500,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 0.62455916}
   m_EdgeRadius: 0
 --- !u!212 &2135848898
 SpriteRenderer:
