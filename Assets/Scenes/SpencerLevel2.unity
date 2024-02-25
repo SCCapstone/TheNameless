@@ -9268,7 +9268,7 @@ GameObject:
   - component: {fileID: 837625274}
   - component: {fileID: 837625273}
   m_Layer: 0
-  m_Name: Red Gate
+  m_Name: Exit Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17042,7 +17042,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -17092,7 +17092,7 @@ SpriteRenderer:
   m_SortingLayerID: -2088478841
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 59656dc29360cc245ad8a3b92fa05ffc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22263d940c92ba34eaaf4e140384808d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -18978,6 +18978,6 @@ SceneRoots:
   - {fileID: 684582251}
   - {fileID: 1544256550}
   - {fileID: 1030971605}
-  - {fileID: 837625274}
   - {fileID: 561146239}
   - {fileID: 1893533998}
+  - {fileID: 837625274}
