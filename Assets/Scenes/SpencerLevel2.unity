@@ -8091,13 +8091,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 894551140382937923, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5db9ee3d78628a443b84fe2d77311525, type: 3}
     - target: {fileID: 3486917560148279476, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
       propertyPath: m_Name
-      value: Red Pressure Plate 1
+      value: Blue Pressure Plate
       objectReference: {fileID: 0}
     - target: {fileID: 6986122558771200057, guid: a65c55a32dc9b4f498abcf0df4d46532, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9272,7 +9268,7 @@ GameObject:
   - component: {fileID: 837625274}
   - component: {fileID: 837625273}
   m_Layer: 0
-  m_Name: Green Gate
+  m_Name: Red Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15307,7 +15303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 45358199054321712, guid: c47b0161d6a8ffe48985d504e431ab1e, type: 3}
       propertyPath: m_Name
-      value: Red Pressure Plate 2
+      value: Red Pressure Plate
       objectReference: {fileID: 0}
     - target: {fileID: 139143260817506374, guid: c47b0161d6a8ffe48985d504e431ab1e, type: 3}
       propertyPath: m_Sprite
@@ -16583,6 +16579,7 @@ MonoBehaviour:
   maxHealth: 1
   currentHealth: 0
   startGravity: {x: 0, y: 0}
+  stopPlayer: {fileID: 1688557127}
   walk: {fileID: 437844126}
   hurt: {fileID: 515493758}
 --- !u!4 &1688557126
@@ -17046,7 +17043,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 0.5}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -17096,7 +17093,7 @@ SpriteRenderer:
   m_SortingLayerID: -2088478841
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 22263d940c92ba34eaaf4e140384808d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59656dc29360cc245ad8a3b92fa05ffc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17510,7 +17507,7 @@ Animator:
   m_GameObject: {fileID: 1893533993}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54c3597e73a3a3c49a8edf39ef61a3e5, type: 2}
+  m_Controller: {fileID: 9100000, guid: c76164ed1b373e544837772ad4925716, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -17592,7 +17589,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1965880002, guid: 2db203b823dbe3e46a26d07b8b0dfb58, type: 3}
+  m_Sprite: {fileID: 2098247142, guid: 4aea9fa8f30107d41b608a1b7c6a51b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
