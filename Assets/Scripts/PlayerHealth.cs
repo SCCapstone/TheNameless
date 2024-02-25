@@ -11,7 +11,6 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 1;
     public int currentHealth;
     public Vector2 startGravity;
-    public Behaviour stopPlayer;
    
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource hurt;
@@ -38,7 +37,6 @@ public class PlayerHealth : MonoBehaviour
             animator.SetBool("isDead", true);
             walk.Pause();
             hurt.Play();
-            stopPlayer.enabled = false;
             StartCoroutine(PlayerRespawn());
         }
     }
