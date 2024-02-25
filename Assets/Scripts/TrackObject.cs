@@ -18,6 +18,6 @@ public class TrackObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(trackedObject.transform.position.x*(trackX ? 1 : 0), trackedObject.transform.position.y*(trackY ? 1 : 0), z);
+        transform.position = new Vector3((trackX ? trackedObject.transform.position.x : transform.position.x), (trackY ? trackedObject.transform.position.y : transform.position.y), z);
     }
 }
