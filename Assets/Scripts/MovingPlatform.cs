@@ -6,7 +6,7 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField]
     private Transform position1, position2;
-    private float _speed = 3.0f;
+    public float _speed = 3.0f;
     private bool _switch = false;
     // Start is called before the first frame update
     void Start()
@@ -36,19 +36,18 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(other.CompareTag("Player"))
+        if (collision.gameObject.name == "Player")
         {
-            other.transform.parent = this.transform;
+            collision.gameObject.transform.SetParent(transform);
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.name == "Player")
         {
-            other.transform.parent = null;
+            collision.gameObject.transform.SetParent(null);
         }
     }
 }
