@@ -15,11 +15,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource hurt;
 
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         startGravity = Physics2D.gravity;
         currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            rb.bodyType = RigidbodyType2D.Static;
             animator.SetBool("isDead", true);
             walk.Pause();
             hurt.Play();
@@ -48,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
         SceneTransition.SetBool("isDead", false);
+        rb.bodyType = RigidbodyType2D.Static;
     }
     
 }

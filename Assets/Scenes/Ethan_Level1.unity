@@ -41081,7 +41081,6 @@ MonoBehaviour:
   maxHealth: 1
   currentHealth: 0
   startGravity: {x: 0, y: 0}
-  stopPlayer: {fileID: 1417531264}
   walk: {fileID: 1106267090}
   hurt: {fileID: 209196182}
 --- !u!95 &1417531264
@@ -43574,7 +43573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1750605171
 Animator:
   serializedVersion: 5

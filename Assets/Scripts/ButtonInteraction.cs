@@ -48,27 +48,6 @@ public class ButtonInteraction : MonoBehaviour
 
     void LoadMiniGame()
     {
-        PlayerPrefs.SetInt("StartScene", startSceneIndex);
-        PlayerPrefs.SetFloat("StartPosX", startPosition.x);
-        PlayerPrefs.SetFloat("StartPosY", startPosition.y);
         SceneManager.LoadScene(sceneToLoad);
-    }
-
-    public void ReturnFromMiniGame()
-    { 
-        int miniGameSceneIndex = SceneManager.GetSceneByName("EMinigame").buildIndex;
-        int startSceneIndex = PlayerPrefs.GetInt("StartSceneIndex");
-        float startPosX = PlayerPrefs.GetFloat("StartPosX");
-        float startPosY = PlayerPrefs.GetFloat("StartPosY");
-
-        SceneManager.UnloadSceneAsync(miniGameSceneIndex);
-        SceneManager.LoadScene(startSceneIndex);
-
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            player.transform.position = new Vector3(startPosX, startPosY, player.transform.position.z);
-        }
-
     }
 }

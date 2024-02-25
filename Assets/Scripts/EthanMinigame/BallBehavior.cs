@@ -14,7 +14,6 @@ public class Ballbehavior : MonoBehaviour
     public Generator generator;
     Rigidbody2D rb;
     public GameObject[] LivesImage;
-    private ButtonInteraction a;
     
     void Start()
     {
@@ -56,7 +55,7 @@ public class Ballbehavior : MonoBehaviour
 
     void GameOver()
     {
-        a.ReturnFromMiniGame();
+        SceneManager.LoadScene(FailScene);
     }
 
 }
