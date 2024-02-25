@@ -16,10 +16,7 @@ public class Key : MonoBehaviour
             playerHasKey = true;
             Destroy(gameObject);
         } 
-        else
-        {
-            Debug.Log("Pick Up Key Error");
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

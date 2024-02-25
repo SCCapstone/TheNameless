@@ -16,7 +16,7 @@ public class MovePistonRight : MonoBehaviour
     }
 
 
-    public void FixedUpdate()
+    void Update()
     {
         if(open)
         {
