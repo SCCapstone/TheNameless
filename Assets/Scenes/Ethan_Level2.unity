@@ -3276,7 +3276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &512132587
 Animator:
   serializedVersion: 5
@@ -3747,7 +3747,7 @@ GameObject:
   - component: {fileID: 823001111}
   m_Layer: 0
   m_Name: MovingPlatforms
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3879,7 +3879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 10
-  runSpeedMultiplier: 1
+  runSpeedMultiplier: 1.5
   walkSpeed: 5
   jump: {fileID: 1079425183}
   walk: {fileID: 817365303}
@@ -3933,7 +3933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1021723861}
-  SceneTransition: {fileID: 0}
+  SceneTransition: {fileID: 512132587}
   maxHealth: 1
   currentHealth: 0
   startGravity: {x: 0, y: 0}
@@ -4048,7 +4048,7 @@ Transform:
   m_GameObject: {fileID: 1021723856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.08, y: 33.25, z: 0}
+  m_LocalPosition: {x: 16.16, y: 20.72, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11068,7 +11068,7 @@ GameObject:
   - component: {fileID: 1454381176}
   m_Layer: 0
   m_Name: Moving Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11175,7 +11175,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.09019608, g: 0.09019608, b: 0.09019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
