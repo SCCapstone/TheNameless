@@ -374,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505740520}
-  - component: {fileID: 505740519}
+  - component: {fileID: 505740521}
   m_Layer: 0
   m_Name: MiniGame Generator
   m_TagString: Untagged
@@ -382,7 +382,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &505740519
+--- !u!4 &505740520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505740518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &505740521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,15 +406,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 505740518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b2067b4ef987734d83ce8a7a94e02ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 0de2bc4fa9ca82f4290099321ec16372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 10, y: 5}
-  offset: {x: 1.1, y: 0.6}
+  offset: {x: 1.2, y: 0.7}
   brickPrefab: {fileID: 6370613902731060699, guid: 3124ec19ba6daaf4282742eaeca219d9, type: 3}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.3254902, g: 0.3254902, b: 0.3254902, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -407,7 +422,7 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11565
+    ctime0: 0
     ctime1: 65535
     ctime2: 0
     ctime3: 0
@@ -427,23 +442,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  bc: 0
   WinScene: 0
---- !u!4 &505740520
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505740518}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &506981370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,15 +4947,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1175201601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc4d3aebecff8844aa8ea2232581d0f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0df7d1000ec31a4cbdb1c93ccd50563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: -4
-  maxV: 15
-  SpeedMultiplyer: 2
+  minY: -5.5
+  maxV: 10
+  SpeedMultiplyer: 1.5
   lives: 5
   FailScene: 0
-  generator: {fileID: 505740519}
+  generator: {fileID: 505740521}
   LivesImage:
   - {fileID: 1135402276}
   - {fileID: 474920350}
@@ -6402,8 +6401,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1868914145}
   - component: {fileID: 1868914144}
-  - component: {fileID: 1868914143}
   - component: {fileID: 1868914146}
+  - component: {fileID: 1868914147}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: paddle
@@ -6411,20 +6410,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1868914143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868914142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb37f77ca5a339458d705c7b1dd541c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  maxX: 7.5
 --- !u!212 &1868914144
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6543,6 +6528,20 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.05, y: 0.5}
   m_UseDelaunayMesh: 0
+--- !u!114 &1868914147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868914142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9df1ec2ca5bdf3439893d3273563657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  maxX: 7.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
