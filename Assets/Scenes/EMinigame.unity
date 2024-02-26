@@ -268,8 +268,8 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -8.9, y: -5}
-  - {x: -8.9, y: 5}
-  - {x: 8.9, y: 5}
+  - {x: -8.866112, y: 4.937067}
+  - {x: 8.847798, y: 4.966223}
   - {x: 8.9, y: -5}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -442,7 +442,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  WinScene: 0
+  WinScene: 6
 --- !u!1 &506981370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4954,7 +4954,7 @@ MonoBehaviour:
   maxV: 10
   SpeedMultiplyer: 1.5
   lives: 5
-  FailScene: 0
+  FailScene: 16
   generator: {fileID: 505740521}
   LivesImage:
   - {fileID: 1135402276}
@@ -6289,7 +6289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 532, y: -526}
+  m_AnchoredPosition: {x: 682.52, y: -526}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1659209362

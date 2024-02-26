@@ -470,6 +470,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6322273146015845387, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
+      propertyPath: blink
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322273146015845387, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
+      propertyPath: ioTimer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322273146015845387, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: respawn
       value: 
       objectReference: {fileID: 1879369130}
@@ -826,10 +834,10 @@ GameObject:
   - component: {fileID: 393713865}
   - component: {fileID: 393713864}
   - component: {fileID: 393713863}
-  - component: {fileID: 393713862}
   - component: {fileID: 393713861}
   - component: {fileID: 393713860}
   - component: {fileID: 393713859}
+  - component: {fileID: 393713866}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -853,7 +861,7 @@ MonoBehaviour:
   SceneTransition: {fileID: 1438570290}
   maxHealth: 1
   currentHealth: 0
-  stopPlayer: {fileID: 393713863}
+  startGravity: {x: 0, y: 0}
   walk: {fileID: 1293238653}
   hurt: {fileID: 1335419960}
 --- !u!95 &393713860
@@ -892,7 +900,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 5cc2edd9f74e1c342b2533781520194b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -904,51 +912,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &393713862
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393713858}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.067652404, y: 0.011275411}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.79991376, y: 0.9577694}
-  m_EdgeRadius: 0
 --- !u!114 &393713863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,12 +924,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d973640e6d7ecf4ba1ebfca0d7cc942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 5
+  jumpPower: 15
   runSpeedMultiplier: 1.5
   walkSpeed: 6.5
   jump: {fileID: 297607961}
   walk: {fileID: 1293238653}
   reverseGrav: {fileID: 975637783}
+  hasGravityController: 1
 --- !u!212 &393713864
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1010,7 +974,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1138280325, guid: 9d9dd41a0b11ebc48843ecf7197dba26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -1029,7 +993,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.9558, y: -3.31, z: 0}
-  m_LocalScale: {x: 1.4742, y: 1.5688, z: 1}
+  m_LocalScale: {x: -1.4742, y: 1.5688, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 975637784}
@@ -1039,6 +1003,41 @@ Transform:
   - {fileID: 420271173}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &393713866
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393713858}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0045691235, y: 0.0042936774}
+  m_Size: {x: 0.8759675, y: 1.0467963}
+  m_Direction: 0
 --- !u!1 &420271172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,8 +1066,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420271172}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2667,6 +2666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028988558}
   - component: {fileID: 1028988557}
+  - component: {fileID: 1028988559}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -2741,6 +2741,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1028988559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028988556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760fc448abb737f46a69d3b83cbe2846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1062662236
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,7 +6631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1813305270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6633,7 +6645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 1825879810}
-  blinkSpeed: 4
+  blinkSpeed: 40
   text: {fileID: 1091956370}
   inTrigger: 0
 --- !u!212 &1813305272

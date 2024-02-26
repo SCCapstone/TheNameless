@@ -3276,7 +3276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &512132587
 Animator:
   serializedVersion: 5
@@ -11378,7 +11378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd2d017c487c34091524862bd08b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 6
+  sceneToLoad: 17
 --- !u!4 &1603371059
 Transform:
   m_ObjectHideFlags: 0

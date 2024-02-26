@@ -18,7 +18,7 @@ public class WireManager2 : MonoBehaviour
     {
         if(connections.Count == numWires)
         {
-            SceneManager.LoadScene("Laser Level Example");
+            SceneManager.LoadScene("Ethan_Level1");
         }
     }
 

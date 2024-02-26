@@ -25,7 +25,7 @@ public class ExitLevelScript : MonoBehaviour
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && keyLock.doorIsLocked == false)
         {
             GameObject playerObject = GameObject.Find("Player");
-            StartCoroutine(PlayerExitToNextLevel());
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             animator.SetBool("isReadyToExit", true);
             Destroy(playerObject);
             
@@ -54,7 +54,7 @@ public class ExitLevelScript : MonoBehaviour
     {
         SceneTransition.SetBool("isDead", true);
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
         Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
         SceneTransition.SetBool("isDead", false);
     }
