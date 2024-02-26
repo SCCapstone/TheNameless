@@ -39,11 +39,14 @@ public class ObjectInteraction : MonoBehaviour
         // Press 'E' to release the currently held object
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            gObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            gObject.transform.SetParent(null);
-            // Allow the object to keep moving with the same velocity as when it was released
-            gObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, rb.velocity.y);
-            gObject = null;
+            if (gObject != null)
+            {
+                gObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                gObject.transform.SetParent(null);
+                // Allow the object to keep moving with the same velocity as when it was released
+                gObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+                gObject = null;
+            }
         }
 
         if (tObject != null)

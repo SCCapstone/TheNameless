@@ -73,7 +73,11 @@ public class PressurePlateVertical : MonoBehaviour
         if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Object") || collision.transform.CompareTag("Enemy"))
         {
             onPlate = false;
-            collision.transform.SetParent(null);
+            if (collision.transform.parent.gameObject.activeInHierarchy)
+            {
+                Transform transform = collision.transform;
+                transform.parent = null;
+            }
         }
     }
 
