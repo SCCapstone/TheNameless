@@ -6,19 +6,23 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject controlsMenu;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        controlsMenu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
         }
+
+        controlsMenu.SetActive(Input.GetKey(KeyCode.C));
         
     }
     public void menu()
