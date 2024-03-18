@@ -6763,8 +6763,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 16035658}
-  - {fileID: 1041627882}
   - {fileID: 1890213392}
+  - {fileID: 1041627882}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &561146240
@@ -13201,7 +13201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6781081626827881457, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: m_Name
-      value: Laser Source (9)
+      value: Laser Source 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13633,7 +13633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6781081626827881457, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: m_Name
-      value: Laser Source (11)
+      value: Laser Source 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
