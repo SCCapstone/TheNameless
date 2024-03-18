@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Globalization;
 
 public class BannerDialogue : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class BannerDialogue : MonoBehaviour
     [SerializeField] KeyCode advance = KeyCode.Space;
     [SerializeField] float timeBetweenChars;
     [SerializeField] PlayerMovement pm;
-    private bool hasShown = false;
+    public static bool hasShown = false;
     private int i = 0;
     private bool isShowing = false;
     private bool skipped = false;
 
+   
     private void Start()
     {
         if (hasShown) 

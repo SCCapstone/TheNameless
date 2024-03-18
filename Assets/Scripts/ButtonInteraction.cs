@@ -48,6 +48,7 @@ public class ButtonInteraction : MonoBehaviour
 
     void LoadMiniGame()
     {
+        BannerDialogue.hasShown = false;
         SceneManager.LoadScene(sceneToLoad);
     }
 }
