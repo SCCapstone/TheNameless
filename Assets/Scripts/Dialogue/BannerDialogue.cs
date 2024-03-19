@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Globalization;
+using UnityEngine.UI;
 
 public class BannerDialogue : MonoBehaviour
 {
     // TODO : stop player from moving when text is active.
     [SerializeField] string[] text;
+    [SerializeField] Sprite[] icons;
     [SerializeField] TextMeshProUGUI display;
     [SerializeField] GameObject textBox;
     [SerializeField] KeyCode advance = KeyCode.Space;
     [SerializeField] float timeBetweenChars;
     [SerializeField] PlayerMovement pm;
+    [SerializeField] Image talkingIcon;
     public static bool hasShown = false;
     private int i = 0;
     private bool isShowing = false;
@@ -48,6 +51,10 @@ public class BannerDialogue : MonoBehaviour
     {
         if(i <= text.Length - 1)
         {
+            if(icons.Length > 1)
+            {
+                talkingIcon.sprite = icons[i];
+            }
             display.text = text[i];
             StartCoroutine(WriteText());
         }
