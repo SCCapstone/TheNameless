@@ -7,12 +7,11 @@ public class MovePistonRight : MonoBehaviour
     public float pistonSpeed = 1;
     public Rigidbody2D myRigidBody;
     [SerializeField] public bool open = false;
-    public PistonTriggerZone trigger;
 
     // Start is called before the first frame update
     void Start()
     {
-       trigger = GameObject.FindGameObjectWithTag("TriggerZone").GetComponent<PistonTriggerZone>();
+ 
     }
 
 
@@ -21,14 +20,9 @@ public class MovePistonRight : MonoBehaviour
         if(open)
         {
             MovePiston();
-            if(trigger.detected == true)
-            {
-                myRigidBody.velocity = Vector3.zero;
-            }
         }
         else
         {
-            trigger.detected = false;
             MovePistonBack();
         }
     }

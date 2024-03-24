@@ -5,15 +5,9 @@ using UnityEngine;
 
 public class PistonTriggerZone : MonoBehaviour
 {
-    public bool detected;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        detected = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        detected = false;
+        GameObject crate = GameObject.FindGameObjectWithTag("Object");
+        Physics2D.IgnoreCollision(crate.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 }
