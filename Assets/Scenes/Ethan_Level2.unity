@@ -5734,11 +5734,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1021723861}
   SceneTransition: {fileID: 512132587}
+  pm: {fileID: 1021723858}
   maxHealth: 1
   currentHealth: 0
   startGravity: {x: 0, y: 0}
   walk: {fileID: 817365303}
   hurt: {fileID: 1318630529}
+  rb: {fileID: 0}
 --- !u!95 &1021723861
 Animator:
   serializedVersion: 5

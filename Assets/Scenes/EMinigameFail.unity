@@ -9962,6 +9962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 735928818}
+  controlsMenu: {fileID: 0}
 --- !u!4 &786091084
 Transform:
   m_ObjectHideFlags: 0
@@ -10067,6 +10068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 825303137}
   SceneTransition: {fileID: 0}
+  pm: {fileID: 825303134}
   maxHealth: 1
   currentHealth: 0
   startGravity: {x: 0, y: 0}

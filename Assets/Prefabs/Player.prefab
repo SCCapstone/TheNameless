@@ -112,6 +112,7 @@ MonoBehaviour:
   jump: {fileID: 4024628151410702531}
   walk: {fileID: 8141928661525544670}
   reverseGrav: {fileID: 8344269713121233990}
+  hasGravityController: 1
 --- !u!61 &2121676121932839483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,9 +220,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3468199993409899609}
   SceneTransition: {fileID: 0}
+  pm: {fileID: 6904476745969576002}
   maxHealth: 1
   currentHealth: 0
-  stopPlayer: {fileID: 6904476745969576002}
+  startGravity: {x: 0, y: 0}
   walk: {fileID: 8141928661525544670}
   hurt: {fileID: 3447944078134627957}
 --- !u!1 &1251352373201573293

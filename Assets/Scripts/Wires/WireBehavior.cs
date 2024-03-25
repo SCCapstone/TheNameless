@@ -22,7 +22,7 @@ public class WireBehavior : MonoBehaviour
     {
             if (collision.gameObject.name.Equals("Player"))
             {
-                playerHealth.TakeDamage(1);
+                playerHealth.TakeElectricalDamage(1);
             }
     }
 

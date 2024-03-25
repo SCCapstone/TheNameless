@@ -30,7 +30,7 @@ public class FlyingRobotEnemyScript : MonoBehaviour
         }
         if (collision.gameObject.name.Equals("Player"))
         {
-            playerHealth.TakeDamage(1);
+            playerHealth.TakeNormalDamage(1);
         }
     }
 

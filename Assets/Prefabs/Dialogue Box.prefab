@@ -199,12 +199,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - I AM TYPING A BUNCH OF WORDS TO SEE HOW THIS WORKS HAHAHAHAH
-  - OH LOOK A NEW SENTENCE SO COOL
+  - PUT LINE 1 OF DIALOGUE HERE
+  - PUT LINE 2 OF DIALOGUE HERE
+  icons: []
   display: {fileID: 3496253249576642714}
   textBox: {fileID: 66573004525479906}
   advance: 32
   timeBetweenChars: 0.12
+  pm: {fileID: 0}
+  talkingIcon: {fileID: 0}
 --- !u!1 &6961438086105514295
 GameObject:
   m_ObjectHideFlags: 0
