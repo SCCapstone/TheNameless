@@ -6153,6 +6153,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2426278756651881941, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426278756651881941, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426278756651881941, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.22352943
+      objectReference: {fileID: 0}
     - target: {fileID: 4573779798367897748, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -16713,6 +16725,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     - target: {fileID: 2426278756651881941, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426278756651881941, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426278756651881941, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.22352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426278756651881941, guid: d064954f705a7bb4bb3d97d9859f217b, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -17983,6 +18007,7 @@ MonoBehaviour:
   startGravity: {x: 0, y: 0}
   walk: {fileID: 1992886529}
   hurt: {fileID: 655790009}
+  rb: {fileID: 0}
 --- !u!95 &1667048669
 Animator:
   serializedVersion: 5
