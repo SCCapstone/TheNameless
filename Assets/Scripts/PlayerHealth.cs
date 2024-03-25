@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 1;
     public int currentHealth;
     public Vector2 startGravity;
+    public static bool invincibility = false;
    
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource hurt;
@@ -33,8 +34,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-
+        if (invincibility == false)
+        {
+            currentHealth -= amount;
+        }
         if (currentHealth <= 0)
         {
             rb.bodyType = RigidbodyType2D.Static;
