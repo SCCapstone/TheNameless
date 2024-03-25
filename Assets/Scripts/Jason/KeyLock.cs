@@ -24,11 +24,8 @@ public class KeyLock : MonoBehaviour
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && key.playerHasKey == true)
         {
             doorIsLocked = false;
+            Destroy(GameObject.Find("Real Key"));
             exit.animator.SetBool("isUnlocked", true);
-        }
-        else
-        {
-            Debug.Log("Unlock Lock Error");
         }
     }
 
@@ -37,12 +34,13 @@ public class KeyLock : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             inTriggerZone = true;
-            text.text = "PRESS [E] TO UNLOCK EXIT DOOR";
+            text.text = "PRESS [e] TO UNLOCK EXIT DOOR";
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;
+        text.text = " ";
     }
 }

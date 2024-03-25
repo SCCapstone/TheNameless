@@ -24,12 +24,13 @@ public class Key : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             inTriggerZone = true;
-            text.text = "PRESS [E] TO PICK UP KEY";
+            text.text = "PRESS [e] TO PICK UP KEY";
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;
+        text.text = " ";
     }
 }

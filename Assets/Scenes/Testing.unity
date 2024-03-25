@@ -3814,6 +3814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 457262642}
+  controlsMenu: {fileID: 0}
 --- !u!1 &1519312282
 GameObject:
   m_ObjectHideFlags: 0
@@ -9523,9 +9524,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1772685926}
   SceneTransition: {fileID: 0}
+  pm: {fileID: 1772685929}
   maxHealth: 1
   currentHealth: 0
-  stopPlayer: {fileID: 1772685929}
+  startGravity: {x: 0, y: 0}
   walk: {fileID: 459219704}
   hurt: {fileID: 395934233}
 --- !u!95 &1772685926
@@ -9633,11 +9635,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d973640e6d7ecf4ba1ebfca0d7cc942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   jumpPower: 10
+  runSpeedMultiplier: 2
+  walkSpeed: 5
   jump: {fileID: 180258683}
   walk: {fileID: 459219704}
   reverseGrav: {fileID: 901551875}
+  hasGravityController: 1
 --- !u!212 &1772685930
 SpriteRenderer:
   m_ObjectHideFlags: 0

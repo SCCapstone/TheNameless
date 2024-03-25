@@ -68,7 +68,7 @@ public class Laser : MonoBehaviour
             lr.SetPosition(1, hit.point);
             if (hit.collider.tag == playerTag)
             {
-                playerHealth.TakeDamage(1);
+                playerHealth.TakeLaserDamage(1);
                 // hit.collider.gameObject.transform.position = respawn.position;
             }
             else if (hit.collider.tag == "Bounce")

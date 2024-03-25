@@ -3302,6 +3302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1895389462}
   SceneTransition: {fileID: 0}
+  pm: {fileID: 1895389465}
   maxHealth: 1
   currentHealth: 0
   startGravity: {x: 0, y: 0}
@@ -3468,7 +3469,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1895389467

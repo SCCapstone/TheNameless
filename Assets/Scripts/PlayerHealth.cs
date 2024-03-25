@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public Animator animator;
     public Animator SceneTransition;
+    public PlayerMovement pm;
     public int maxHealth = 1;
     public int currentHealth;
     public Vector2 startGravity;
@@ -16,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource hurt;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -32,15 +33,17 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-    public void TakeDamage(int amount)
+    public void TakeNormalDamage(int amount)
     {
         if (invincibility == false)
         {
             currentHealth -= amount;
         }
+
         if (currentHealth <= 0)
         {
-            rb.bodyType = RigidbodyType2D.Static;
+            rb.velocity = Vector3.zero;
+            pm.enabled = false;
             animator.SetBool("isDead", true);
             walk.Pause();
             hurt.Play();
@@ -48,11 +51,50 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void TakeElectricalDamage(int amount)
+    {
+        if (invincibility == false)
+        {
+            currentHealth -= amount;
+        }
+
+        if (currentHealth <= 0)
+        {
+            rb.bodyType = RigidbodyType2D.Static;
+            rb.velocity = Vector3.zero;
+            pm.enabled = false;
+            animator.SetBool("isElectrocuted", true);
+            walk.Pause();
+            hurt.Play();
+            StartCoroutine(PlayerRespawn());
+        }
+    }
+
+    public void TakeLaserDamage(int amount)
+    {
+        if (invincibility == false)
+        {
+            currentHealth -= amount;
+        }
+        if (currentHealth <= 0)
+        {
+            rb.velocity = Vector3.zero;
+            pm.enabled = false;
+            animator.SetBool("isDisintegrated", true);
+            walk.Pause();
+            hurt.Play();
+            StartCoroutine(PlayerRespawn());
+        }
+    }
+
+
+
     public IEnumerator PlayerRespawn()
     {
         SceneTransition.SetBool("isDead", true);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        pm.enabled = true;
         Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
         SceneTransition.SetBool("isDead", false);
         rb.bodyType = RigidbodyType2D.Static;

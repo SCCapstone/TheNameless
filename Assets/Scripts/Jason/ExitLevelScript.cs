@@ -24,14 +24,9 @@ public class ExitLevelScript : MonoBehaviour
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && keyLock.doorIsLocked == false)
         {
             GameObject playerObject = GameObject.Find("Player");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            animator.SetBool("isReadyToExit", true);
             Destroy(playerObject);
-            
-        }
-        else
-        {
-            Debug.Log("Exit Level Error");
+            animator.SetBool("isReadyToExit", true);
+            StartCoroutine(PlayerExitToNextLevel());
         }
     }
 
@@ -40,21 +35,22 @@ public class ExitLevelScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             inTriggerZone = true;
-            text.text = "PRESS [E] TO EXIT LEVEL";
+            text.text = "PRESS [e] TO EXIT LEVEL";
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;
+        text.text = " ";
     }
 
     public IEnumerator PlayerExitToNextLevel()
     {
         SceneTransition.SetBool("isDead", true);
         yield return new WaitForSeconds(2);
-        
-        Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
         SceneTransition.SetBool("isDead", false);
     }
 }

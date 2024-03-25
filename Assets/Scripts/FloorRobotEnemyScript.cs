@@ -61,7 +61,7 @@ public class FloorRobotEnemyScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
             directionX *= -1f;
         if (collision.gameObject.CompareTag("Player"))
-            playerHealth.TakeDamage(1);
+            playerHealth.TakeNormalDamage(1);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
