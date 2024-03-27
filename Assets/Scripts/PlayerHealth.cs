@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public Vector2 startGravity;
     public static bool invincibility = false;
+
+    private bool hasPlayed = false;
    
     [SerializeField] AudioSource walk;
     [SerializeField] AudioSource hurt;
@@ -46,7 +48,11 @@ public class PlayerHealth : MonoBehaviour
             pm.enabled = false;
             animator.SetBool("isDead", true);
             walk.Pause();
-            hurt.Play();
+            if (!hasPlayed)
+            {
+                hurt.PlayOneShot(hurt.clip);
+                hasPlayed = true;
+            }
             StartCoroutine(PlayerRespawn());
         }
     }
@@ -65,7 +71,11 @@ public class PlayerHealth : MonoBehaviour
             pm.enabled = false;
             animator.SetBool("isElectrocuted", true);
             walk.Pause();
-            hurt.Play();
+            if (!hasPlayed)
+            {
+                hurt.PlayOneShot(hurt.clip);
+                hasPlayed = true;
+            }
             StartCoroutine(PlayerRespawn());
         }
     }
@@ -82,7 +92,11 @@ public class PlayerHealth : MonoBehaviour
             pm.enabled = false;
             animator.SetBool("isDisintegrated", true);
             walk.Pause();
-            hurt.Play();
+            if (!hasPlayed)
+            {
+                hurt.PlayOneShot(hurt.clip);
+                hasPlayed = true;
+            }
             StartCoroutine(PlayerRespawn());
         }
     }
