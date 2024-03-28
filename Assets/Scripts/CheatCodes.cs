@@ -6,7 +6,7 @@ public class CheatCodes : MonoBehaviour
 {
     [SerializeField] public string Buffer;
     [SerializeField] private float maxTimeDif = 1;
-    private List<string> validPatterns = new List<string>() {"UDLR"};
+    private List<string> validPatterns = new List<string>() {"UUDDLRLRBL"};
     private float timeDif;
     // Start is called before the first frame update
     void Start()
