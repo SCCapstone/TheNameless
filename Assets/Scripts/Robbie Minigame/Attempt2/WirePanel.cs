@@ -7,20 +7,33 @@ public class WirePanel : MonoBehaviour
     [SerializeField] SpriteRenderer sr;
     [SerializeField] GameObject panel;
     [SerializeField] GameObject prompt;
+    [SerializeField] GameObject door;
     private bool inRange = false;
     private bool inPanel = false;
     void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E))
+        if (door.activeInHierarchy)
         {
-            inPanel = !inPanel;
-            prompt.SetActive(false);
+            if (inRange && Input.GetKeyDown(KeyCode.E))
+            {
+                inPanel = !inPanel;
+                prompt.SetActive(false);
+                if(inPanel)
+                {
+                    sr.enabled = false;
+                    panel.SetActive(true);
+                }
+            }
         }
-
-        if (inPanel)
+        else if (door.GetComponent<Laser>() != null && !door.GetComponent<Laser>().enabled)
         {
-            sr.enabled = false;
-            panel.SetActive(true);
+            prompt.SetActive(false);
+            sr.enabled = true;
+        }
+        else
+        {
+            prompt.SetActive(false);
+            sr.enabled = true;
         }
 
     }

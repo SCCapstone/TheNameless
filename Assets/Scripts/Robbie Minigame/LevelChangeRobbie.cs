@@ -7,11 +7,13 @@ public class LevelChangeRobbie : MonoBehaviour
 {
     bool inProx = false;
     [SerializeField] GameObject prompt;
+    [SerializeField] int LevelIndex;
     void Update()
     {
         if(inProx && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("RLevelAttempt");
+            SceneManager.LoadScene(LevelIndex);
+            BannerDialogue.hasShown = false;
         }
     }
 

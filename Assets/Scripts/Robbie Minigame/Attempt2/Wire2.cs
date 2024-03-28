@@ -24,8 +24,9 @@ public class Wire2 : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, 0.2f);
         foreach (Collider2D collider in colliders)
         {
-            if(collider.gameObject != gameObject)
+            if(collider.gameObject != gameObject && collider.gameObject.tag == "Wire")
             {
+                
                 UpdateWire(collider.transform.position);
                 
                 if(transform.parent.name.Equals(collider.transform.parent.name))
@@ -43,7 +44,7 @@ public class Wire2 : MonoBehaviour
         
     }
 
-    /*
+    
     private void OnMouseUp()
     {
         if (wireEnabled)
@@ -52,7 +53,7 @@ public class Wire2 : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.zero);
         }   
     }
-    */
+    
 
     private void UpdateWire(Vector3 newPos)
     {

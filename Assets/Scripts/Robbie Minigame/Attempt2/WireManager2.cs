@@ -8,17 +8,30 @@ public class WireManager2 : MonoBehaviour
 {
     List<bool> connections;
     [SerializeField] int numWires = 4;
+    [SerializeField] GameObject GO;
+    [SerializeField] GameObject Panel;
     private void Start()
     {
         connections = new List<bool>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if(connections.Count == numWires)
         {
-            // Todo: turn on/off object or script (bool?)
+            // check of object is a laser
+            if(GO.GetComponent<Laser>() != null)
+            {
+                GO.GetComponent<Laser>().enabled = false;
+                GO.GetComponent<LineRenderer>().enabled = false;
+            }
+            // if not a laser, remove object
+            else
+            {
+                GO.SetActive(false);
+            }
+            Panel.SetActive(false);
         }
     }
 
