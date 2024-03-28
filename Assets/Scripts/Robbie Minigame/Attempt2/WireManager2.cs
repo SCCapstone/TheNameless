@@ -18,7 +18,7 @@ public class WireManager2 : MonoBehaviour
     {
         if(connections.Count == numWires)
         {
-            SceneManager.LoadScene("Ethan_Level1");
+            // Todo: turn on/off object or script (bool?)
         }
     }
 

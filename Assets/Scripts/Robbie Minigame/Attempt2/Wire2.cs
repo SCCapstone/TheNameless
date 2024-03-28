@@ -43,6 +43,7 @@ public class Wire2 : MonoBehaviour
         
     }
 
+    /*
     private void OnMouseUp()
     {
         if (wireEnabled)
@@ -51,6 +52,7 @@ public class Wire2 : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.zero);
         }   
     }
+    */
 
     private void UpdateWire(Vector3 newPos)
     {
@@ -60,6 +62,7 @@ public class Wire2 : MonoBehaviour
         transform.right = dir * transform.lossyScale.x;
 
         float dist = Vector2.Distance(startPos, newPos);
+        sr.size = new Vector2(dist, sr.size.y);
     }
 
     void MatchWire()
