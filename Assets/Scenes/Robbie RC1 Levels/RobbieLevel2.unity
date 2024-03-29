@@ -22354,6 +22354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: foreground_palette
       objectReference: {fileID: 0}
+    - target: {fileID: 1803441789543580970, guid: 06f7beb615e1ef84497d3e39e0d41c81, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2101653755660504511, guid: 06f7beb615e1ef84497d3e39e0d41c81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -21,9 +21,12 @@ public class BannerDialogue : MonoBehaviour
     private bool isShowing = false;
     private bool skipped = false;
 
+    private MovingPlatform[] movingPlatforms;
+
    
     private void Start()
     {
+        movingPlatforms = (MovingPlatform[]) FindObjectsOfType(typeof(MovingPlatform));
         if (hasShown) 
         {
             textBox.SetActive(false);
@@ -51,6 +54,9 @@ public class BannerDialogue : MonoBehaviour
     {
         if(i <= text.Length - 1)
         {
+            foreach(MovingPlatform movingPlatform in movingPlatforms) {
+                movingPlatform._speed = 0;
+            }
             if(icons.Length > 1)
             {
                 talkingIcon.sprite = icons[i];
@@ -60,6 +66,9 @@ public class BannerDialogue : MonoBehaviour
         }
         else
         {
+            foreach(MovingPlatform movingPlatform in movingPlatforms) {
+                movingPlatform._speed = 3;
+            }
             display.text = "";
             textBox.SetActive(false);
             hasShown = true;

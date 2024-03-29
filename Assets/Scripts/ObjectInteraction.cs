@@ -13,6 +13,8 @@ public class ObjectInteraction : MonoBehaviour
     private GameObject tCanvas;
     private bool firstTouch;
 
+    private GameObject[] objects;
+
     
     void Start()
     {
@@ -21,6 +23,7 @@ public class ObjectInteraction : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         tCanvas = null;
         firstTouch = true;
+        objects = GameObject.FindGameObjectsWithTag("Object");
     }
 
     void Update()
@@ -30,7 +33,7 @@ public class ObjectInteraction : MonoBehaviour
             gObject.transform.position = grabPoint.position;
 
         // Press 'E' to pick up a new object
-        if (Input.GetKeyDown(KeyCode.E) && gObject != tObject)
+        if (Input.GetKeyDown(KeyCode.E) && gObject == null)
         {
             gObject = tObject;
             gObject.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -60,6 +63,12 @@ public class ObjectInteraction : MonoBehaviour
             {
                 StartCoroutine(DisplayInstructions(tCanvas));
                 firstTouch = false;
+            }
+        }
+
+        foreach(GameObject o in objects) {
+            if (o != gObject) {
+                Physics2D.IgnoreCollision(o.GetComponent<Collider2D>(), GetComponent<Collider2D>(), gObject != null);
             }
         }
 
