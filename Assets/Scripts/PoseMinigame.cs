@@ -44,6 +44,7 @@ public class PoseMinigame : MonoBehaviour
     private bool invincibility = PlayerHealth.invincibility;
     public Animator animator;
     public Animator SceneTransition;
+    private bool hasFailed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -141,19 +142,24 @@ public class PoseMinigame : MonoBehaviour
             //Check for failure
             if(requireRotation && (checkedRot<goalRotation[i]-rotError || checkedRot>goalRotation[i]+rotError))
             {
-                FailMinigame();
-                yield return new WaitForSeconds(5);
+                hasFailed = true;
             }
             if(exSprite.flipX != SR.flipX)
             {
-                FailMinigame();
-                yield return new WaitForSeconds(5);
+                hasFailed = true;
             }
             if(requirePose && currentPose != goalPose[i])
+            {
+                hasFailed = true;
+            }
+
+            if(hasFailed)
             {
                 FailMinigame();
                 yield return new WaitForSeconds(5);
             }
+            //Emergency correct
+            hasFailed = false;
 
             yield return new WaitForSeconds(0.5f);
         }
