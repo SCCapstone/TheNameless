@@ -19,7 +19,7 @@ public class Ballbehavior : MonoBehaviour
     {
         generator = FindObjectOfType<Generator>();
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * 5f;
+        rb.velocity = Vector2.down * 3f;
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class Ballbehavior : MonoBehaviour
             else
             {
                 transform.position = Vector3.zero;
-                rb.velocity = Vector2.down * 5f;
+                rb.velocity = Vector2.down * 3f;
                 lives--;
                 LivesImage[lives].SetActive(false);
             }
