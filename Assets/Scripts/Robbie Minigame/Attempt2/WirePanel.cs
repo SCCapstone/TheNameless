@@ -20,7 +20,7 @@ public class WirePanel : MonoBehaviour
                 prompt.SetActive(false);
                 if(inPanel)
                 {
-                    sr.enabled = false;
+                    // sr.enabled = false;
                     panel.SetActive(true);
                 }
             }
@@ -28,12 +28,12 @@ public class WirePanel : MonoBehaviour
         else if (door.GetComponent<Laser>() != null && !door.GetComponent<Laser>().enabled)
         {
             prompt.SetActive(false);
-            sr.enabled = true;
+            // sr.enabled = true;
         }
         else
         {
             prompt.SetActive(false);
-            sr.enabled = true;
+            // sr.enabled = true;
         }
 
     }
@@ -47,7 +47,7 @@ public class WirePanel : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         inRange = false;
-        sr.enabled = true;
+        // sr.enabled = true;
         if (inPanel)
         {
             panel.SetActive(false);
