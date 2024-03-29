@@ -106,7 +106,7 @@ public class PlayerHealth : MonoBehaviour
     public IEnumerator PlayerRespawn()
     {
         SceneTransition.SetBool("isDead", true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         pm.enabled = true;
         Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
