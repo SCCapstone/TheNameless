@@ -35,17 +35,21 @@ public class PoseMinigame : MonoBehaviour
     public bool[] goalFlip;
     public int[] goalPose;
 
-    //References to scanning hazards
-    public GameObject scan1;
-    public GameObject scan2;
-    public GameObject scan3;
-    public GameObject scan4;
-
     private int currentPose;
+
+    //Respawn
+    public AudioSource hurt;
+    private bool hasDied = false;
+    public Rigidbody2D rb;
+    private bool invincibility = PlayerHealth.invincibility;
+    public Animator animator;
+    public Animator SceneTransition;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        
         currentPose = 0;
 
         //Get components
@@ -137,33 +141,18 @@ public class PoseMinigame : MonoBehaviour
             //Check for failure
             if(requireRotation && (checkedRot<goalRotation[i]-rotError || checkedRot>goalRotation[i]+rotError))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                FailMinigame();
+                yield return new WaitForSeconds(5);
             }
             if(exSprite.flipX != SR.flipX)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                FailMinigame();
+                yield return new WaitForSeconds(5);
             }
             if(requirePose && currentPose != goalPose[i])
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-
-            //Activate the moving hazard
-            if(requireMove)
-            {
-                switch(Random.Range(1,5))
-                {
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    default:
-                        break;
-                }
+                FailMinigame();
+                yield return new WaitForSeconds(5);
             }
 
             yield return new WaitForSeconds(0.5f);
@@ -171,5 +160,32 @@ public class PoseMinigame : MonoBehaviour
 
         //Minigame Won, Load Next Scene
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void FailMinigame()
+    {
+        if (invincibility == true)
+        {
+            return;
+        }
+
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.velocity = Vector3.zero;
+        animator.SetBool("isElectrocuted", true);
+        
+        if (!hasDied)
+        {
+            hurt.PlayOneShot(hurt.clip);
+            hasDied = true;
+        }
+        StartCoroutine(PlayerRespawn());
+    }
+
+    public IEnumerator PlayerRespawn()
+    {
+        yield return new WaitForSeconds(1);
+        SceneTransition.SetBool("isDead", true);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
