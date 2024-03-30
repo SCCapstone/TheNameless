@@ -67,7 +67,7 @@ public class ObjectInteraction : MonoBehaviour
         }
 
         foreach(GameObject o in objects) {
-            if (o != gObject) {
+            if (o != gObject && o.GetComponent<Collider2D>() != null) {
                 Physics2D.IgnoreCollision(o.GetComponent<Collider2D>(), GetComponent<Collider2D>(), gObject != null);
             }
         }
