@@ -79,6 +79,10 @@ public class PressurePlateVertical : MonoBehaviour
                 transform.parent = null;
             }
         }
+
+        if (collision.transform.CompareTag("Player")) {
+            collision.transform.GetComponent<PlayerMovement>().isOnGround = false;
+        }
     }
 
     public void OnCollisionStay2D(Collision2D collision)
