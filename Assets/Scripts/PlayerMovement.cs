@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sprite;
-    private bool isOnGround;
+    public bool isOnGround;
     private bool isRunning = false;
     private bool horizGravity;
     private Vector3 localScale;
