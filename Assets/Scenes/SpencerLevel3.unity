@@ -10366,6 +10366,14 @@ PrefabInstance:
       propertyPath: pm
       value: 
       objectReference: {fileID: 1688557127}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: text.Array.data[0]
+      value: I'D BETTER START MOVING!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: text.Array.data[1]
+      value: THESE LASERS WON'T STAY STILL FOR LONG.
+      objectReference: {fileID: 0}
     - target: {fileID: 5678946946053239259, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10428,11 +10436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5678946946053239259, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -209
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5678946946053239259, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 229
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 5678946946053239259, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
