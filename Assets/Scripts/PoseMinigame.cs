@@ -170,6 +170,7 @@ public class PoseMinigame : MonoBehaviour
 
     public void FailMinigame()
     {
+        animator.enabled = true;
         if (invincibility == true)
         {
             return;
