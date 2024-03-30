@@ -22,11 +22,16 @@ public class BannerDialogue : MonoBehaviour
     private bool skipped = false;
 
     private MovingPlatform[] movingPlatforms;
+    private float[] platformSpeeds;
 
    
     private void Start()
     {
         movingPlatforms = (MovingPlatform[]) FindObjectsOfType(typeof(MovingPlatform));
+        platformSpeeds = new float[movingPlatforms.Length];
+            for (int i = 0; i < movingPlatforms.Length; i++) {
+            platformSpeeds[i] = movingPlatforms[i]._speed;
+        }
         if (hasShown) 
         {
             textBox.SetActive(false);
@@ -66,8 +71,8 @@ public class BannerDialogue : MonoBehaviour
         }
         else
         {
-            foreach(MovingPlatform movingPlatform in movingPlatforms) {
-                movingPlatform._speed = 3;
+            for (int i = 0; i < movingPlatforms.Length; i++) {
+                movingPlatforms[i]._speed = platformSpeeds[i];
             }
             display.text = "";
             textBox.SetActive(false);
