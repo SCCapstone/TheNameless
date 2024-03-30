@@ -6,63 +6,54 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/RC1 Levels/Menu.unity
     guid: c664934fb53734f4fa373229743a33fa
   - enabled: 1
     path: Assets/Scenes/Cutscenes/IntroCutscene.unity
     guid: 40c0c240d1a48ee4aa55f2e1ef9a2664
   - enabled: 1
-    path: Assets/Scenes/Level 0.unity
-    guid: 83a7fa6ba07a3b044bb5c447180430ea
-  - enabled: 1
-    path: Assets/Scenes/Laser Level Example.unity
-    guid: 9a06f105c4b2a5f4fb1a5517c94548a5
-  - enabled: 1
-    path: Assets/Scenes/SampleNoGrav.unity
-    guid: 1572b13c9a8a69c41ae1d2b4aef50246
-  - enabled: 1
-    path: Assets/Scenes/Testing.unity
-    guid: cfe65567d26f2c144a46f2ca6f853745
-  - enabled: 1
-    path: Assets/Scenes/Jason's Level.unity
+    path: Assets/Scenes/RC1 Levels/Jason's Level.unity
     guid: c2a6cdbf4400b9c40bc766c38d031276
   - enabled: 1
-    path: Assets/Scenes/JasonLevel2.unity
+    path: Assets/Scenes/RC1 Levels/JasonLevel2.unity
     guid: eb89cbe7694d4244488730243efc25de
   - enabled: 1
-    path: Assets/Scenes/Caleb Level.unity
-    guid: c32702b0d5b71094684089d51a903c2c
+    path: Assets/Scenes/RC1 Levels/Level 0.unity
+    guid: 83a7fa6ba07a3b044bb5c447180430ea
   - enabled: 1
-    path: Assets/Scenes/Minigame Scan.unity
-    guid: d358c41ab9843d34e86235b87aedb833
-  - enabled: 1
-    path: Assets/Scenes/EthanMinigame(Breakout).unity
-    guid: 049077b70b24e8f4f8c5b57eeede3c07
-  - enabled: 1
-    path: Assets/Scenes/SpencerLevel1.unity
-    guid: 4e9a982c79a2bef418972135396d3238
-  - enabled: 1
-    path: Assets/Scenes/SpencerLevel2.unity
-    guid: 503cff955a29c3d408a2159df08154fb
-  - enabled: 1
-    path: Assets/Scenes/Robbie RC1 Levels/RobbieLevel1.unity
+    path: Assets/Scenes/RC1 Levels/RobbieLevel1.unity
     guid: 94b504370ba7b8e428a23a8a3912ce66
   - enabled: 1
-    path: Assets/Scenes/Ethan_Level2.unity
-    guid: 72f67f29e54e0044d9f7288687d5669e
-  - enabled: 1
-    path: Assets/Scenes/Ethan_Level1.unity
-    guid: ccf0457cbdeb27b48bad4c9e6f67b79f
-  - enabled: 1
-    path: Assets/Scenes/EMinigameFail.unity
-    guid: a0b5c57375dfa6149b086a52af5dc5c4
-  - enabled: 1
-    path: Assets/Scenes/EMinigame.unity
-    guid: a3f2f870d79827e40a1e247251a77e2c
-  - enabled: 1
-    path: Assets/Scenes/Robbie RC1 Levels/RobbieLevel2.unity
+    path: Assets/Scenes/RC1 Levels/RobbieLevel2.unity
     guid: a6e7f34824b0bb04fabe133bd046c3e0
   - enabled: 1
-    path: Assets/Scenes/Robbie RC1 Levels/RobbieLevel3.unity
+    path: Assets/Scenes/RC1 Levels/RobbieLevel3.unity
     guid: 311d72e4f8814594a92f8984fa515640
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/Caleb Level.unity
+    guid: c32702b0d5b71094684089d51a903c2c
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/Minigame Scan.unity
+    guid: d358c41ab9843d34e86235b87aedb833
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/Ethan_Level1.unity
+    guid: ccf0457cbdeb27b48bad4c9e6f67b79f
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/Ethan_Level2.unity
+    guid: 72f67f29e54e0044d9f7288687d5669e
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/EMinigame.unity
+    guid: a3f2f870d79827e40a1e247251a77e2c
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/EMinigameFail.unity
+    guid: a0b5c57375dfa6149b086a52af5dc5c4
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/SpencerLevel1.unity
+    guid: 4e9a982c79a2bef418972135396d3238
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/SpencerLevel2.unity
+    guid: 503cff955a29c3d408a2159df08154fb
+  - enabled: 1
+    path: Assets/Scenes/RC1 Levels/SpencerLevel3.unity
+    guid: e2a10987fde30fb468caaf31387ce11b
   m_configObjects: {}

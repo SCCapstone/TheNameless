@@ -105,13 +105,13 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator PlayerRespawn()
     {
+        yield return new WaitForSeconds(1);
         SceneTransition.SetBool("isDead", true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         pm.enabled = true;
         Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
         SceneTransition.SetBool("isDead", false);
-        rb.bodyType = RigidbodyType2D.Static;
     }
     
 }

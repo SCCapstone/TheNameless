@@ -6,6 +6,7 @@ public class StartDialogue : MonoBehaviour
 {
     [SerializeField] GameObject dialogueBox;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         BannerDialogue.hasShown = false;

@@ -11,6 +11,8 @@ public class ExitLevelScriptV2 : MonoBehaviour
     public TMP_Text text;
     public Vector2 startGravity;
     public Animator SceneTransition;
+    public GameObject player;
+    public PlayerMovement playerMovement;
 
     private void Start()
     {
@@ -22,7 +24,8 @@ public class ExitLevelScriptV2 : MonoBehaviour
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
         {
             GameObject playerObject = GameObject.Find("Player");
-            Destroy(playerObject);
+            player.GetComponent<SpriteRenderer>().enabled = false;
+            playerMovement.enabled = false;
             animator.SetBool("isReadyToExit", true);
             StartCoroutine(PlayerExitToNextLevel());
         }
@@ -34,7 +37,7 @@ public class ExitLevelScriptV2 : MonoBehaviour
         {
             inTriggerZone = true;
             animator.SetBool("isUnlocked", true);
-            text.text = "PRESS [e] TO EXIT LEVEL";
+            text.text = "PRESS [e] TO EXIT";
         }
     }
 
