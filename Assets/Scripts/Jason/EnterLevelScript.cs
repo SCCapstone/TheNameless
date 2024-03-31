@@ -7,8 +7,15 @@ public class EnterLevelScript : MonoBehaviour
     public GameObject player;
     public PlayerMovement playerMovement;
     // Start is called before the first frame update
+    private MovingPlatform[] movingPlatforms;
+    private float[] platformSpeeds;
     void Start()
     {
+        movingPlatforms = (MovingPlatform[]) FindObjectsOfType(typeof(MovingPlatform));
+        platformSpeeds = new float[movingPlatforms.Length];
+            for (int i = 0; i < movingPlatforms.Length; i++) {
+            platformSpeeds[i] = movingPlatforms[i]._speed;
+        }
         GameObject player = GameObject.Find("Player");
         player.GetComponent<SpriteRenderer>().enabled = false;
         playerMovement.enabled = false;
@@ -25,7 +32,18 @@ public class EnterLevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!player.GetComponent<SpriteRenderer>().enabled || !BannerDialogue.hasShown)
+        {
+            foreach(MovingPlatform movingPlatform in movingPlatforms) {
+                movingPlatform._speed = 0;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < movingPlatforms.Length; i++) {
+                movingPlatforms[i]._speed = platformSpeeds[i];
+            }
+        }
     }
 
 }
