@@ -7642,6 +7642,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1007011278}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1007011284}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: walk
+      value: 
+      objectReference: {fileID: 1007011282}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1007011283}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: talkingIcon
       value: 
       objectReference: {fileID: 592215463}
@@ -7668,7 +7680,7 @@ PrefabInstance:
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: icons.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: e8ca3faa95e51a04aa21f9864e9b4f21, type: 3}
+      objectReference: {fileID: -917608165, guid: e8ca3faa95e51a04aa21f9864e9b4f21, type: 3}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: icons.Array.data[1]
       value: 
@@ -8538,6 +8550,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1007011278}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1007011284}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: walk
+      value: 
+      objectReference: {fileID: 1007011282}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1007011283}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: talkingIcon
       value: 
       objectReference: {fileID: 840779696}
@@ -8878,6 +8902,21 @@ Camera:
 --- !u!1 &1007011281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 187121054581956980, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
+  m_PrefabInstance: {fileID: 1007011277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1007011282 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8141928661525544670, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
+  m_PrefabInstance: {fileID: 1007011277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1007011283 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3468199993409899609, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
+  m_PrefabInstance: {fileID: 1007011277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1007011284 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5347850532413863045, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
   m_PrefabInstance: {fileID: 1007011277}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1036198870

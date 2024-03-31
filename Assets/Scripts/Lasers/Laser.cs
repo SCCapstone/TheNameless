@@ -19,6 +19,7 @@ public class Laser : MonoBehaviour
     [SerializeField] Transform respawn;
     // what tag should be respawned by the laser?
     [SerializeField] public string playerTag = "Player";
+    [SerializeField] public string enemyTag = "Enemy";
     // how long between blinks?
     [SerializeField] public float ioTimer = 1f;
     // how long does it take the laser to move?
@@ -78,7 +79,7 @@ public class Laser : MonoBehaviour
         }
         if(playerTag == "disabled")
         {
-            print("done");
+            
         }
     }
 

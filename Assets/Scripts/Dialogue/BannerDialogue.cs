@@ -7,7 +7,10 @@ using UnityEngine.UI;
 
 public class BannerDialogue : MonoBehaviour
 {
-    // TODO : stop player from moving when text is active.
+    // TODO : stop player from moving when text is active. TODO IS DONE
+    [SerializeField] AudioSource walk;
+    public Rigidbody2D rb;
+    public Animator animator;
     [SerializeField] string[] text;
     [SerializeField] Sprite[] icons;
     [SerializeField] TextMeshProUGUI display;
@@ -39,6 +42,9 @@ public class BannerDialogue : MonoBehaviour
         else
         {
             PopulateText();
+            rb.velocity = Vector3.zero;
+            animator.SetBool("isRunning", false);
+            walk.Pause();
             pm.enabled = false;
         }
     }

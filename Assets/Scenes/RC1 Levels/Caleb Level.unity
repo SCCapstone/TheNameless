@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 274189359}
   - component: {fileID: 274189358}
   - component: {fileID: 274189357}
-  - component: {fileID: 274189356}
+  - component: {fileID: 274189360}
   m_Layer: 0
   m_Name: Entrance
   m_TagString: Untagged
@@ -843,20 +843,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &274189356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274189355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0625bc0d085ebdd4ba12b8a4ef5b37e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1667048666}
-  playerMovement: {fileID: 1667048671}
 --- !u!95 &274189357
 Animator:
   serializedVersion: 5
@@ -945,6 +931,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274189360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274189355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf899b1e81bf4ab44827f3fa605aed5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1667048666}
+  playerMovement: {fileID: 1667048671}
 --- !u!1 &302802466
 GameObject:
   m_ObjectHideFlags: 0
@@ -19166,6 +19166,18 @@ PrefabInstance:
       propertyPath: pm
       value: 
       objectReference: {fileID: 1667048671}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1667048670}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: walk
+      value: 
+      objectReference: {fileID: 1992886529}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1667048669}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: text.Array.size
       value: 3

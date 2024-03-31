@@ -580,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 4070698188398952633, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
       propertyPath: SceneTransition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446547630}
     - target: {fileID: 4933720715802921245, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.55
@@ -1125,7 +1125,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 920a7694cf8416248816f6c5a9228087, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -24731,7 +24731,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1225441211, guid: e8fcb0f47cdc5444098253e35131eaab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -34963,6 +34963,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543624966}
   m_CullTransparentMesh: 1
+--- !u!82 &1573466554 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8141928661525544670, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
+  m_PrefabInstance: {fileID: 56353612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577727162
 GameObject:
   m_ObjectHideFlags: 0
@@ -36358,6 +36363,18 @@ PrefabInstance:
       propertyPath: pm
       value: 
       objectReference: {fileID: 1421306687}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1309619957}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: walk
+      value: 
+      objectReference: {fileID: 1573466554}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1309619956}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: talkingIcon
       value: 

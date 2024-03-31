@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8ca3faa95e51a04aa21f9864e9b4f21
+guid: 6674a94f646c71f4ca762840b11b9721
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Evil_AI_Dialog_Portrait_0
+      name: RobotDroneFlyingBoss_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7612e31a15c04e4b93c0688a954c89a
-      internalID: -917608165
+      spriteID: 9c2ec7f8ba7ed9b4ebc6414329d060fd
+      internalID: -801064118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Evil_AI_Dialog_Portrait_1
+      name: RobotDroneFlyingBoss_1
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead470b0788538c4c988043db0f0369f
-      internalID: -1193595002
+      spriteID: a1ce9dad36b9dab468f9176142264bd9
+      internalID: -1908094565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Evil_AI_Dialog_Portrait_2
+      name: RobotDroneFlyingBoss_2
       rect:
         serializedVersion: 2
         x: 64
@@ -192,8 +192,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8986066ad7556b64ebcb12b3a323b41a
-      internalID: -820946295
+      spriteID: b3d3d11c6942f4041bd77163cdd3f88f
+      internalID: 113584200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotDroneFlyingBoss_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afad79bf20658f44a873423ccd3fe5e0
+      internalID: 1068895982
       vertices: []
       indices: 
       edges: []
@@ -209,9 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Evil_AI_Dialog_Portrait_0: -917608165
-      Evil_AI_Dialog_Portrait_1: -1193595002
-      Evil_AI_Dialog_Portrait_2: -820946295
+      RobotDroneFlyingBoss_0: -801064118
+      RobotDroneFlyingBoss_1: -1908094565
+      RobotDroneFlyingBoss_2: 113584200
+      RobotDroneFlyingBoss_3: 1068895982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

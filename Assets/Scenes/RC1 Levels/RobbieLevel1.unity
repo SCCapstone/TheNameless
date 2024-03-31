@@ -14854,6 +14854,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 187121054581956980, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
   m_PrefabInstance: {fileID: 1927673405}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1927673407 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8141928661525544670, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
+  m_PrefabInstance: {fileID: 1927673405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1927673408 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1095362788752115562, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
@@ -14948,6 +14953,18 @@ PrefabInstance:
       propertyPath: pm
       value: 
       objectReference: {fileID: 1927673416}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1927673421}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: walk
+      value: 
+      objectReference: {fileID: 1927673407}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1927673420}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: talkingIcon
       value: 

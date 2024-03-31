@@ -49001,6 +49001,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1417531261}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1417531265}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: walk
+      value: 
+      objectReference: {fileID: 1106267090}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1417531264}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: text.Array.data[0]
       value: LOOKS LIKE THE SECURITY SYSTEM IS GOING HAYWIRE
       objectReference: {fileID: 0}
