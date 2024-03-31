@@ -27,7 +27,7 @@ public class FlyingRobotEnemyScript : MonoBehaviour
         {
             directionX *= -1f;
         }
-        if (collision.gameObject.name.Equals("Player"))
+        else if (collision.gameObject.name.Equals("Player"))
         {
             playerHealth.TakeNormalDamage(1);
         }
@@ -55,6 +55,16 @@ public class FlyingRobotEnemyScript : MonoBehaviour
         }
 
         transform.localScale = localScale;
+
+        FlipY();
+    }
+
+    public void FlipY()
+    {
+        Vector3 scale = transform.localScale;
+        if ((scale.y < 0 && Physics2D.gravity.y < 0) || (scale.y > 0 && Physics2D.gravity.y > 0))
+            scale.y *= -1;
+        transform.localScale = scale;
     }
 
 }

@@ -47,6 +47,11 @@ public class ExitLevelScriptV2 : MonoBehaviour
         text.text = " ";
     }
 
+    public void GoToNextLevel()
+    {
+        StartCoroutine(PlayerExitToNextLevel());
+    }
+
     public IEnumerator PlayerExitToNextLevel()
     {
         SceneTransition.SetBool("isDead", true);
