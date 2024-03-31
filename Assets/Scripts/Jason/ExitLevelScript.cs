@@ -14,6 +14,8 @@ public class ExitLevelScript : MonoBehaviour
     public Animator SceneTransition;
     public GameObject player;
     public PlayerMovement playerMovement;
+    public GameObject dialogueBox;
+    public GameObject dialogueBox2;
 
     private void Start()
     {
@@ -25,11 +27,18 @@ public class ExitLevelScript : MonoBehaviour
     {
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && keyLock.doorIsLocked == false)
         {
+            BannerDialogue.hasShown = false;
+            dialogueBox2.SetActive(true);
             GameObject playerObject = GameObject.Find("Player");
             player.GetComponent<SpriteRenderer>().enabled = false;
             playerMovement.enabled = false;
             animator.SetBool("isReadyToExit", true);
             StartCoroutine(PlayerExitToNextLevel());
+        }
+        else if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && keyLock.doorIsLocked == true)
+        {
+            BannerDialogue.hasShown = false;
+            dialogueBox.SetActive(true);
         }
     }
 

@@ -8,6 +8,7 @@ public class Key : MonoBehaviour
     public bool playerHasKey = false;
     private bool inTriggerZone = false;
     public TMP_Text text;
+    public GameObject dialogueBox;
 
     public void Update()
     {
@@ -15,6 +16,8 @@ public class Key : MonoBehaviour
         {
             playerHasKey = true;
             Destroy(gameObject);
+            BannerDialogue.hasShown = false;
+            dialogueBox.SetActive(true);
         } 
         
     }

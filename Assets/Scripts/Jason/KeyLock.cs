@@ -10,6 +10,9 @@ public class KeyLock : MonoBehaviour
     public bool doorIsLocked = true;
     private bool inTriggerZone = false;
     public TMP_Text text;
+    public GameObject dialogueBox;
+    public GameObject dialogueBox2;
+    public GameObject realKey;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +27,15 @@ public class KeyLock : MonoBehaviour
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && key.playerHasKey == true)
         {
             doorIsLocked = false;
-            Destroy(GameObject.Find("Real Key"));
+            BannerDialogue.hasShown = false;
+            dialogueBox2.SetActive(true);
+            realKey.GetComponent<SpriteRenderer>().enabled = false;
             exit.animator.SetBool("isUnlocked", true);
+        }
+        else if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && key.playerHasKey == false)
+        {
+            BannerDialogue.hasShown = false;
+            dialogueBox.SetActive(true);
         }
     }
 
