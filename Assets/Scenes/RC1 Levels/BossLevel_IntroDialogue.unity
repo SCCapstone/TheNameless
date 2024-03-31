@@ -151,6 +151,8 @@ MonoBehaviour:
   - FINE. I'M GOING TO HAVE SHUT YOU DOWN.
   - HAHAHA NOW THAT'S EVEN FUNNIER!
   - THANKS FOR THE CHAT HUMAN, BUT I'M GOING TO KILL YOU NOW.
+  - 'I CAN''T DEFEAT THIS A.I. BY MYSELF. '
+  - I'M GOING TO NEED TO USE THAT HEAVY METAL CRATE TO SMASH THEM.
   icons:
   - {fileID: -2138296109, guid: e340153095b2a34448da86eeded8c783, type: 3}
   - {fileID: -820946295, guid: e8ca3faa95e51a04aa21f9864e9b4f21, type: 3}
@@ -158,6 +160,8 @@ MonoBehaviour:
   - {fileID: -2138296109, guid: e340153095b2a34448da86eeded8c783, type: 3}
   - {fileID: -820946295, guid: e8ca3faa95e51a04aa21f9864e9b4f21, type: 3}
   - {fileID: -917608165, guid: e8ca3faa95e51a04aa21f9864e9b4f21, type: 3}
+  - {fileID: -2138296109, guid: e340153095b2a34448da86eeded8c783, type: 3}
+  - {fileID: -2138296109, guid: e340153095b2a34448da86eeded8c783, type: 3}
   display: {fileID: 188512444}
   textBox: {fileID: 1262731861}
   advance: 32
@@ -131706,6 +131710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHasKey: 0
   text: {fileID: 200631775}
+  dialogueBox: {fileID: 0}
 --- !u!61 &1436789845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134606,6 +134611,9 @@ MonoBehaviour:
   exit: {fileID: 0}
   doorIsLocked: 1
   text: {fileID: 200631775}
+  dialogueBox: {fileID: 0}
+  dialogueBox2: {fileID: 0}
+  realKey: {fileID: 0}
 --- !u!61 &1920133141
 BoxCollider2D:
   m_ObjectHideFlags: 0
