@@ -14,4 +14,6 @@ public class StartDialogue : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    
+
 }

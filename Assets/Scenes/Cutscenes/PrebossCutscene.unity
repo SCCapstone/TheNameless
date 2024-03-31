@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoTransition: 1
   seconds: 15
-  nextSceneID: 0
+  nextSceneID: 18
 --- !u!320 &280796388
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -197,6 +197,8 @@ PlayableDirector:
     value: {fileID: 1512644522}
   - key: {fileID: 90198362528424305, guid: 327ef714cb009f44aae22ffed2322eea, type: 2}
     value: {fileID: 1513483007}
+  - key: {fileID: 1090461771255706354, guid: 327ef714cb009f44aae22ffed2322eea, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &280796389
@@ -4146,7 +4148,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1252930529
