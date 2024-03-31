@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheatCodes : MonoBehaviour
 {
     [SerializeField] public string Buffer;
     [SerializeField] private float maxTimeDif = 1;
-    private List<string> validPatterns = new List<string>() {"UUDDLRLRBL"};
+    private List<string> validPatterns = new List<string>() {"UUDDLRLRBL","BBB"};
     private float timeDif;
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,10 @@ public class CheatCodes : MonoBehaviour
             PlayerHealth.invincibility = true;
             TextActivator.en = true;
             Invoke("QuickDisable", 3f);
+        }
+        if (Buffer.EndsWith(validPatterns[1]))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
