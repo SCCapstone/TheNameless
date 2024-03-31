@@ -9,9 +9,11 @@ public class StartDialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        BannerDialogue.hasShown = false;
-        dialogueBox.SetActive(true);
-        gameObject.SetActive(false);
+        if (collision.gameObject.CompareTag("Player")) { 
+            BannerDialogue.hasShown = false;
+            dialogueBox.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 
     
