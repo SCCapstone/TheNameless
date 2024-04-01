@@ -11,7 +11,6 @@ public class TextActivator : MonoBehaviour
     void Awake()
     {
         m_TextComponent = GetComponent<TMP_Text>();
-        m_TextComponent.text = "Invincibilty Enabled";
     }
 
     // Update is called once per frame
@@ -19,6 +18,14 @@ public class TextActivator : MonoBehaviour
     {
         if (en)
         {
+            if(PlayerHealth.invincibility)
+            {
+                m_TextComponent.text = "Invincibilty Enabled";
+            }
+            else
+            {
+                m_TextComponent.text = "Invincibilty Disabled";
+            }
             m_TextComponent.enabled = true;
         } 
         else

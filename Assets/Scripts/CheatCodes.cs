@@ -7,7 +7,7 @@ public class CheatCodes : MonoBehaviour
 {
     [SerializeField] public string Buffer;
     [SerializeField] private float maxTimeDif = 1;
-    private List<string> validPatterns = new List<string>() {"UUDDLRLRBL","BBB"};
+    private List<string> validPatterns = new List<string>() {"BBL","BBB"};
     private float timeDif;
     // Start is called before the first frame update
     void Start()
@@ -59,7 +59,7 @@ public class CheatCodes : MonoBehaviour
     {
         if (Buffer.EndsWith(validPatterns[0]))
         {
-            PlayerHealth.invincibility = true;
+            PlayerHealth.invincibility = !PlayerHealth.invincibility;
             TextActivator.en = true;
             Invoke("QuickDisable", 3f);
         }
