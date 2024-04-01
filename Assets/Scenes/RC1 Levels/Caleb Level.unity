@@ -19360,20 +19360,23 @@ PrefabInstance:
       objectReference: {fileID: 1667048669}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: text.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: text.Array.data[0]
-      value: This is the lift.
+      value: THIS IS THE LIFT.
       objectReference: {fileID: 0}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: text.Array.data[1]
-      value: It's in rough shape, but I might be able to get it working one last
-        time.
+      value: 'IT''S IN ROUGH SHAPE, '
       objectReference: {fileID: 0}
     - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: text.Array.data[2]
-      value: I'll have to be careful not to get left behind.
+      value: BUT I WILL TRY TO GET IT WORKING ONE LAST TIME.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776251151939983963, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
+      propertyPath: text.Array.data[3]
+      value: I'LL HAVE TO BE CAREFUL NOT TO BE LEFT BEHIND
       objectReference: {fileID: 0}
     - target: {fileID: 5678946946053239259, guid: ae42a99ad482f1f42a96c8a0d612577e, type: 3}
       propertyPath: m_Pivot.x
