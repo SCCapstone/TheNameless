@@ -39,7 +39,7 @@ window after opening the project through Unity.
 
 To run the compiled build, open the file you unzipped in setup and run the included executable
 
-# Cheats
+## Cheats
 
 Selene has a few included developer cheats if a section proves difficult or if you want to get
 back to a section quickly. These cheats are enabled by inputting a specific sequence in non-
