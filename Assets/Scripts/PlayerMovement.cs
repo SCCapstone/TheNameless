@@ -163,4 +163,9 @@ public class PlayerMovement : MonoBehaviour
         return val != 0f ? (int)(val / Math.Abs(val)) : 0;
     }
 
+    public void TurnGravityControlOn()
+    {
+        hasGravityController = true;
+    }
+
 }
