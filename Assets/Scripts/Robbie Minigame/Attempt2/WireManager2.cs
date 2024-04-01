@@ -10,6 +10,7 @@ public class WireManager2 : MonoBehaviour
     [SerializeField] int numWires = 4;
     [SerializeField] GameObject GO;
     [SerializeField] GameObject Panel;
+    public Animator wireAnimator;
     private void Start()
     {
         connections = new List<bool>();
@@ -32,6 +33,7 @@ public class WireManager2 : MonoBehaviour
                 GO.SetActive(false);
             }
             Panel.SetActive(false);
+            wireAnimator.SetBool("isWired", true);
         }
     }
 
