@@ -1672,6 +1672,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6322273146015845387, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1688557125}
     - target: {fileID: 6781081626827881457, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: m_Name
       value: Laser Source 3
@@ -19534,7 +19538,7 @@ PrefabInstance:
     - target: {fileID: 6322273146015845387, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1688557125}
     - target: {fileID: 6781081626827881457, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: m_Name
       value: Laser Source 2
@@ -20801,7 +20805,7 @@ PrefabInstance:
     - target: {fileID: 6322273146015845387, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1688557125}
     - target: {fileID: 6781081626827881457, guid: 7e043ba93784d414a90d049b42532c0c, type: 3}
       propertyPath: m_Name
       value: Laser Source 1
