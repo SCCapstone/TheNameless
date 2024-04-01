@@ -1,8 +1,8 @@
 # TheNameless
 # Selene
 
-This first paragraph should be a short description of the app. You can add links
-to your wiki pages that have more detailed descriptions.
+Selene is a 2D platformer made in the Unity engine with an emphasis on gravity
+changing mechanics.
 
 Your audience for the Readme.md are other developers who are joining your team.
 Specifically, the file should contain detailed instructions that any developer
@@ -24,26 +24,32 @@ in the editor.
 
 ## Setup
 
-In order to set up this file locally in the Unity Editor, the file must be loaded through
+In order to set up this project locally in the Unity Editor, the file must be loaded through
 the Unity Hub application. On the projects screen, press the `Add` button and select
 the Repository which contains the project.
+
+In order to set up a completed build, download the zip file for the most recent release and unzip
+it in the location you want it installed.
 
 ## Running
 
 Selene does not run through a command line. Instead, the app can be run with the help of the
 Unity Editor. In order to test the app, one can press the play button at the top of the editor
-window after opening the project through Unity. A Windows build (which will be included at
-a later date) can be made by going to File -> Build Settings and pressing `Build & Run`.
+window after opening the project through Unity.
+
+To run the compiled build, open the file you unzipped in setup and run the included executable
+
+# Cheats
+
+Selene has a few included developer cheats if a section proves difficult or if you want to get
+back to a section quickly. These cheats are enabled by inputting a specific sequence in non-
+minigame levels. Enter "BBA" to toggle invincibility and "BBB" to skip to the next level. If
+a code does not seem to work, wait a second befor attempting again, making sure not to press
+any other keys.
 
 # Deployment
 
-Webapps need a deployment section that explains how to get it deployed on the 
-Internet. These should be detailed enough so anyone can re-deploy if needed
-. Note that you **do not put passwords in git**. 
-
-Mobile apps will also sometimes need some instructions on how to build a
-"release" version, maybe how to sign it, and how to run that binary in an
-emulator or in a physical phone.
+A Windows build can be made from the project by going to File -> Build Settings and pressing `Build & Run`.
 
 # Testing
 
