@@ -9,11 +9,13 @@ public class CheatCodes : MonoBehaviour
     [SerializeField] private float maxTimeDif = 1;
     private List<string> validPatterns = new List<string>() {"BBL","BBB"};
     private float timeDif;
+
+    private bool cheatOnCooldown;
+
     // Start is called before the first frame update
     void Start()
     {
         timeDif = maxTimeDif;
-       
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class CheatCodes : MonoBehaviour
             addToBuffer("B");
         }
 
-        checkPatterns();
+        if(!cheatOnCooldown) checkPatterns();
     }
 
     void addToBuffer(string c)
@@ -60,8 +62,10 @@ public class CheatCodes : MonoBehaviour
         if (Buffer.EndsWith(validPatterns[0]))
         {
             PlayerHealth.invincibility = !PlayerHealth.invincibility;
+            cheatOnCooldown = true;
             TextActivator.en = true;
             Invoke("QuickDisable", 3f);
+            StartCoroutine(CheatCooldown());
         }
         if (Buffer.EndsWith(validPatterns[1]))
         {
@@ -72,5 +76,11 @@ public class CheatCodes : MonoBehaviour
     void QuickDisable()
     {
         TextActivator.en = false;
+    }
+
+    private IEnumerator CheatCooldown()
+    {
+        yield return new WaitForSeconds(maxTimeDif);
+        cheatOnCooldown = false;
     }
 }
