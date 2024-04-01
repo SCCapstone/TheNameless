@@ -56,6 +56,7 @@ public class ExitLevelScriptV2 : MonoBehaviour
     {
         SceneTransition.SetBool("isDead", true);
         yield return new WaitForSeconds(2);
+        DoDialogueAndGoToNextLevel.hasShown = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
         SceneTransition.SetBool("isDead", false);
