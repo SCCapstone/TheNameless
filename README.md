@@ -42,10 +42,9 @@ To run the compiled build, open the file you unzipped in setup and run the inclu
 ## Cheats
 
 Selene has a few included developer cheats if a section proves difficult or if you want to get
-back to a section quickly. These cheats are enabled by inputting a specific sequence in non-
-minigame levels. Enter "BBA" to toggle invincibility and "BBB" to skip to the next level. If
-a code does not seem to work, wait a second befor attempting again, making sure not to press
-any other keys.
+back to a section quickly. These cheats are enabled by inputting a specific sequence in levels.
+Enter "BBA" to toggle invincibility and "BBB" to skip to the next level. If a code does not
+seem to work, wait a second befor attempting again, making sure not to press any other keys.
 
 # Deployment
 
