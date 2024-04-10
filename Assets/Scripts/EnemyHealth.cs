@@ -21,9 +21,9 @@ public class EnemyHealth : MonoBehaviour
 
     void TakeDamage()
     {
+        animator.SetBool("isHurt", true);
         currentHealth--;
         hurt.Play();
-        animator.SetBool("isHurt", true);
         StartCoroutine(GoBackToNormalAnimation());
     }
 
