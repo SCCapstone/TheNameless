@@ -16,6 +16,7 @@ public class GravityBoots : MonoBehaviour
         {
             playerMovement.TurnGravityControlOn();
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.SetActive(false);
         }
 
     }
