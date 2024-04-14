@@ -3,23 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MusicBehavior : MonoBehaviour
-{
+{ 
+
     private static MusicBehavior instance;
+    public AudioSource audioSource;
+    
+
     private void Awake()
     {
-        int y = SceneManager.GetActiveScene().buildIndex;
-        if (instance != null)
+        if (instance == null)
         {
-            Destroy(gameObject);
-        }
-        else if (y == 0)
-        {
-            Destroy(gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Destroy(gameObject);
+        }
+
+    }
+    private void Update()
+    {
+        int y = SceneManager.GetActiveScene().buildIndex;
+        if (y == 0)
+        {
+            MuteMusic();
+        }
+    }
+
+    public void MuteMusic()
+    {
+        if (audioSource != null)
+        {
+            Destroy(gameObject);
         }
     }
 }
