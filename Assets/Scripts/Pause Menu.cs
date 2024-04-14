@@ -8,9 +8,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject controlsMenu;
     public GameObject optionsMenu;
+    public Vector2 startGravity;
     // Start is called before the first frame update
     void Start()
     {
+        startGravity = Physics2D.gravity;
         pauseMenu.SetActive(false);
         controlsMenu.SetActive(false);
         optionsMenu.SetActive(false);
@@ -33,6 +35,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Restart() {
+        Physics2D.gravity = startGravity;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
