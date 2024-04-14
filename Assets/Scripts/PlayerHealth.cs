@@ -110,7 +110,7 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         pm.enabled = true;
-        Physics2D.gravity = new Vector2(startGravity.x, startGravity.y);
+        Physics2D.gravity = startGravity;
         SceneTransition.SetBool("isDead", false);
     }
     
