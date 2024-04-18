@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Pixeled';
+    src: url('../font/Pixeled.woff2') format('woff2'),
+         url('../font/Pixeled.woff') format('woff'),
+         url('../font/Pixeled.ttf') format('truetype');
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+h1, h2, h3 {
+    font-family: 'Pixeled';
+}
