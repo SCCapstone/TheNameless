@@ -90,6 +90,10 @@ div#demo {
     align-items: center;
 }
 
+div#demo video {
+    width: 75%;
+}
+
 a {
     color: white;
 }
