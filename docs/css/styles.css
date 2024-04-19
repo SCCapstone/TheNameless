@@ -32,6 +32,10 @@ header {
     background-color: black;
 }
 
+header a {
+    text-decoration: none;
+}
+
 header div#header {
     width: 75%;
     display: flex;
