@@ -26,9 +26,11 @@ public class KeyLock : MonoBehaviour
     {
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && key.playerHasKey == true)
         {
+            
             doorIsLocked = false;
             BannerDialogue.hasShown = false;
             dialogueBox2.SetActive(true);
+            dialogueBox2.SetActive(false);
             realKey.GetComponent<SpriteRenderer>().enabled = false;
             exit.animator.SetBool("isUnlocked", true);
         }
@@ -36,6 +38,7 @@ public class KeyLock : MonoBehaviour
         {
             BannerDialogue.hasShown = false;
             dialogueBox.SetActive(true);
+            
         }
     }
 

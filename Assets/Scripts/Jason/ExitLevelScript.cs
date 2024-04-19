@@ -27,6 +27,7 @@ public class ExitLevelScript : MonoBehaviour
     {
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E) && keyLock.doorIsLocked == false)
         {
+            
             BannerDialogue.hasShown = false;
             dialogueBox2.SetActive(true);
             GameObject playerObject = GameObject.Find("Player");
@@ -39,6 +40,7 @@ public class ExitLevelScript : MonoBehaviour
         {
             BannerDialogue.hasShown = false;
             dialogueBox.SetActive(true);
+            
         }
     }
 
