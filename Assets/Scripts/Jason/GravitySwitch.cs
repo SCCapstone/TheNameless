@@ -51,5 +51,6 @@ public class GravitySwitch : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;
+        text.text = " ";
     }
 }
