@@ -9,6 +9,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject controlsMenu;
     public GameObject optionsMenu;
     public Vector2 startGravity;
+
+    private bool isPaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,16 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            if(isPaused)
+            {
+                isPaused = false;
+                Resume();
+            }
+            else
+            {
+                isPaused = true;
+                Pause();
+            }
         }
 
         controlsMenu.SetActive(Input.GetKey(KeyCode.C));
