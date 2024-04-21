@@ -1168,8 +1168,10 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -8.9, y: -5}
-  - {x: -8.866112, y: 4.937067}
-  - {x: 8.847798, y: 4.966223}
+  - {x: -8.843123, y: 4.2244368}
+  - {x: -8.12352, y: 4.819}
+  - {x: 8.147584, y: 4.8236594}
+  - {x: 8.761746, y: 4.1272125}
   - {x: 8.9, y: -5}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -9036,6 +9038,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 18851109}
   controlsMenu: {fileID: 56083341}
   optionsMenu: {fileID: 826279450}
+  startGravity: {x: 0, y: 0}
 --- !u!4 &1467561395
 Transform:
   m_ObjectHideFlags: 0
