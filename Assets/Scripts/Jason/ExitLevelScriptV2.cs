@@ -52,6 +52,15 @@ public class ExitLevelScriptV2 : MonoBehaviour
         StartCoroutine(PlayerExitToNextLevel());
     }
 
+    public void ExitLevel()
+    {
+        GameObject playerObject = GameObject.Find("Player");
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        playerMovement.enabled = false;
+        animator.SetBool("isReadyToExit", true);
+        StartCoroutine(PlayerExitToNextLevel());
+    }
+
     public IEnumerator PlayerExitToNextLevel()
     {
         SceneTransition.SetBool("isDead", true);
