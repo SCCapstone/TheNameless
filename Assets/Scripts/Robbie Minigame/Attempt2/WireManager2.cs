@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class WireManager2 : MonoBehaviour
 {
-    List<bool> connections;
+    public List<bool> connections;
     [SerializeField] int numWires = 4;
     [SerializeField] GameObject GO;
     [SerializeField] GameObject Panel;
@@ -25,6 +25,7 @@ public class WireManager2 : MonoBehaviour
             if(GO.GetComponent<Laser>() != null)
             {
                 GO.GetComponent<Laser>().enabled = false;
+                GO.GetComponent<LineRenderer>().positionCount = 0;
                 GO.GetComponent<LineRenderer>().enabled = false;
             }
             // if not a laser, remove object

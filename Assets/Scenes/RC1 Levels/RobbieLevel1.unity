@@ -2744,7 +2744,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -2088478841
   m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &1009890724
@@ -3011,6 +3011,7 @@ MonoBehaviour:
   panel: {fileID: 1596906307}
   prompt: {fileID: 2020762041}
   door: {fileID: 1684721029}
+  wireManager: {fileID: 1783700600}
 --- !u!61 &1037877793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13754,6 +13755,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8804528637203730747, guid: e39dac7e96b835642822a87fd25be996, type: 3}
   m_PrefabInstance: {fileID: 1783700598}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1783700600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7063120352788213658, guid: e39dac7e96b835642822a87fd25be996, type: 3}
+  m_PrefabInstance: {fileID: 1783700598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0095cb85b62836e42b0708d432056b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1901405300
 GameObject:
   m_ObjectHideFlags: 0
@@ -15138,6 +15150,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1781823965}
   controlsMenu: {fileID: 1715118698}
   optionsMenu: {fileID: 1772973575}
+  startGravity: {x: 0, y: 0}
 --- !u!4 &1945081253
 Transform:
   m_ObjectHideFlags: 0
