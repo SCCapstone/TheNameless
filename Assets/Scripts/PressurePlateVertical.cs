@@ -12,7 +12,7 @@ public class PressurePlateVertical : MonoBehaviour
     public UnityEvent onPress;  // Allow us to define the funtion of the pressure plate in the Unity Inspector
     public UnityEvent onRelease;  // Allow us to define what happens when the pressure plate is disengaged
     private bool onPlate;       // Whether something is making contact with the plate
-    private bool pressed;       // Bool to make sure the plate can't be activated again until it's fully disengaged first
+    public bool pressed;       // Bool to make sure the plate can't be activated again until it's fully disengaged first
 
     // Start is called before the first frame update
     void Start()
