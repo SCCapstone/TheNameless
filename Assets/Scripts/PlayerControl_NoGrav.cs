@@ -32,9 +32,10 @@ public class PlayerControl_NoGrav : MonoBehaviour
     {
         //Get how far left or right to move, apply it as a velocity
         hori = Input.GetAxis("Horizontal");
+        //Rotate
         rb.rotation += -hori*speed*Time.deltaTime;
         
-        //When pressing the gravity button, switch the gravity scale and jump direction
+        //When pressing the gravity button, add an upwards force from the player perspective
         if(Input.GetButton("Jump"))
         {
             rb.AddForce(Quaternion.Euler(0,0,rb.rotation)*Vector3.up*force*Time.deltaTime);

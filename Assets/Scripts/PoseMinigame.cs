@@ -49,8 +49,10 @@ public class PoseMinigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Get reference
         rb = GetComponent<Rigidbody2D>();
         
+        //Start on pose 0
         currentPose = 0;
 
         //Get components
@@ -68,16 +70,18 @@ public class PoseMinigame : MonoBehaviour
         if(Input.GetButtonDown("Vertical"))
         {
             float vert = Input.GetAxis("Vertical");
-            //Flip
+            //Flip if minigame allows
             if(requireFlip && vert > 0)
             {
                 SR.flipX = !SR.flipX;
             }
-            //Pose
+            //Pose if minigame allows
             if(requirePose && vert < 0)
             {
+                //Increment current pose, which cycles between 0, 1, and 2
                 currentPose = (currentPose+1) % 3;
 
+                //Display the correct pose
                 switch(currentPose)
                 {
                     case 0:
@@ -161,6 +165,7 @@ public class PoseMinigame : MonoBehaviour
             //Emergency correct
             hasFailed = false;
 
+            //Wait a bit between the completion of each phase
             yield return new WaitForSeconds(0.5f);
         }
 
@@ -170,29 +175,39 @@ public class PoseMinigame : MonoBehaviour
 
     public void FailMinigame()
     {
-        animator.enabled = true;
+        //Do nothing if invincibility cheat is active
         if (invincibility == true)
         {
             return;
         }
 
+        //Start animating
+        animator.enabled = true;
+
+        //Stop movement
         rb.bodyType = RigidbodyType2D.Static;
         rb.velocity = Vector3.zero;
         animator.SetBool("isElectrocuted", true);
         
         if (!hasDied)
         {
+            //Play death sound
             hurt.PlayOneShot(hurt.clip);
             hasDied = true;
         }
+
+        //Start to respawn
         StartCoroutine(PlayerRespawn());
     }
 
     public IEnumerator PlayerRespawn()
     {
+        //Give time for death animation to play
         yield return new WaitForSeconds(1);
+        //Fade out of scene
         SceneTransition.SetBool("isDead", true);
         yield return new WaitForSeconds(3);
+        //Reload level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

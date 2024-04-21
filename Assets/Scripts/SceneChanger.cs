@@ -25,31 +25,37 @@ public class SceneChanger : MonoBehaviour
         
     }
 
+    //Transition to a scene by a given index number
     public void toScene(int index)
     {
         SceneManager.LoadSceneAsync(index);
     }
 
+    //Transition to a scene by a given scene name
     public void toScene(string name)
     {
         SceneManager.LoadSceneAsync(name);
     }
-    
+
+    //Transition to the next scene in build order    
     public void NextLevel()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    //Reload the current scene
     public void Reload()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
     
+    //Quit the game
     public void Quit()
     {
         Application.Quit();
     }
 
+    //After a specified number of seconds, transition to the given scene by ID
     public IEnumerator AutoLoad(float seconds, int ID)
     {
         yield return new WaitForSeconds(seconds);
