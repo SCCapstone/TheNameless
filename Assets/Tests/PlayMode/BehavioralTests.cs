@@ -254,7 +254,8 @@ public class BehavioralTests
         yield return null;
         player.Jump(10f);
 
-        // In the period of half a second, simulate a '<-' button press
+        // In the period of three quarters of a second, simulate a '<-' button
+        // press
         for (float t = 0f; t < 0.75f; t += Time.deltaTime) {
             yield return null;
             player.Move(-1, false);
@@ -265,5 +266,59 @@ public class BehavioralTests
 
         // Check that the button of the pressure plate is currently pressed
         Assert.IsTrue(button.pressed);
+    }
+
+
+    [UnityTest]
+    public IEnumerator ExitLevel()
+    {
+        // Open the 'Testing' scene
+        SceneManager.LoadScene("Testing");
+        yield return null;
+        
+        // Get the player object and make sure it's not null
+        var playerObject = GameObject.FindGameObjectWithTag("Player");
+        Assert.IsNotNull(playerObject);
+
+        // Get the exit object and make sure it's not null
+        var exitObject = GameObject.Find("Exit");
+        Assert.IsNotNull(exitObject);
+
+        // Get the instance of PlayerMovement that's applied to the player
+        // object and make sure it's not null
+        var player = playerObject.GetComponent<PlayerMovement>();
+        Assert.IsNotNull(player);
+
+        // Get the instance of the ExitLevelScriptV2 script that's applied
+        // to the exit object and make sure it's not null
+        var exit = exitObject.GetComponent<ExitLevelScriptV2>();
+        Assert.IsNotNull(exit);
+
+        var initialScene = SceneManager.GetActiveScene().buildIndex;
+
+        // Allow the player half a second to land on the ground in the scene
+        yield return new WaitForSeconds(0.5f);
+
+        // Simulate a player jump
+        yield return null;
+        player.Jump(10f);
+
+        // In the period of about a second, simulate a '<-' button press
+        for (float t = 0f; t < 1.33f; t += Time.deltaTime) {
+            yield return null;
+            player.Move(-1, false);
+        }
+
+        // Simulate the player exiting the level
+        yield return null;
+        exit.ExitLevel();
+
+        // Wait a couple seconds for the player to land on the pressure plate
+        yield return new WaitForSeconds(2.5f);
+
+        Debug.Log("initialScene, buildIndex: " + initialScene.ToString() + SceneManager.GetActiveScene().buildIndex.ToString());
+
+        Assert.IsTrue(SceneManager.GetActiveScene().buildIndex != initialScene);
+
     }
 }
