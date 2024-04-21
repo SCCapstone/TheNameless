@@ -14,6 +14,18 @@ public class SoundSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        float current;
+        
+        masterMixer.GetFloat("MasterVolume", out current);
+
+        current = current/20;
+        current = Mathf.Pow(10, current);
+        current = current*100;
+
+        soundSlider.SetValueWithoutNotify(current);
+
+        percent.text = Math.Floor(soundSlider.value).ToString() + "%";
+        
         // SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
     }
 

@@ -358,6 +358,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pressed: 0
 --- !u!212 &23508809
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1484,6 +1485,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  pressed: 0
 --- !u!212 &122571069
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1659,6 +1661,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  pressed: 0
 --- !u!212 &125669460
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53648,6 +53651,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pressed: 0
 --- !u!1 &371922919
 GameObject:
   m_ObjectHideFlags: 0
@@ -55323,6 +55327,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pressed: 0
 --- !u!212 &433368953
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58040,6 +58045,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pressed: 0
 --- !u!212 &869564546
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130282,6 +130288,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pressed: 0
 --- !u!212 &1187948849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -132518,6 +132525,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pressed: 0
 --- !u!212 &1428555431
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133307,7 +133315,7 @@ AudioSource:
   m_GameObject: {fileID: 1602628987}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f2394e719e7755742b2e850a59a02656, type: 2}
   m_audioClip: {fileID: 8300000, guid: f0bb0ea3341431f4f943d235b61a0d4e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -135860,6 +135868,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pressed: 0
 --- !u!212 &1750900978
 SpriteRenderer:
   m_ObjectHideFlags: 0

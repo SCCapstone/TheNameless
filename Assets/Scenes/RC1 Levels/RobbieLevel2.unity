@@ -438,6 +438,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -2088478841
       objectReference: {fileID: 0}
+    - target: {fileID: 3447944078134627957, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f2394e719e7755742b2e850a59a02656, type: 2}
     - target: {fileID: 4070698188398952633, guid: 99dc268970f51b84f8bd998bbaa0f5d8, type: 3}
       propertyPath: rb
       value: 
