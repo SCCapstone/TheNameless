@@ -169,7 +169,8 @@ public class BehavioralTests
         // Allow the player half a second to land on the ground in the scene
         yield return new WaitForSeconds(0.5f);
 
-        // Get the user's initial position for comparison
+        // Get the user's initial position & the initial value of gravity for
+        // comparison
         var initialPosition = player.GetPosition();
         var initialGravity = Physics2D.gravity;
 
@@ -177,13 +178,15 @@ public class BehavioralTests
         yield return null;
         player.ReverseGravity();
 
-        // Wait a couple seconds for the player to move
-        for (float t = 0f; t < 1f; t += Time.deltaTime) {
-            yield return null;
-        }
+        // Wait a second for the player to move
+        yield return new WaitForSeconds(1f);
 
-        // Check that the player's position is above their initial position and Physics2D.gravity has been reversed
-        Assert.IsTrue(player.GetPosition().y > initialPosition.y && Physics2D.gravity.y == -initialGravity.y);
+        // Check that the player's position is above their initial position and
+        // Physics2D.gravity has been reversed
+        Assert.IsTrue(
+            player.GetPosition().y > initialPosition.y &&
+            Physics2D.gravity.y == -initialGravity.y
+        );
     }
 
 
@@ -198,25 +201,69 @@ public class BehavioralTests
         var playerObject = GameObject.FindGameObjectWithTag("Player");
         Assert.IsNotNull(playerObject);
         
-        // Get the instance of PlayerMovement that's applied to the player
-        // object and make sure it's not null
+        // Get the instances of PlayerMovement & PlayerHealth that are applied
+        // to the player object and make sure they're not null
         var player = playerObject.GetComponent<PlayerMovement>();
-        var health = playerObject.GetComponent<PlayerHealth>();
         Assert.IsNotNull(player);
+        var health = playerObject.GetComponent<PlayerHealth>();
+        Assert.IsNotNull(health);
         
         // Allow the player half a second to land on the ground in the scene
         yield return new WaitForSeconds(0.5f);
 
-        // Get the user's initial position for comparison
-        var initialPosition = player.GetPosition();
-
-        // In the period of half a second, simulate a '->' button press
+        // In the period of two seconds, simulate a '->' button press
         for (float t = 0f; t < 2f; t += Time.deltaTime) {
             yield return null;
             player.Move(1, false);
         }
 
-        // Check that the player's position is above their initial position and Physics2D.gravity has been reversed
+        // Check that the player's health has been reduced to zero
         Assert.IsTrue(health.currentHealth == 0);
+    }
+
+
+    [UnityTest]
+    public IEnumerator PressurePlatePress()
+    {
+        // Open the 'Testing' scene
+        SceneManager.LoadScene("Testing");
+        yield return null;
+
+        // Get the player object and make sure it's not null
+        var playerObject = GameObject.FindGameObjectWithTag("Player");
+        Assert.IsNotNull(playerObject);
+
+        // Get the button object and make sure it's not null
+        var buttonObject = GameObject.Find("Button");
+        Assert.IsNotNull(buttonObject);
+        
+        // Get the instance of PlayerMovement that's applied to the player
+        // object and make sure it's not null
+        var player = playerObject.GetComponent<PlayerMovement>();
+        Assert.IsNotNull(player);
+
+        // Get the instance of the PressurePlateVertical script that's applied
+        // to the button object and make sure it's not null
+        var button = buttonObject.GetComponent<PressurePlateVertical>();
+        Assert.IsNotNull(button);
+        
+        // Allow the player half a second to land on the ground in the scene
+        yield return new WaitForSeconds(0.5f);
+
+        // Simulate a player jump
+        yield return null;
+        player.Jump(10f);
+
+        // In the period of half a second, simulate a '<-' button press
+        for (float t = 0f; t < 0.75f; t += Time.deltaTime) {
+            yield return null;
+            player.Move(-1, false);
+        }
+
+        // Wait a second for the player to land on the pressure plate
+        yield return new WaitForSeconds(1f);
+
+        // Check that the button of the pressure plate is currently pressed
+        Assert.IsTrue(button.pressed);
     }
 }
