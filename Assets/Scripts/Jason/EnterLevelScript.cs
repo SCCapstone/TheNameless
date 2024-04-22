@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class EnterLevelScript : MonoBehaviour
 {
+    // Variable declarations
     public GameObject player;
     public PlayerMovement playerMovement;
     // Start is called before the first frame update
     private MovingPlatform[] movingPlatforms;
     private float[] platformSpeeds;
+
+
+    // Assigns moving platforms their speed when entering a level
+    // Disables player movement during entrance animation and
+    // Enables it when it is done
     void Start()
     {
         movingPlatforms = (MovingPlatform[]) FindObjectsOfType(typeof(MovingPlatform));
@@ -22,6 +28,7 @@ public class EnterLevelScript : MonoBehaviour
         StartCoroutine(SetPlayerActive());
     }
 
+    // Allows the player to move after the enter animation is done
     public IEnumerator SetPlayerActive()
     {
         yield return new WaitForSeconds(1);
@@ -30,6 +37,7 @@ public class EnterLevelScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    // Assigns moving platforms their speeds during level
     void Update()
     {
         if (!player.GetComponent<SpriteRenderer>().enabled || !BannerDialogue.hasShown)
