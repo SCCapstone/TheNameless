@@ -16,6 +16,7 @@ public class PaddleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Player Controls for Paddle
         movementHorizontal = Input.GetAxis("Horizontal");
         if ((movementHorizontal > 0 && transform.position.x < maxX) || (movementHorizontal<0 && transform.position.x > -maxX))
         {

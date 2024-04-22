@@ -8,12 +8,13 @@ public class TextActivator : MonoBehaviour
     public static bool en = false;
     private TMP_Text m_TextComponent;
 
+    // reference to TMP component
     void Awake()
     {
         m_TextComponent = GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
+    // checks if en is true every frame, and displays text if so
     void Update()
     {
         if (en)
