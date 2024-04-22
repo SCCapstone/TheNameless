@@ -18,7 +18,7 @@ public class CheatCodes : MonoBehaviour
         timeDif = maxTimeDif;
     }
 
-    // Update is called once per frame
+    // checks for the inputing of codes
     void Update()
     {
         timeDif -= Time.deltaTime;
@@ -51,12 +51,14 @@ public class CheatCodes : MonoBehaviour
         if(!cheatOnCooldown) checkPatterns();
     }
 
+    // adds inputs to code buffer, increases max time allowed with every correct letter inputed
     void addToBuffer(string c)
     {
         timeDif = maxTimeDif;
         Buffer += c;
     }
 
+    // checks if current buffer matches a valid code and activates the coresponding cheat
     void checkPatterns()
     {
         if (Buffer.EndsWith(validPatterns[0]))
@@ -73,11 +75,13 @@ public class CheatCodes : MonoBehaviour
         }
     }
 
+    // disabler for invincibility text
     void QuickDisable()
     {
         TextActivator.en = false;
     }
 
+    // resets cooldown on invincibility cheat input
     private IEnumerator CheatCooldown()
     {
         yield return new WaitForSeconds(maxTimeDif);

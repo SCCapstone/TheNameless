@@ -11,6 +11,7 @@ public class Generator : MonoBehaviour
     private int bc;
     public int WinScene;
 
+    // populates the screen with "bricks"
     private void Awake()
     {
         for (int i = 0; i< size.x; i++)
@@ -24,6 +25,8 @@ public class Generator : MonoBehaviour
             }
         }
     }
+    
+    // tallys the total bricks and loads new scene when they are all gone.
     public void DestroyBrick()
     {
         bc--;
@@ -32,6 +35,8 @@ public class Generator : MonoBehaviour
             LoadNewScene();
         }
     }
+
+    // loads next scene on game win
     private void LoadNewScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(WinScene);

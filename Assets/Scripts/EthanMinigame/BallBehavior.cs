@@ -15,6 +15,7 @@ public class Ballbehavior : MonoBehaviour
     Rigidbody2D rb;
     public GameObject[] LivesImage;
     
+    // sets ball velocity, grabs a reference to the generator
     void Start()
     {
         generator = FindObjectOfType<Generator>();
@@ -22,6 +23,7 @@ public class Ballbehavior : MonoBehaviour
         rb.velocity = Vector2.down * 3f;
     }
 
+    // main game logic, controlls game over, lives lost, and ball respawning
     void Update()
     {
         if(transform.position.y < minY)
@@ -44,6 +46,7 @@ public class Ballbehavior : MonoBehaviour
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxV);
         }
     }
+    // destroys "bricks" when ball colides with them
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("brick"))
@@ -53,6 +56,7 @@ public class Ballbehavior : MonoBehaviour
         }
     }
 
+    // loads gameover scene if player fails
     void GameOver()
     {
         SceneManager.LoadScene(FailScene);
