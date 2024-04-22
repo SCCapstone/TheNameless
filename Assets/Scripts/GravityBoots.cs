@@ -6,10 +6,13 @@ using TMPro;
 
 public class GravityBoots : MonoBehaviour
 {
+    // Variable Declarations
     public PlayerMovement playerMovement;
     private bool inTriggerZone = false;
     public TMP_Text text;
 
+    // Allows the player to pick up gravity boots
+    // and removes the boots from the ground
     public void Update()
     {
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
@@ -21,6 +24,7 @@ public class GravityBoots : MonoBehaviour
 
     }
 
+    // Reminds player that they can pick up the gravity boots
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -30,6 +34,7 @@ public class GravityBoots : MonoBehaviour
         }
     }
 
+    // Gets rid of the text message when they go away from the gravity boots
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PistonTriggerZone : MonoBehaviour
 {
+    // Ignores collision with any crates but
+    // will collide with pistons
     private void Start()
     {
         GameObject crate = GameObject.FindGameObjectWithTag("Object");

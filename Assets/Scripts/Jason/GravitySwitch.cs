@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class GravitySwitch : MonoBehaviour
 {
+    // Variable declarations
     private bool inTriggerZone = false;
     public TMP_Text text;
     public UnityEvent onSwitch;
@@ -14,11 +15,10 @@ public class GravitySwitch : MonoBehaviour
     [SerializeField]
     private bool switched = false;
 
+    // Gets the animator object to play the switch animation
     void Start()
     {
         thisAnimator = transform.gameObject.GetComponent<Animator>();
-        
-
     }
 
     // Update is called once per frame
@@ -41,6 +41,7 @@ public class GravitySwitch : MonoBehaviour
         
     }
 
+    // Reminds the player that they can press e to switch the lever
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -50,6 +51,7 @@ public class GravitySwitch : MonoBehaviour
         }
     }
 
+    // Gets rid of the message when the player leaves the switch's trigger zone
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;

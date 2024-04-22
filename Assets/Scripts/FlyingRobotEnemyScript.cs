@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlyingRobotEnemyScript : MonoBehaviour
 {
+    // Variable Declarations
     private float directionX;
     public float moveSpeed;
     private Rigidbody2D myRigidBody;
@@ -12,6 +13,9 @@ public class FlyingRobotEnemyScript : MonoBehaviour
     public PlayerHealth playerHealth;
 
     // Start is called before the first frame update
+    // Gets access to player health script
+    // Gets access to player's rigidbody
+    // sets enemy direction when starting level
     void Start()
     {
         localScale = transform.localScale;
@@ -21,6 +25,8 @@ public class FlyingRobotEnemyScript : MonoBehaviour
 
     }
 
+    // Makes the player take damage when it touches player
+    // Make the robot enemy switch directions when it touches a wall
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Wall"))
@@ -33,11 +39,13 @@ public class FlyingRobotEnemyScript : MonoBehaviour
         }
     }
 
+    // Actually makes the enemy moves
     private void FixedUpdate()
     {
         myRigidBody.velocity = new Vector2(directionX * moveSpeed, myRigidBody.velocity.y);
     }
 
+    // Flips the enemy sprite when they switch directions
     void LateUpdate()
     {
         if (directionX > 0)
@@ -59,6 +67,7 @@ public class FlyingRobotEnemyScript : MonoBehaviour
         FlipY();
     }
 
+    // Flips the enemy sprite when gravity is switched
     public void FlipY()
     {
         Vector3 scale = transform.localScale;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossEnemyStageOne : MonoBehaviour
 {
+    // Variable Declarations
     private float directionX;
     public float moveSpeed;
     private Rigidbody2D myRigidBody;
@@ -13,6 +14,10 @@ public class BossEnemyStageOne : MonoBehaviour
     public BossHealthStageOne bossHealth;
 
     // Start is called before the first frame update
+    // Gets access to player's health script
+    // Gets access to the boss' health script
+    // Sets the boss' direction when starting level
+    // Gets the boss' rigidbody
     void Start()
     {
         localScale = transform.localScale;
@@ -22,6 +27,9 @@ public class BossEnemyStageOne : MonoBehaviour
         bossHealth = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossHealthStageOne>();
     }
 
+    // Allows the boss to take damage from metal crates
+    // Hurts the player if the boss and the player touch
+    // Changes the boss' direction when they touch a wall
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Wall"))
@@ -38,11 +46,13 @@ public class BossEnemyStageOne : MonoBehaviour
         }
     }
 
+    // actually moves the boss
     private void FixedUpdate()
     {
         myRigidBody.velocity = new Vector2(directionX * moveSpeed, myRigidBody.velocity.y);
     }
 
+    // Flips the boss sprite when they switch directions
     void LateUpdate()
     {
         if (directionX > 0)
@@ -63,6 +73,8 @@ public class BossEnemyStageOne : MonoBehaviour
 
         FlipY();
     }
+
+    // Flips the enemy sprite when gravity is changed
     public void FlipY()
     {
         Vector3 scale = transform.localScale;

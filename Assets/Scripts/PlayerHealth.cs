@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    // Variable Declarations
     public Animator animator;
     public Animator SceneTransition;
     public PlayerMovement pm;
@@ -22,6 +23,9 @@ public class PlayerHealth : MonoBehaviour
     public Rigidbody2D rb;
 
     // Start is called before the first frame update
+    // Starts levels with the right gravity
+    // assigns the maxhealth to current health
+    // Gets the player's rigidbody
     void Start()
     {
         startGravity = Physics2D.gravity;
@@ -35,6 +39,11 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    // Allows Player to take damage from robot enemies
+    // Stops the player when they die
+    // Plays normal death animation
+    // Stops the player walk sound effect
+    // Plays death sound effect
     public void TakeNormalDamage(int amount)
     {
         if (invincibility == false)
@@ -57,6 +66,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // Allows Player to take damage from exposed electrical wires
+    // Stops the player when they die
+    // Plays electrical death animation
+    // Stops the player walk sound effect
+    // Plays death sound effect
     public void TakeElectricalDamage(int amount)
     {
         if (invincibility == false)
@@ -80,6 +94,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // Allows Player to take damage from lasers
+    // Stops the player when they die
+    // Plays laser death animation
+    // Stops the player walk sound effect
+    // Plays death sound effect
     public void TakeLaserDamage(int amount)
     {
         if (invincibility == false)
@@ -102,7 +121,9 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-
+    // Plays the fade transition
+    // Reloads the level
+    // and Respawns the player
     public IEnumerator PlayerRespawn()
     {
         yield return new WaitForSeconds(1);

@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class BossHealthStageThree : MonoBehaviour
 {
+    // Variable Declarations
     public int maxHealth = 15;
     public int currentHealth;
+    // Array of boss health
     public Image[] Health;
     public Sprite fullHeart;
     public Sprite emptyHeart;
@@ -16,6 +18,9 @@ public class BossHealthStageThree : MonoBehaviour
 
 
     // Start is called before the first frame update
+    // Start is called before the first frame update
+    // Sets current health to max health
+    // Gets access to exit level script
     void Start()
     {
         exitLevel = GameObject.FindGameObjectWithTag("Exit").GetComponent<ExitLevelScriptV2>();
@@ -23,6 +28,7 @@ public class BossHealthStageThree : MonoBehaviour
     }
 
     // Update is called once per frame
+    // Keeps track of boss health
     void Update()
     {
         for (int index = 0; index < Health.Length; index++)
@@ -47,6 +53,10 @@ public class BossHealthStageThree : MonoBehaviour
         }
     }
 
+    // Makes the boss take damage
+    // plays the hurt sound effect
+    // plays boss hurt animation
+    // Goes to the next level if boss reaches certain health
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -60,6 +70,7 @@ public class BossHealthStageThree : MonoBehaviour
         }
     }
 
+    // plays boss animations after a certain time
     public IEnumerator GoBackToNormalAnimation()
     {
         yield return new WaitForSeconds(1);

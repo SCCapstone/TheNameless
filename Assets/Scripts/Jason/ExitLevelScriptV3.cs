@@ -21,6 +21,7 @@ public class ExitLevelScriptV3 : MonoBehaviour
 
     }
 
+    // Allows the player to press the e key to leave and go on to the next level
     private void Update()
     {
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
@@ -33,6 +34,8 @@ public class ExitLevelScriptV3 : MonoBehaviour
         }
     }
 
+    // Reminds the Player that they can interact with the exit with a message
+    // and plays the exit doors opening animation
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -43,12 +46,15 @@ public class ExitLevelScriptV3 : MonoBehaviour
         }
     }
 
+    // Gets rid of the message when the player leaves the exit's trigger zone
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;
         text.text = " ";
     }
 
+    // Method that lets the player go on to the next level
+    // while the fade transition plays
     public IEnumerator PlayerExitToNextLevel()
     {
         SceneTransition.SetBool("isDead", true);

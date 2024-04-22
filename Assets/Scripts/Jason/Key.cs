@@ -5,11 +5,14 @@ using TMPro;
 
 public class Key : MonoBehaviour
 {
+    // Variable Declarations
     public bool playerHasKey = false;
     private bool inTriggerZone = false;
     public TMP_Text text;
     public GameObject dialogueBox;
 
+    // Allows the player to pick up the key with the e key
+    // and plays a dialogue box when doing so
     public void Update()
     {
         if (inTriggerZone == true && Input.GetKeyDown(KeyCode.E))
@@ -22,6 +25,7 @@ public class Key : MonoBehaviour
         
     }
 
+    // Reminds the player with a message that they can pick the key with the e key
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -31,6 +35,7 @@ public class Key : MonoBehaviour
         }
     }
 
+    // Gets rid of the on screen text message
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTriggerZone = false;
