@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioSource reverseGrav;
     [SerializeField] bool hasGravityController = true;
     
+
+    void Awake()
+    {
+        Physics2D.gravity = new Vector2(0.00f, -9.81f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
