@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitLevelScriptV3 : MonoBehaviour
 {
+    // Variable declarations
     public Animator animator;
     private bool inTriggerZone = false;
     public TMP_Text text;
