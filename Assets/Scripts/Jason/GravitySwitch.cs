@@ -17,6 +17,8 @@ public class GravitySwitch : MonoBehaviour
     void Start()
     {
         thisAnimator = transform.gameObject.GetComponent<Animator>();
+        
+
     }
 
     // Update is called once per frame
