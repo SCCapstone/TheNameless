@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class BannerDialogue : MonoBehaviour
 {
-    // TODO : stop player from moving when text is active. TODO IS DONE
+    
     [SerializeField] AudioSource walk;
     public Rigidbody2D rb;
     public Animator animator;
@@ -30,15 +30,18 @@ public class BannerDialogue : MonoBehaviour
    
     private void Start()
     {
+        // stop moving platforms during dialogue
         movingPlatforms = (MovingPlatform[]) FindObjectsOfType(typeof(MovingPlatform));
         platformSpeeds = new float[movingPlatforms.Length];
             for (int i = 0; i < movingPlatforms.Length; i++) {
             platformSpeeds[i] = movingPlatforms[i]._speed;
         }
+        // if dialogue has previously shown, do not display it again
         if (hasShown) 
         {
             textBox.SetActive(false);
         }
+        // stop player movement and animations during dialogue
         else
         {
             PopulateText();
@@ -49,6 +52,8 @@ public class BannerDialogue : MonoBehaviour
         }
     }
 
+    // listen for player to advance the dialogue
+    // if dialogue is still scrolling, skip to the end. If it is not scrolling, populate next line
     private void Update()
     {
         if(Input.GetKeyDown(advance) && !isShowing)
@@ -63,6 +68,7 @@ public class BannerDialogue : MonoBehaviour
 
     private void PopulateText()
     {
+        // populate the text with the appropriate line of text and icon with the correlated icon
         if(i <= text.Length - 1)
         {
             foreach(MovingPlatform movingPlatform in movingPlatforms) {
@@ -75,6 +81,7 @@ public class BannerDialogue : MonoBehaviour
             display.text = text[i];
             StartCoroutine(WriteText());
         }
+        // if no more lines of text, then disable the text box and reinable the moving platforms
         else
         {
             for (int i = 0; i < movingPlatforms.Length; i++) {
@@ -89,14 +96,19 @@ public class BannerDialogue : MonoBehaviour
 
     IEnumerator WriteText()
     {
+        // setup for scrolling text
         isShowing = true;
         display.ForceMeshUpdate();
         int totalVisibleChars = display.textInfo.characterCount;
         int counter = 0;
 
+        // loop that runs while the characters are slowly being made visible
         while(true)
         {
+            // inc number of visible characters
             int visible = counter % (totalVisibleChars + 1);
+            
+            // if player skips dialogue, display the entire line at once
             if (skipped)
             {
                 visible = totalVisibleChars;
@@ -104,12 +116,14 @@ public class BannerDialogue : MonoBehaviour
             }
             display.maxVisibleCharacters = visible;
 
+            // if all characters are visible, break out of loop and iterate to next line of text
             if (visible >= totalVisibleChars)
             {
                 i++;
                 isShowing = false;
                 break;
             }
+            // update the counter and wait short time till iterating through loop again
             counter++;
             yield return new WaitForSeconds(timeBetweenChars);
         }

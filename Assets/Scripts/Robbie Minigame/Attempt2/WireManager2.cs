@@ -11,6 +11,8 @@ public class WireManager2 : MonoBehaviour
     [SerializeField] GameObject GO;
     [SerializeField] GameObject Panel;
     public Animator wireAnimator;
+    
+    // connections list will hold the number of successful wire connections
     private void Start()
     {
         connections = new List<bool>();
@@ -19,6 +21,7 @@ public class WireManager2 : MonoBehaviour
     
     void Update()
     {
+        // if there are as many connections as wires, then update the door/laser and disable the puzzle panel
         if(connections.Count == numWires)
         {
             // check of object is a laser
@@ -38,9 +41,9 @@ public class WireManager2 : MonoBehaviour
         }
     }
 
+    // called by the wire, adds entries to the list of successful connections
     public void SuccessfulConnection()
     {
         connections.Add(true);
-        Debug.Log(connections.Count);
     }
 }
